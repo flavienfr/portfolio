@@ -1,23 +1,12 @@
 import { Html } from '@react-three/drei'
 import { useFrame, useThree } from '@react-three/fiber'
-import { Debug, Physics } from '@react-three/rapier'
-import { useEffect, useRef, useState } from 'react'
-import { FOV } from '.'
+import React, { useEffect, useRef, useState } from 'react' //TODO remove that
+import { FOV } from '../index'
 
-export default function App() {
-  return (
-    <>
-      <Physics>
-        <Debug />
-        <WebPage />
-        <Floor />
-      </Physics>
-    </>
-  )
-}
-
-function WebPage() {
-  const webScreenRef = useRef()
+export function WebPage() {
+  //TODO extract mesh in other component and make conditional render of it
+  const webScreenRef = useRef(null)
+  const [haveDropPage, setHaveDropPage] = useState(false) //on off destroy
   const { camera, viewport } = useThree()
   const [planeInfo, setPlaneInfo] = useState({ width: 1, height: 1 })
 
@@ -32,16 +21,24 @@ function WebPage() {
     setPlaneInfo({ height, width })
   }, [setPlaneInfo, viewport, camera])
 
+  useFrame(() => {
+    if (haveDropPage) {
+      webScreenRef.current.position.y -=
+        0.01 + Math.abs(webScreenRef.current.position.y * 0.02)
+      if (webScreenRef.current.position.y < -50) setHaveDropPage(false)
+    }
+  })
+
   useEffect(() => {
-    /*  setTimeout(() => {
-      webScreen.current.applyImpulse({ x: 0, y: 0, z: -10 })
-    }, 1000) */
+    setTimeout(() => {
+      setHaveDropPage(true)
+    }, 5000)
   }, [webScreenRef])
 
   return (
     <mesh name="Screen" position={[0, 0, -0.5]} ref={webScreenRef}>
       <Html
-        /*  occlude */
+        // occlude
         transform={true}
         wrapperClass="htmlScreen"
         distanceFactor={3.25}
@@ -56,7 +53,7 @@ function WebPage() {
   )
 }
 
-function Floor() {
+export function Floor() {
   return (
     <mesh rotation={[-Math.PI * 0.5, 0, 0]} position={[0, -4, -12]}>
       <boxGeometry args={[25, 25, 1]} />
