@@ -14,7 +14,7 @@ export const FOV = 75
 //camera={{ position: [0, 1.8, 10] }}
 root.render(
   <React.StrictMode>
-    <Canvas near={0.1} far={1000}>
+    <Canvas near={0.1} far={1000} camera={{ position: [0, 1.8, 10] }}>
       <primitive object={new AxesHelper(10)} />
       <color args={['white']} attach="background" />
       <OrbitControls makeDefault />
