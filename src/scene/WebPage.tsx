@@ -2,11 +2,12 @@ import { Html } from '@react-three/drei'
 import { useThree } from '@react-three/fiber'
 import React, { useEffect, useRef, useState } from 'react' //TODO remove that
 import { FOV } from '../index'
+import { HtmlPage } from './HtmlPage.tsx'
 
 export function WebPage() {
   //TODO extract mesh in other component and make conditional render of it
   const webScreenRef = useRef(null)
-  const [haveDropPage, setHaveDropPage] = useState(false) //on off destroy
+  /* const [haveDropPage, setHaveDropPage] = useState(false)  */ //on off destroy
   const { camera, viewport } = useThree()
   const [planeInfo, setPlaneInfo] = useState({ width: 1000, height: 1000 }) //init value wrong
   /* const [structPosZ, setStructPosZ] = useState(0)
@@ -50,9 +51,12 @@ export function WebPage() {
           style={{
             width: planeInfo.width,
             height: planeInfo.height,
+            background: 'black',
+            overflow: 'auto',
           }}
         >
-          <iframe title="myFrame" src="https://bruno-simon.com/html/" />
+          {/* <iframe title="myFrame" src="https://bruno-simon.com/html/" /> */}
+          <HtmlPage />
         </Html>
       </mesh>
       <SceneStructure width={planeInfo.width} height={planeInfo.height} />
