@@ -1,29 +1,78 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 //TODO
 //- adapt font size small screen
+//-transition douce zoom & opacity
 
-//Paire number only
-const FIRST_STAGE_SCROLLS = 8
+const FIRST_STAGE_ZOOM = 2 //Pair number only
+const FIRST_STAGE_OPACITY = 5 //Pair number only
+// const FIRST_STAGE_TRANSITION = 2
+
+const START_LEVEL = 0
+const FIRST_LEVEL = FIRST_STAGE_ZOOM //TODO mettre -1 iici et parametre en haut
+const SECOND_LEVEL = FIRST_LEVEL + FIRST_STAGE_OPACITY
+// const THRID_LEVEL = SECOND_LEVEL + FIRST_STAGE_TRANSITION
 
 export function HtmlPage() {
   const [wheelValue, setWheelValue] = useState(0)
   const [opacity, setOpacity] = useState(1)
+  const [zoom, setZoom] = useState(1)
 
   const handleOnWheel = (e) => {
     const scrollDirection = e.deltaY > 0 ? 1 : -1
-
-    const nextWheelValue =
-      wheelValue + scrollDirection > 0 ? wheelValue + scrollDirection : 0
-    if (nextWheelValue === wheelValue) return
+    const nextWheelValue = wheelValue + scrollDirection
+    if (nextWheelValue < 0) return
     setWheelValue(nextWheelValue)
+    console.log('nextWheelValue', nextWheelValue)
 
-    if (
-      nextWheelValue <= FIRST_STAGE_SCROLLS &&
-      wheelValue !== FIRST_STAGE_SCROLLS
-    ) {
-      setOpacity(opacity - scrollDirection * (1 / FIRST_STAGE_SCROLLS))
+    if (nextWheelValue >= START_LEVEL && nextWheelValue < SECOND_LEVEL) {
+      const ceiling = SECOND_LEVEL - 1
+      const range = ceiling - START_LEVEL
+
+      if (nextWheelValue === START_LEVEL) setZoom(1)
+      else if (nextWheelValue === ceiling) setZoom(1.2)
+      else setZoom(zoom + (0.2 / range) * scrollDirection)
     }
+    if (nextWheelValue >= FIRST_LEVEL && nextWheelValue < SECOND_LEVEL) {
+      const ceiling = SECOND_LEVEL - 1
+      const incrementValue = 1 / (ceiling - FIRST_LEVEL)
+
+      if (nextWheelValue === FIRST_LEVEL) setOpacity(1)
+      else if (nextWheelValue === ceiling) setOpacity(0)
+      else setOpacity(opacity - incrementValue * scrollDirection)
+    }
+
+    /*  if (nextWheelValue <= FIRST_ZOOM_LEVEL) {
+      setOpacity(1)
+      setZoom(1 + (0.2 / FIRST_STAGE_ZOOM) * nextWheelValue)
+    } else if (nextWheelValue <= FIRST_OPACITY_LEVEL) {
+      setOpacity2(0)
+      if (scrollDirection > 0 && opacity !== 0)
+        setOpacity(opacity - 1 / FIRST_STAGE_OPACITY)
+      else if (scrollDirection < 0 && opacity !== 1)
+        setOpacity(opacity + 1 / FIRST_STAGE_OPACITY)
+    } else if (nextWheelValue <= FIRST_TRANSITION_LEVEL) {
+      setOpacity(0)
+      if (scrollDirection > 0 && opacity !== 1)
+        setOpacity2(opacity2 + 1 / FIRST_STAGE_TRANSITION)
+      else if (scrollDirection < 0 && opacity2 !== 0)
+        setOpacity2(opacity2 - 1 / FIRST_STAGE_TRANSITION)
+    } */
+    /* if (nextWheelValue <= FIRST_ZOOM_LEVEL) {
+      //012
+      setOpacity(1)
+      setZoom(1 + (0.2 / FIRST_STAGE_ZOOM) * nextWheelValue)
+    } else if (nextWheelValue <= FIRST_OPACITY_LEVEL) {
+      setOpacity2(0)
+      const targetOpacity = scrollDirection > 0 ? 0 : 1
+      if (opacity !== targetOpacity)
+        setOpacity(opacity - (1 / FIRST_STAGE_OPACITY) * scrollDirection)
+    } else if (nextWheelValue <= FIRST_TRANSITION_LEVEL) {
+      setOpacity(0)
+      const targetOpacity2 = scrollDirection > 0 ? 1 : 0
+      if (opacity2 !== targetOpacity2)
+        setOpacity2(opacity2 + (1 / FIRST_STAGE_TRANSITION) * scrollDirection)
+    } */
   }
 
   return (
@@ -32,7 +81,7 @@ export function HtmlPage() {
         <h1
           className="text-white text-[10em] translate-x-[-50%] translate-y-[-50%]"
           style={{
-            transform: `translate(-50%, -50%) matrix(1, 0, 0, 1, 0, 0) `,
+            transform: `translate(-50%, -50%) matrix(${zoom}, 0, 0, ${zoom}, 0, 0) `,
             opacity: opacity,
           }}
         >
