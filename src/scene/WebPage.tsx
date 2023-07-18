@@ -2,16 +2,14 @@ import { Html } from '@react-three/drei'
 import { useThree } from '@react-three/fiber'
 import React, { useEffect, useRef, useState } from 'react' //TODO remove that
 import { FOV } from '../index'
-import { HtmlPage } from './HtmlPage.tsx'
+import { HtmlPage } from './introWebsite/HtmlPage.tsx'
 
 export function WebPage() {
   //TODO extract mesh in other component and make conditional render of it
   const webScreenRef = useRef(null)
-  /* const [haveDropPage, setHaveDropPage] = useState(false)  */ //on off destroy
   const { camera, viewport } = useThree()
   const [planeInfo, setPlaneInfo] = useState({ width: 1000, height: 1000 }) //init value wrong
-  /* const [structPosZ, setStructPosZ] = useState(0)
-   */
+
   useEffect(() => {
     const cameraZ = camera.position.z
     const planeZ = 682 //600
@@ -22,23 +20,6 @@ export function WebPage() {
     const width = height * aspect
     setPlaneInfo({ height, width })
   }, [setPlaneInfo, viewport, camera])
-
-  /*   useFrame(() => {
-    if (haveDropPage) {
-      webScreenRef.current.position.z = structPosZ
-      setStructPosZ(
-        webScreenRef.current.position.z -
-          (0.01 + Math.abs(webScreenRef.current.position.y * 0.02))
-      )
-      if (webScreenRef.current.position.y < -50) setHaveDropPage(false)
-    }
-  }) */
-
-  /*   useEffect(() => {
-    setTimeout(() => {
-      setHaveDropPage(true)
-    }, 5000)
-  }, [webScreenRef]) */
 
   return (
     <>
@@ -51,12 +32,10 @@ export function WebPage() {
           style={{
             width: planeInfo.width,
             height: planeInfo.height,
-            background: 'black',
-            overflow: 'auto',
           }}
         >
           {/* <iframe title="myFrame" src="https://bruno-simon.com/html/" /> */}
-          <HtmlPage />
+          <HtmlPage htmlHeight={planeInfo.height} />
         </Html>
       </mesh>
       <SceneStructure width={planeInfo.width} height={planeInfo.height} />
