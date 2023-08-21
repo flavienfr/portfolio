@@ -1,4 +1,6 @@
+import { getProject } from '@theatre/core'
 import React, { useEffect, useState } from 'react'
+import flyThroughState from '../../theater/state.json'
 
 //TODO
 //- adapt font size small screen
@@ -40,7 +42,7 @@ function WelcomePage({ scrollFraction }: WelcomePageProps) {
     const zoomTMP = 1 + scrollFraction / (1 / TOTAL_SLIDE)
     setOpacity(opacityTmp)
     setZoom(zoomTMP)
-  })
+  }, [setOpacity, setZoom, scrollFraction])
 
   return (
     <>
@@ -76,9 +78,20 @@ function BioPage() {
 }
 
 function LaunchPage() {
+  const sheet = getProject('Fly Through', { state: flyThroughState }).sheet(
+    'Scene'
+  )
+
+  const handleClick = () => {
+    console.log('click')
+    sheet.sequence
+      .play()
+      .finally(() => console.log('Leaving screen animation finished'))
+  }
+
   return (
     <div className="view btnWrapper">
-      <button className="button-92" role="button">
+      <button onClick={handleClick} className="button-92">
         Launch
       </button>
     </div>
