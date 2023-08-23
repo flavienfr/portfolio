@@ -1,14 +1,15 @@
-import React from 'react' //TODO remove that
-import { WebPage } from './scene/WebPage.tsx'
-import studio from '@theatre/studio'
-import extension from '@theatre/r3f/dist/extension'
+import { ScrollControls } from '@react-three/drei'
 import { getProject } from '@theatre/core'
 import { PerspectiveCamera, SheetProvider } from '@theatre/r3f'
+import extension from '@theatre/r3f/dist/extension'
+import studio from '@theatre/studio'
+import React from 'react' //TODO remove that
 import { FOV } from './index.js'
+import { WebPage } from './scene/WebPage.tsx'
 import flyThroughState from './theater/state.json'
 
-/* studio.extend(extension)
-studio.initialize() */
+studio.extend(extension)
+studio.initialize()
 
 export const SPEED_SPIN_FACTOR = 0.05
 
@@ -21,16 +22,18 @@ export default function App() {
   })
 
   return (
-    <SheetProvider sheet={sheet}>
-      <PerspectiveCamera
-        theatreKey="Camera"
-        makeDefault
-        fov={FOV}
-        position={[0, 0, 5]} /*  position: {[0, 1.8, 10] } */
-        near={0.1}
-        far={1000}
-      />
-      <WebPage />
-    </SheetProvider>
+    <ScrollControls pages={5}>
+      <SheetProvider sheet={sheet}>
+        <PerspectiveCamera
+          theatreKey="Camera"
+          makeDefault
+          fov={FOV}
+          position={[0, 0, 5]}
+          near={0.1}
+          far={1000}
+        />
+        <WebPage />
+      </SheetProvider>
+    </ScrollControls>
   )
 }

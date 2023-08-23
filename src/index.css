@@ -43,6 +43,7 @@ body,
 .htmlScreen {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+  position: fixed !important; /* fix html drei scrolling of screen*/
 }
 
 .htmlScreen {

@@ -16,7 +16,7 @@ root.render(
     <Canvas gl={{ preserveDrawingBuffer: true }}>
       <primitive object={new AxesHelper(10)} />
       <color args={['white']} attach="background" />
-      {/*   <OrbitControls makeDefault /> */}
+      <OrbitControls makeDefault />
       {/*       <PointerLockControls /> */}
       <App />
     </Canvas>

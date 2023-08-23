@@ -36,15 +36,27 @@
                   },
                   {
                     "id": "px7CQx0YfB",
-                    "position": 3.067,
+                    "position": 3,
                     "connectedRight": true,
                     "handles": [
                       0.286,
                       0.992,
                       0.5,
-                      0
+                      0.5
                     ],
                     "value": 16
+                  },
+                  {
+                    "id": "2SXwJYyw6V",
+                    "position": 9.633,
+                    "connectedRight": true,
+                    "handles": [
+                      0.5,
+                      0.5,
+                      0.5,
+                      0
+                    ],
+                    "value": 32
                   }
                 ]
               }
@@ -59,6 +71,7 @@
   },
   "definitionVersion": "0.4.0",
   "revisionHistory": [
+    "J0RgEvR2ZSnDPQs-",
     "nX607aLGQ4fR3iGn",
     "8pE8lkUaDC6Cxvb-"
   ]

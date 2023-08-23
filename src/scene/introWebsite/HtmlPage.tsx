@@ -81,10 +81,11 @@ function LaunchPage() {
   const sheet = getProject('Fly Through', { state: flyThroughState }).sheet(
     'Scene'
   )
+  //const sheet = useCurrentSheet() //TODO why can't use it
 
   const handleClick = () => {
     console.log('click')
-    sheet.sequence
+    sheet?.sequence
       .play()
       .finally(() => console.log('Leaving screen animation finished'))
   }
