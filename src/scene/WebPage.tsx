@@ -42,7 +42,7 @@ export function WebPage() {
       <mesh name="Screen" position={[0, 0, -0.5]} ref={webScreenRef}>
         <Html
           transform={true}
-          occlude={'blending'}
+          /* occlude={'blending'} */
           wrapperClass="htmlScreen"
           distanceFactor={3.25}
           style={{
@@ -63,26 +63,26 @@ function SceneStructure({ width, height }) {
 
   return (
     <>
-      <mesh position={[structWidth, 0, 0]}>
-        <boxGeometry args={[1, structHeight, 1]} />
+      <mesh position={[structWidth + 0.5, 0, -0.5]}>
+        <boxGeometry args={[1.05, structHeight + 0.1, 1]} />
         <meshBasicMaterial color={'blue'} />
       </mesh>
-      <mesh position={[-structWidth, 0, 0]}>
-        <boxGeometry args={[1, structHeight, 1]} />
+      <mesh position={[-structWidth - 0.5, 0, -0.5]}>
+        <boxGeometry args={[1.05, structHeight + 0.1, 1]} />
         <meshBasicMaterial color={'green'} />
       </mesh>
       <mesh
-        position={[0, structHeight / 1.76, 0]}
+        position={[0, structHeight / 1.75, -0.5]}
         rotation={[Math.PI * 0.5, 0, -Math.PI * 0.5]}
       >
-        <boxGeometry args={[1, structWidth * 2, 1]} />
+        <boxGeometry args={[1, structWidth * 2 + 2, 1.05]} />
         <meshBasicMaterial color={'orange'} />
       </mesh>
       <mesh
         position={[0, -structHeight / 1.75, 0]}
         rotation={[Math.PI * 0.5, 0, -Math.PI * 0.5]}
       >
-        <boxGeometry args={[5, structWidth * 2 + 2, 1]} />
+        <boxGeometry args={[5, structWidth * 2 + 2, 1.05]} />
         <meshBasicMaterial color={'red'} />
       </mesh>
     </>
