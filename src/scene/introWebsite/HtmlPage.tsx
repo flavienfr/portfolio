@@ -1,6 +1,7 @@
 import { getProject } from '@theatre/core'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import flyThroughState from '../../theater/state.json'
+import Parallax from 'parallax-js'
 
 //TODO
 //- adapt font size small screen
@@ -82,19 +83,39 @@ function LaunchPage() {
     'Scene'
   )
   //const sheet = useCurrentSheet() //TODO why can't use it
+  const parallaxScene = useRef()
+
+  useEffect(() => {
+    var parallaxInstance = new Parallax(parallaxScene.current, {
+      invertX: false,
+      invertY: false,
+    })
+  })
 
   const handleClick = () => {
-    console.log('click')
     sheet?.sequence
       .play()
       .finally(() => console.log('Leaving screen animation finished'))
   }
 
   return (
-    <div className="view btnWrapper">
-      <button onClick={handleClick} className="button-92">
-        Launch
-      </button>
+    <div className="view " ref={parallaxScene}>
+      <div className="layer img1" data-depth="1">
+        <img src="./img/lunette.png" alt="3d glasses" className="glasses" />
+      </div>
+      <div className="layer img2" data-depth="0.75">
+        <img src="./img/lunette.png" alt="3d glasses" className="glasses1" />
+      </div>
+      <div className="layer img3" data-depth="0.2">
+        <img src="./img/lunette.png" alt="3d glasses" className="glasses2" />
+      </div>
+      <div className="layer" data-depth="0.5">
+        <div className="btnWrapper">
+          <button onClick={handleClick} className="button-92">
+            Launch
+          </button>
+        </div>
+      </div>
     </div>
   )
 }

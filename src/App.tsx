@@ -8,8 +8,8 @@ import { FOV } from './index.js'
 import { WebPage } from './scene/WebPage.tsx'
 import flyThroughState from './theater/state.json'
 
-studio.extend(extension)
-studio.initialize()
+/* studio.extend(extension)
+studio.initialize() */
 
 export const SPEED_SPIN_FACTOR = 0.05
 
