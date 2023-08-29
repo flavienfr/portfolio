@@ -1,10 +1,11 @@
 import { Html, useScroll } from '@react-three/drei'
-import { useFrame, useThree } from '@react-three/fiber'
+import { useFrame, useLoader, useThree } from '@react-three/fiber'
 import React, { useEffect, useRef, useState } from 'react' //TODO remove that
 import { FOV } from '../index'
 import { HtmlPage } from './introWebsite/HtmlPage.tsx'
 import { useCurrentSheet } from '@theatre/r3f'
 import { val } from '@theatre/core'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
 const ESCAPE_SCREAN_ANIMATION_DURATION = 3
 
@@ -37,6 +38,8 @@ export function WebPage() {
     setPlaneInfo({ height, width })
   }, [setPlaneInfo, viewport, camera])
 
+  const gltf = useLoader(GLTFLoader, './model/iso/iso.glb')
+
   return (
     <>
       <mesh name="Screen" position={[0, 0, -0.5]} ref={webScreenRef}>
@@ -54,6 +57,7 @@ export function WebPage() {
         </Html>
       </mesh>
       <SceneStructure width={planeInfo.width} height={planeInfo.height} />
+      <primitive object={gltf.scene} />
     </>
   )
 }
