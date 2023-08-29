@@ -86,6 +86,7 @@ function LaunchPage() {
   const parallaxScene = useRef()
 
   useEffect(() => {
+    if (!parallaxScene || !parallaxScene.current) return
     var parallaxInstance = new Parallax(parallaxScene.current, {
       invertX: false,
       invertY: false,
@@ -109,8 +110,9 @@ function LaunchPage() {
       <div className="layer img3" data-depth="0.2">
         <img src="./img/lunette.png" alt="3d glasses" className="glasses2" />
       </div>
-      <div className="layer" data-depth="0.5">
-        <div className="btnWrapper">
+      <div className="btnWrapper">
+        Port
+        <div className="btnInnerWrapper">
           <button onClick={handleClick} className="button-92">
             Launch
           </button>
