@@ -38,7 +38,7 @@ export function WebPage() {
     setPlaneInfo({ height, width })
   }, [setPlaneInfo, viewport, camera])
 
-  const gltf = useLoader(GLTFLoader, './model/iso/iso.glb')
+  const { nodes } = useLoader(GLTFLoader, './model/portfolio.glb')
 
   return (
     <>
@@ -47,7 +47,7 @@ export function WebPage() {
           transform={true}
           /* occlude={'blending'} */
           wrapperClass="htmlScreen"
-          distanceFactor={3.25}
+          distanceFactor={1}
           style={{
             width: planeInfo.width,
             height: planeInfo.height,
@@ -56,8 +56,21 @@ export function WebPage() {
           <HtmlPage htmlHeight={planeInfo.height} />
         </Html>
       </mesh>
-      <SceneStructure width={planeInfo.width} height={planeInfo.height} />
-      <primitive object={gltf.scene} />
+      {/* <SceneStructure width={planeInfo.width} height={planeInfo.height} /> */}
+      <ambientLight intensity={1} />
+      <mesh
+        geometry={nodes.Walls1.geometry}
+        position={[0, 0, 3.3]}
+        scale={2.3}
+      />
+      <mesh
+        geometry={nodes.Screen1.geometry}
+        position={[0, 0, -0.6]}
+        rotation={[0, Math.PI * 0.5, 0]}
+        scale={[2.3, 2.3, planeInfo.width / 750]}
+      >
+        <meshBasicMaterial color={'blue'} />
+      </mesh>
     </>
   )
 }

@@ -26,36 +26,21 @@
                     "id": "RwqL107KzD",
                     "position": 0,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.68,
-                      -0.55
-                    ],
-                    "value": 5
+                    "handles": [0.5, 1, 0.68, -0.55],
+                    "value": 1.2
                   },
                   {
                     "id": "px7CQx0YfB",
                     "position": 3,
                     "connectedRight": true,
-                    "handles": [
-                      0.286,
-                      0.992,
-                      0.5,
-                      0.5
-                    ],
+                    "handles": [0.286, 0.992, 0.5, 0.5],
                     "value": 16
                   },
                   {
                     "id": "2SXwJYyw6V",
                     "position": 9.633,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      0.5,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 0.5, 0.5, 0],
                     "value": 32
                   }
                 ]
