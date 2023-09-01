@@ -39,6 +39,7 @@ export function WebPage() {
   }, [setPlaneInfo, viewport, camera])
 
   const { nodes } = useLoader(GLTFLoader, './model/portfolio.glb')
+  console.log('🚀 ~ nodes:', nodes)
 
   return (
     <>
@@ -60,14 +61,17 @@ export function WebPage() {
       <ambientLight intensity={1} />
       <mesh
         geometry={nodes.Walls1.geometry}
-        position={[0, 0, 3.3]}
+        position={nodes.Screen1.position}
+        // position={[0, 0, 3.3]}
         scale={2.3}
       />
       <mesh
         geometry={nodes.Screen1.geometry}
-        position={[0, 0, -0.6]}
-        rotation={[0, Math.PI * 0.5, 0]}
-        scale={[2.3, 2.3, planeInfo.width / 750]}
+        position={nodes.Screen1.position}
+        // position={[0, 0, -0.6]}
+        // rotation={[0, Math.PI * 0.5, 0]}
+        //scale={[2.3, 2.3, planeInfo.width / 750]}
+        scale={2.3}
       >
         <meshBasicMaterial color={'blue'} />
       </mesh>
