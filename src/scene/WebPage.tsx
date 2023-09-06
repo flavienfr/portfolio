@@ -1,4 +1,4 @@
-import { Html, useScroll } from '@react-three/drei'
+import { Html, useScroll, useTexture } from '@react-three/drei'
 import { useFrame, useLoader, useThree } from '@react-three/fiber'
 import React, { useEffect, useRef, useState } from 'react' //TODO remove that
 import { FOV } from '../index'
@@ -6,6 +6,7 @@ import { HtmlPage } from './introWebsite/HtmlPage.tsx'
 import { useCurrentSheet } from '@theatre/r3f'
 import { val } from '@theatre/core'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import { MeshStandardMaterial } from 'three'
 
 const ESCAPE_SCREAN_ANIMATION_DURATION = 3
 
@@ -39,7 +40,11 @@ export function WebPage() {
   }, [setPlaneInfo, viewport, camera])
 
   const { nodes } = useLoader(GLTFLoader, './model/portfolio.glb')
+  const model = useLoader(GLTFLoader, './model/portfolio2.glb')
   console.log('🚀 ~ nodes:', nodes)
+
+  const bakedTextures = useTexture('./model/baked.jpg')
+  bakedTextures.flipY = false
 
   return (
     <>
@@ -57,24 +62,31 @@ export function WebPage() {
           <HtmlPage htmlHeight={planeInfo.height} />
         </Html>
       </mesh>
+
       {/* <SceneStructure width={planeInfo.width} height={planeInfo.height} /> */}
-      <ambientLight intensity={1} />
-      <mesh
+
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[1, 2, 3]} intensity={1.5} />
+
+      {/* <mesh
         geometry={nodes.Walls1.geometry}
-        position={nodes.Screen1.position}
-        // position={[0, 0, 3.3]}
-        scale={2.3}
-      />
+        // position={nodes.Walls1.position}
+        position={[0, 0, 3.3]}
+        // position={[0, 0, 2.5]}
+        scale={1.2}
+      >
+        {  <meshBasicMaterial map={bakedTextures} />}
+      </mesh>
       <mesh
         geometry={nodes.Screen1.geometry}
-        position={nodes.Screen1.position}
-        // position={[0, 0, -0.6]}
+        // position={nodes.Screen1.position}
+        position={[0.01, -1.45, -0.4]}
         // rotation={[0, Math.PI * 0.5, 0]}
         //scale={[2.3, 2.3, planeInfo.width / 750]}
-        scale={2.3}
-      >
-        <meshBasicMaterial color={'blue'} />
-      </mesh>
+        scale={1.2}
+      ></mesh> */}
+
+      <primitive object={model.scene} />
     </>
   )
 }
@@ -109,15 +121,5 @@ function SceneStructure({ width, height }) {
     </>
   )
 }
-
-/* export function Floor() {
-  return (
-    <mesh rotation={[-Math.PI * 0.5, 0, 0]} position={[0, -4, -12]}>
-      <boxGeometry args={[25, 25, 1]} />
-      <meshNormalMaterial attach="material" />
-    </mesh>
-  )
-}
- */
 
 //<iframe title="myFrame" src="https://bruno-simon.com/html/" />
