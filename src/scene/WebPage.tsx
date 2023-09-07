@@ -40,7 +40,7 @@ export function WebPage() {
   }, [setPlaneInfo, viewport, camera])
 
   const { nodes } = useLoader(GLTFLoader, './model/portfolio.glb')
-  const model = useLoader(GLTFLoader, './model/portfolio2.glb')
+  /* const model = useLoader(GLTFLoader, './model/portfolio2.glb') */
   console.log('🚀 ~ nodes:', nodes)
 
   const bakedTextures = useTexture('./model/baked.jpg')
@@ -68,16 +68,16 @@ export function WebPage() {
       <ambientLight intensity={0.5} />
       <directionalLight position={[1, 2, 3]} intensity={1.5} />
 
-      {/* <mesh
+      <mesh
         geometry={nodes.Walls1.geometry}
         // position={nodes.Walls1.position}
         position={[0, 0, 3.3]}
         // position={[0, 0, 2.5]}
         scale={1.2}
       >
-        {  <meshBasicMaterial map={bakedTextures} />}
+        <meshBasicMaterial map={bakedTextures} />
       </mesh>
-      <mesh
+      {/* <mesh
         geometry={nodes.Screen1.geometry}
         // position={nodes.Screen1.position}
         position={[0.01, -1.45, -0.4]}
@@ -86,7 +86,7 @@ export function WebPage() {
         scale={1.2}
       ></mesh> */}
 
-      <primitive object={model.scene} />
+      {/* <primitive object={model.scene} /> */}
     </>
   )
 }
