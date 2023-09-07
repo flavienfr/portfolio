@@ -40,7 +40,7 @@ export function WebPage() {
   }, [setPlaneInfo, viewport, camera])
 
   const { nodes } = useLoader(GLTFLoader, './model/portfolio.glb')
-  /* const model = useLoader(GLTFLoader, './model/portfolio2.glb') */
+  const model = useLoader(GLTFLoader, './model/portfolio2.glb')
   console.log('🚀 ~ nodes:', nodes)
 
   const bakedTextures = useTexture('./model/baked.jpg')
@@ -67,7 +67,7 @@ export function WebPage() {
 
       <ambientLight intensity={0.5} />
       <directionalLight position={[1, 2, 3]} intensity={1.5} />
-
+      {/* 
       <mesh
         geometry={nodes.Walls1.geometry}
         // position={nodes.Walls1.position}
@@ -76,7 +76,7 @@ export function WebPage() {
         scale={1.2}
       >
         <meshBasicMaterial map={bakedTextures} />
-      </mesh>
+      </mesh> */}
       {/* <mesh
         geometry={nodes.Screen1.geometry}
         // position={nodes.Screen1.position}
@@ -86,7 +86,7 @@ export function WebPage() {
         scale={1.2}
       ></mesh> */}
 
-      {/* <primitive object={model.scene} /> */}
+      <primitive object={model.scene} scale={1.2} position={[0, -2.25, 2.5]} />
     </>
   )
 }
@@ -123,3 +123,4 @@ function SceneStructure({ width, height }) {
 }
 
 //<iframe title="myFrame" src="https://bruno-simon.com/html/" />
+//<iframe title="myFrame" src="https://www.snokido.fr/jeu/wolfenstein-3d" />
