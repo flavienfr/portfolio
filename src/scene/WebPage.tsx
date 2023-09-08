@@ -77,6 +77,17 @@ export function WebPage() {
       >
         <meshBasicMaterial map={bakedTextures} />
       </mesh>
+
+      <mesh
+        geometry={nodes.Walls1.geometry}
+        // position={nodes.Walls1.position}
+        position={[7, 0, 3.3]}
+        // position={[0, 0, 2.5]}
+        scale={1.2}
+      >
+        <meshBasicMaterial map={bakedTextures} />
+      </mesh>
+
       {/* <mesh
         geometry={nodes.Screen1.geometry}
         // position={nodes.Screen1.position}
