@@ -65,9 +65,9 @@ export function WebPage() {
 
       {/* <SceneStructure width={planeInfo.width} height={planeInfo.height} /> */}
 
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[1, 2, 3]} intensity={1.5} />
-      {/* 
+      {/*  <ambientLight intensity={0.5} />
+      <directionalLight position={[1, 2, 3]} intensity={1.5} /> */}
+
       <mesh
         geometry={nodes.Walls1.geometry}
         // position={nodes.Walls1.position}
@@ -76,7 +76,7 @@ export function WebPage() {
         scale={1.2}
       >
         <meshBasicMaterial map={bakedTextures} />
-      </mesh> */}
+      </mesh>
       {/* <mesh
         geometry={nodes.Screen1.geometry}
         // position={nodes.Screen1.position}
@@ -86,7 +86,7 @@ export function WebPage() {
         scale={1.2}
       ></mesh> */}
 
-      <primitive object={model.scene} scale={1.2} position={[0, -2.25, 2.5]} />
+      {/* <primitive object={model.scene} scale={1.2} position={[0, -2.25, 2.5]} /> */}
     </>
   )
 }
