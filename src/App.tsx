@@ -37,3 +37,6 @@ export default function App() {
     </ScrollControls>
   )
 }
+
+//Dolby inspiration
+//https://www.youtube.com/watch?v=hesv-etwK_o&ab_channel=Dolby

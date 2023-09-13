@@ -58,14 +58,14 @@ function WelcomePage({ scrollFraction }: WelcomePageProps) {
           Welcome
         </h1>
       </div>
-      <div className="view"></div>
+      <div className="view1"></div>
     </>
   )
 }
 
 function BioPage() {
   return (
-    <div className="view">
+    <div className="view2">
       <div className="textWrapper">
         <p className="text">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum,
@@ -100,7 +100,7 @@ function LaunchPage() {
   }
 
   return (
-    <div className="view " ref={parallaxScene}>
+    <div className="view3" ref={parallaxScene}>
       <div className="layer img1" data-depth="1">
         <img src="./img/lunette.png" alt="3d glasses" className="glasses" />
       </div>
@@ -111,7 +111,6 @@ function LaunchPage() {
         <img src="./img/lunette.png" alt="3d glasses" className="glasses2" />
       </div>
       <div className="btnWrapper">
-        Port
         <div className="btnInnerWrapper">
           <button onClick={handleClick} className="button-92">
             Launch

@@ -57,17 +57,25 @@ body,
   width: 100%;
   height: 100%;
   overflow-y: scroll;
-  background-color: black;
 }
 
 .h1Wrapper {
   pointer-events: none;
 }
 
-.view {
+.view3,
+.view2,
+.view1 {
   height: 100%;
-  position: relative;
-  /* border: 1px solid white; */
+}
+.view1 {
+  background-color: #000000;
+}
+.view2 {
+  background: linear-gradient(#000000, #ffffff);
+}
+.view3 {
+  background-color: #ffffff;
 }
 
 .textWrapper {
