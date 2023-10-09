@@ -22,11 +22,14 @@ export function HtmlPage({ htmlHeight }) {
   }
 
   return (
-    <div className="fullwidth" onScroll={handleScroll}>
-      <WelcomePage scrollFraction={scrollFraction} />
-      <BioPage />
-      <LaunchPage />
-    </div>
+    <>
+      <div className="whiteNoise"></div>
+      <div className="fullwidth" onScroll={handleScroll}>
+        <WelcomePage scrollFraction={scrollFraction} />
+        <BioPage />
+        <LaunchPage />
+      </div>
+    </>
   )
 }
 
@@ -64,15 +67,39 @@ function WelcomePage({ scrollFraction }: WelcomePageProps) {
 }
 
 function BioPage() {
+  const [containerRef, isVisible] = useElementOnScreen({
+    root: null,
+    rootMargin: '0px',
+    threshold: 1.0,
+  })
+
+  useEffect(() => {
+    console.log(isVisible ? 'visible' : 'not visible')
+  })
+
   return (
     <div className="view2">
       <div className="textWrapper">
-        <p className="text">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum,
-          tempora libero ea laudantium repellendus aperiam cumque? Nobis
-          voluptatum unde explicabo fuga accusamus nihil, cum at repellat
-          distinctio similique libero hic!
-        </p>
+        <div ref={containerRef}>
+          <div className={isVisible ? 'show s1' : 'unShow'}>
+            I’m a multi-disciplinary art director with a focus on Digital
+            Design,
+          </div>
+          <div className={isVisible ? 'show s2' : 'unShow'}>
+            Interaction Design, and Photo Editing. I've been delivering creative
+          </div>
+          <div className={isVisible ? 'show s3' : 'unShow'}>
+            and engaging solutions across brand identity, website, app, and
+          </div>
+          <div className={isVisible ? 'show s4' : 'unShow'}>
+            digital media for almost 10 years. I'm currently working as a
+            digital
+          </div>
+          <div className={isVisible ? 'show s5' : 'unShow'}>
+            designer at Studio MINSK, a branding agency with devotion to motion,
+            in Amsterdam.
+          </div>
+        </div>
       </div>
     </div>
   )
@@ -120,3 +147,33 @@ function LaunchPage() {
     </div>
   )
 }
+
+function useElementOnScreen(options) {
+  const containerRef = useRef(null)
+  const [isVisible, setIsVisible] = useState(false)
+
+  const callbackFunction = (entries) => {
+    const [entry] = entries
+    setIsVisible(entry.isIntersecting)
+  }
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(callbackFunction, options)
+    if (containerRef.current) observer.observe(containerRef.current)
+
+    return () => {
+      if (containerRef.current) observer.unobserve(containerRef.current)
+    }
+  }, [containerRef, options])
+
+  return [containerRef, isVisible]
+}
+
+/* 
+Je suis Flavien Roussel, un développeur full stack. Après un an de
+            travail, j'ai pris la décision de quitter mon emploi pour voyager,
+            me former, et découvrir ma voie. Mon objectif était de devenir le
+            meilleur développeur créatif. Mon voyage m'a permis d'acquérir de
+            nouvelles compétences et de repousser mes limites. Aujourd'hui, je
+            suis fier d'être devenu ce développeur créatif prêt à relever tous
+            les défis technologiques. */

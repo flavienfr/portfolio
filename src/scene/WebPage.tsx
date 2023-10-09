@@ -36,19 +36,16 @@ export function WebPage() {
 
   useEffect(() => {
     const distance = Math.abs((cameraZ + 0.5) * DREI_HTML_SCREEN_RATIO)
-    console.log('🚀 ~ camera.position.z:', cameraZ)
     const height = (distance * camera.getFilmHeight()) / camera.getFocalLength()
-    console.log('🚀 ~ height:', height)
     const width = height * camera.aspect
 
-    //TODO if launch
-    if (width > MAX_WIDTH_SCREEN) {
+    //TODO if launch / agrandire ratio de la scene ?
+    /* if (width > MAX_WIDTH_SCREEN) {
       const finalHeight =
         height > MAX_HEIGHT_SCREEN ? MAX_HEIGHT_SCREEN : height
-      console.log('🚀 ~ height:', height)
       setPlaneInfo({ width: MAX_WIDTH_SCREEN, height: finalHeight })
       return
-    }
+    } */
 
     setPlaneInfo({ width, height })
   }, [setPlaneInfo, viewport, camera, cameraZ])
