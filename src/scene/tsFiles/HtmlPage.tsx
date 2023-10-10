@@ -42,17 +42,21 @@ function WelcomePage({ scrollFraction }: WelcomePageProps) {
   const [zoom, setZoom] = useState(1)
 
   useEffect(() => {
-    const opacityTmp = 1 - scrollFraction / (1 / TOTAL_SLIDE)
-    const zoomTMP = 1 + scrollFraction / (1 / TOTAL_SLIDE)
-    setOpacity(opacityTmp)
+    const zoomRatio = Math.min(scrollFraction * 3, 1)
+    const zoomTMP = 1 + zoomRatio * 0.35
     setZoom(zoomTMP)
+    console.log('🚀 ~ zoomTMP:', zoomTMP)
+
+    const opacityRatio = Math.min(Math.max(scrollFraction - 0.15, 0) * 6, 1)
+    const opacityTMP = 1 - opacityRatio
+    setOpacity(opacityTMP)
+    console.log('🚀 ~ opacityTMP:', opacityTMP)
   }, [setOpacity, setZoom, scrollFraction])
 
   return (
     <>
-      <div className="h1Wrapper flex items-center justify-center absolute top-[50%] left-[50%] font-['Open_Sans']">
+      <div className="h1Wrapper">
         <h1
-          className="text-white text-[10em] translate-x-[-50%] translate-y-[-50%] select-none"
           style={{
             transform: `translate(-50%, -50%) matrix(${zoom}, 0, 0, ${zoom}, 0, 0) `,
             opacity: opacity,
@@ -60,6 +64,17 @@ function WelcomePage({ scrollFraction }: WelcomePageProps) {
         >
           Welcome
         </h1>
+      </div>
+      <div
+        id="scroll-wrapper"
+        style={{
+          opacity: opacity,
+        }}
+      >
+        <div id="scroll-wrapper-inner">
+          <div id="scroll-title">Scroll</div>
+          <div id="scroll-down"></div>
+        </div>
       </div>
       <div className="view1"></div>
     </>
@@ -73,9 +88,9 @@ function BioPage() {
     threshold: 1.0,
   })
 
-  useEffect(() => {
+  /*   useEffect(() => {
     console.log(isVisible ? 'visible' : 'not visible')
-  })
+  }) */
 
   return (
     <div className="view2">
