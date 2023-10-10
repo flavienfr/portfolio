@@ -1,9 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
   --textColor: #f5f5f7;
+  --backGroundColor: #0a0a0a;
 }
 
 @font-face {
@@ -74,13 +71,14 @@ body,
   height: 100%;
 }
 .view1 {
-  background-color: #0a0a0a;
+  background-color: var(--backGroundColor);
 }
 .h1Wrapper {
   pointer-events: none;
   position: absolute;
   top: 50%;
   left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 h1 {
@@ -92,7 +90,7 @@ h1 {
 }
 
 .view2 {
-  background-color: #0a0a0a;
+  background-color: var(--backGroundColor);
 }
 
 .textWrapper {
@@ -137,7 +135,7 @@ h1 {
 } */
 
 .view3 {
-  background-color: #ffffff;
+  background-color: var(--backGroundColor);
 }
 
 .btnWrapper {

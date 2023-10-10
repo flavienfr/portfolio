@@ -58,7 +58,7 @@ function WelcomePage({ scrollFraction }: WelcomePageProps) {
       <div className="h1Wrapper">
         <h1
           style={{
-            transform: `translate(-50%, -50%) matrix(${zoom}, 0, 0, ${zoom}, 0, 0) `,
+            transform: `matrix(${zoom}, 0, 0, ${zoom}, 0, 0) `,
             opacity: opacity,
           }}
         >
