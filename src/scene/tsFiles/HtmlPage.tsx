@@ -97,22 +97,22 @@ function BioPage() {
       <div className="textWrapper">
         <div ref={containerRef}>
           <div className={isVisible ? 'show s1' : 'unShow'}>
-            I’m a multi-disciplinary art director with a focus on Digital
-            Design,
+            My name is Flavien Roussel, I am a former student of School 42
           </div>
           <div className={isVisible ? 'show s2' : 'unShow'}>
-            Interaction Design, and Photo Editing. I've been delivering creative
+            Paris. After my studies and working for a year and a half as a
           </div>
           <div className={isVisible ? 'show s3' : 'unShow'}>
-            and engaging solutions across brand identity, website, app, and
+            full-stack developer in a company, I made the decision to resign to
           </div>
           <div className={isVisible ? 'show s4' : 'unShow'}>
-            digital media for almost 10 years. I'm currently working as a
-            digital
+            become a Creative Developer! To hone my skills, I went through
           </div>
           <div className={isVisible ? 'show s5' : 'unShow'}>
-            designer at Studio MINSK, a branding agency with devotion to motion,
-            in Amsterdam.
+            Bruno Simon's training, the "Three.js Journey". This is how I
+          </div>
+          <div className={isVisible ? 'show s6' : 'unShow'}>
+            introduce my first creative portfolio to you.
           </div>
         </div>
       </div>
@@ -141,16 +141,45 @@ function LaunchPage() {
       .finally(() => console.log('Leaving screen animation finished'))
   }
 
+  const [color, setColor] = useState(false)
+
+  useEffect(() => {
+    const delay = 2000
+
+    const timer = setTimeout(() => {
+      setColor(true)
+    }, delay)
+
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [])
+
   return (
     <div className="view3" ref={parallaxScene}>
-      <div className="layer img1" data-depth="1">
-        <img src="./img/lunette.png" alt="3d glasses" className="glasses" />
+      <div
+        className={`"layer img1 " + ${color ? 'imgColor' : 'imgBlack'}`}
+        data-depth="1"
+      >
+        <img
+          src="./img/seatCompress.png"
+          alt="3d glasses"
+          className="glasses"
+        />
       </div>
       <div className="layer img2" data-depth="0.75">
-        <img src="./img/lunette.png" alt="3d glasses" className="glasses1" />
+        <img
+          src="./img/seatCompress.png"
+          alt="3d glasses"
+          className="glasses1"
+        />
       </div>
       <div className="layer img3" data-depth="0.2">
-        <img src="./img/lunette.png" alt="3d glasses" className="glasses2" />
+        <img
+          src="./img/seatCompress.png"
+          alt="3d glasses"
+          className="glasses2"
+        />
       </div>
       <div className="btnWrapper">
         <div className="btnInnerWrapper">
@@ -185,10 +214,9 @@ function useElementOnScreen(options) {
 }
 
 /* 
-Je suis Flavien Roussel, un développeur full stack. Après un an de
-            travail, j'ai pris la décision de quitter mon emploi pour voyager,
-            me former, et découvrir ma voie. Mon objectif était de devenir le
-            meilleur développeur créatif. Mon voyage m'a permis d'acquérir de
-            nouvelles compétences et de repousser mes limites. Aujourd'hui, je
-            suis fier d'être devenu ce développeur créatif prêt à relever tous
-            les défis technologiques. */
+"My name is Flavien Roussel, and I am a former student of School 42 Paris. 
+After my studies and working for a year and a half as a full-stack 
+developer in a company, I made the decision to resign to become a Creative Developer!
+To hone my skills, I went through Bruno Simon's training, the "Three.js Journey". 
+This is how I introduce my first creative portfolio to you."
+*/

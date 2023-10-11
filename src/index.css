@@ -63,15 +63,17 @@ body,
   width: 100%;
   height: 100%;
   overflow-y: scroll;
+  background-color: var(--backGroundColor);
 }
 
 .view3,
 .view2,
 .view1 {
   height: 100%;
+  /* min-height: 100vh; */
 }
 .view1 {
-  background-color: var(--backGroundColor);
+  /* background-color: var(--backGroundColor); */
 }
 .h1Wrapper {
   pointer-events: none;
@@ -83,14 +85,14 @@ body,
 
 h1 {
   color: var(--textColor);
-  font-size: 199px;
+  font-size: 16vw;
   font-family: sf;
   font-weight: 700;
   line-height: 140px;
 }
 
 .view2 {
-  background-color: var(--backGroundColor);
+  /* background-color: var(--backGroundColor); */
 }
 
 .textWrapper {
@@ -100,9 +102,15 @@ h1 {
   justify-content: center;
   align-items: center;
   font-family: mulish;
-  font-size: 30px;
-  line-height: 1.4;
+  font-size: 28px;
+  line-height: 1.7;
   color: #ffffff;
+}
+
+@media screen and (min-width: 1050px) {
+  .textWrapper {
+    font-size: 40px;
+  }
 }
 
 .unShow {
@@ -127,6 +135,9 @@ h1 {
 .s5 {
   transition: all 2.5s;
 }
+.s6 {
+  transition: all 3s;
+}
 /* 
 .text {
   color: white;
@@ -135,7 +146,6 @@ h1 {
 } */
 
 .view3 {
-  background-color: var(--backGroundColor);
 }
 
 .btnWrapper {
@@ -226,54 +236,13 @@ h1 {
 /* White noise */
 .whiteNoise {
   position: fixed;
-  /*  top: -50%;
-  left: -50%;
-  right: -50%;
-  bottom: -50%; */
   width: 100%;
   height: 100%;
   background: transparent url('../public/img/grain.gif') repeat 0 0;
   background-repeat: repeat;
-  /* animation: bg-animation 0.2s infinite; */
   opacity: 0.15;
   visibility: visible;
   pointer-events: none;
-}
-
-@keyframes bg-animation {
-  0% {
-    transform: translate(0, 0);
-  }
-  10% {
-    transform: translate(-5%, -5%);
-  }
-  20% {
-    transform: translate(-10%, 5%);
-  }
-  30% {
-    transform: translate(5%, -10%);
-  }
-  40% {
-    transform: translate(-5%, 15%);
-  }
-  50% {
-    transform: translate(-10%, 5%);
-  }
-  60% {
-    transform: translate(15%, 0);
-  }
-  70% {
-    transform: translate(0, 10%);
-  }
-  80% {
-    transform: translate(-15%, 0);
-  }
-  90% {
-    transform: translate(10%, 5%);
-  }
-  100% {
-    transform: translate(5%, 0);
-  }
 }
 
 /* BTN */
@@ -564,5 +533,26 @@ h1 {
     -moz-transform: scale(1, 0);
     -o-transform: scale(1, 0);
     transform: scale(1, 0);
+  }
+}
+
+/* Black & White To color */
+.imgBlack {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+.imgColor {
+  animation: toColor 5s;
+}
+
+@keyframes toColor {
+  from {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }
+  to {
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
   }
 }
