@@ -32,7 +32,7 @@ export default function App() {
           far={1000}
         />
         <WebPage />
-        <ModelView />
+        {/* <ModelView /> */}
       </SheetProvider>
     </ScrollControls>
   )

@@ -2,6 +2,7 @@ import { getProject } from '@theatre/core'
 import Parallax from 'parallax-js'
 import React, { useEffect, useRef, useState } from 'react'
 import flyThroughState from '../../theater/state.json'
+import { useElementOnScreen } from '../../hooks/useElementOnScreen'
 
 //TODO
 //- adapt font size small screen
@@ -121,6 +122,14 @@ function BioPage() {
 }
 
 function LaunchPage() {
+  const [color, setColor] = useState(false)
+
+  const [containerRef, isVisible] = useElementOnScreen({
+    root: null,
+    rootMargin: '0px',
+    threshold: 1.0,
+  })
+
   const sheet = getProject('Fly Through', { state: flyThroughState }).sheet(
     'Scene'
   )
@@ -136,29 +145,20 @@ function LaunchPage() {
   }, [])
 
   const handleClick = () => {
-    sheet?.sequence
+    setColor(true)
+    /* sheet?.sequence
       .play()
-      .finally(() => console.log('Leaving screen animation finished'))
+      .finally(() => console.log('Leaving screen animation finished')) */
   }
 
-  const [color, setColor] = useState(false)
-
   useEffect(() => {
-    const delay = 2000
-
-    const timer = setTimeout(() => {
-      setColor(true)
-    }, delay)
-
-    return () => {
-      clearTimeout(timer)
-    }
-  }, [])
+    console.log(isVisible)
+  }, [isVisible])
 
   return (
     <div className="view3" ref={parallaxScene}>
       <div
-        className={`"layer img1 " + ${color ? 'imgColor' : 'imgBlack'}`}
+        className={`layer img1 + ${color ? 'imgColor' : 'imgBlack'}`}
         data-depth="1"
       >
         <img
@@ -167,23 +167,26 @@ function LaunchPage() {
           className="glasses"
         />
       </div>
-      <div className="layer img2" data-depth="0.75">
+
+      <div
+        className={`layer img2  + ${color ? 'imgColor' : 'imgBlack'}`}
+        data-depth="0.75"
+      >
         <img
           src="./img/seatCompress.png"
           alt="3d glasses"
           className="glasses1"
         />
       </div>
-      <div className="layer img3" data-depth="0.2">
-        <img
-          src="./img/seatCompress.png"
-          alt="3d glasses"
-          className="glasses2"
-        />
+      <div
+        className={`layer 3  + ${color ? 'imgColor' : 'imgBlack'}`}
+        data-depth="0.2"
+      >
+        <img src="./img/arcade.png" alt="3d glasses" className="glasses2" />
       </div>
       <div className="btnWrapper">
         <div className="btnInnerWrapper">
-          <button onClick={handleClick} className="button-92">
+          <button onClick={handleClick} className="myButton">
             Launch
           </button>
         </div>
@@ -191,32 +194,3 @@ function LaunchPage() {
     </div>
   )
 }
-
-function useElementOnScreen(options) {
-  const containerRef = useRef(null)
-  const [isVisible, setIsVisible] = useState(false)
-
-  const callbackFunction = (entries) => {
-    const [entry] = entries
-    setIsVisible(entry.isIntersecting)
-  }
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(callbackFunction, options)
-    if (containerRef.current) observer.observe(containerRef.current)
-
-    return () => {
-      if (containerRef.current) observer.unobserve(containerRef.current)
-    }
-  }, [containerRef, options])
-
-  return [containerRef, isVisible]
-}
-
-/* 
-"My name is Flavien Roussel, and I am a former student of School 42 Paris. 
-After my studies and working for a year and a half as a full-stack 
-developer in a company, I made the decision to resign to become a Creative Developer!
-To hone my skills, I went through Bruno Simon's training, the "Three.js Journey". 
-This is how I introduce my first creative portfolio to you."
-*/
