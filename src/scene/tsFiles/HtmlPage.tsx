@@ -3,11 +3,12 @@ import Parallax from 'parallax-js'
 import React, { useEffect, useRef, useState } from 'react'
 import flyThroughState from '../../theater/state.json'
 import { useElementOnScreen } from '../../hooks/useElementOnScreen'
+import { Scrollbar } from 'smooth-scrollbar-react'
 
 //TODO
 //- adapt font size small screen
 //-transition douce zoom & opacity
-// dynamic htmlHeight value
+// SLow paralax effect in 4K
 
 export const TOTAL_SLIDE = 3
 
@@ -26,9 +27,18 @@ export function HtmlPage({ htmlHeight }) {
     <>
       <div className="whiteNoise"></div>
       <div className="fullwidth" onScroll={handleScroll}>
+        {/* <Scrollbar
+        className="fullwidth"
+        plugins={{
+          overscroll: {
+            effect: 'bounce',
+          },
+        }}
+      > */}
         <WelcomePage scrollFraction={scrollFraction} />
         <BioPage />
         <LaunchPage />
+        {/*   </Scrollbar> */}
       </div>
     </>
   )
@@ -46,12 +56,10 @@ function WelcomePage({ scrollFraction }: WelcomePageProps) {
     const zoomRatio = Math.min(scrollFraction * 3, 1)
     const zoomTMP = 1 + zoomRatio * 0.35
     setZoom(zoomTMP)
-    console.log('🚀 ~ zoomTMP:', zoomTMP)
 
     const opacityRatio = Math.min(Math.max(scrollFraction - 0.15, 0) * 6, 1)
     const opacityTMP = 1 - opacityRatio
     setOpacity(opacityTMP)
-    console.log('🚀 ~ opacityTMP:', opacityTMP)
   }, [setOpacity, setZoom, scrollFraction])
 
   return (
@@ -170,7 +178,7 @@ function LaunchPage() {
 
       <div
         className={`layer img2  + ${color ? 'imgColor' : 'imgBlack'}`}
-        data-depth="0.75"
+        data-depth="0.6"
       >
         <img
           src="./img/seatCompress.png"
