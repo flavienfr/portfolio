@@ -115,6 +115,7 @@ h1 {
 
 .unShow {
   opacity: 0;
+  transition: all 1s;
 }
 
 .show {

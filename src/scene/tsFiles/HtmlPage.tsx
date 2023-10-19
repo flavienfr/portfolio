@@ -91,15 +91,16 @@ function WelcomePage({ scrollFraction }: WelcomePageProps) {
 }
 
 function BioPage() {
+  const [keepVisible, setKeepVisible] = useState(false)
   const [containerRef, isVisible] = useElementOnScreen({
     root: null,
     rootMargin: '0px',
-    threshold: 1.0,
+    threshold: 0.8,
   })
 
-  /*   useEffect(() => {
-    console.log(isVisible ? 'visible' : 'not visible')
-  }) */
+  useEffect(() => {
+    if (isVisible) setKeepVisible(true)
+  })
 
   return (
     <div className="view2">
