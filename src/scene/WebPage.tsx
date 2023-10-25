@@ -1,23 +1,21 @@
-import { Html } from '@react-three/drei'
+import { Html, useScroll } from '@react-three/drei'
 import { useFrame, useThree } from '@react-three/fiber'
 import React, { useEffect, useRef, useState } from 'react' //TODO remove that
-import { HtmlPage } from './tsFiles/HtmlPage.tsx'
+import { HtmlPage } from './htmlPage/HtmlPage.tsx'
+import { getProject, val } from '@theatre/core'
+import flyThroughState from '../theater/state.json'
 
 //const ESCAPE_SCREAN_ANIMATION_DURATION = 3
 const DREI_HTML_SCREEN_RATIO = 400 //680.3
 const MAX_WIDTH_SCREEN = 1858
 const MAX_HEIGHT_SCREEN = 1043
+const LEAVING_SCREEN_ANIMATION = 3
 
 export function WebPage() {
-  //TODO extract mesh in other component and make conditional render of it
   const webScreenRef = useRef(null)
   const { camera, viewport } = useThree() //TODO import ts for camera
   const [planeInfo, setPlaneInfo] = useState({ width: 1000, height: 1000 }) //init value wrong
   const [cameraZ, setCameraZ] = useState(camera.position.z)
-
-  // Scroll
-  /* const sheet = useCurrentSheet()
-  const scroll = useScroll() */
 
   useFrame(() => {
     /*   if (sheet.sequence.position < ESCAPE_SCREAN_ANIMATION_DURATION) return
@@ -40,15 +38,27 @@ export function WebPage() {
     const width = height * camera.aspect
 
     //TODO if launch / agrandire ratio de la scene ?
-    /* if (width > MAX_WIDTH_SCREEN) {
+    if (width > MAX_WIDTH_SCREEN) {
       const finalHeight =
         height > MAX_HEIGHT_SCREEN ? MAX_HEIGHT_SCREEN : height
       setPlaneInfo({ width: MAX_WIDTH_SCREEN, height: finalHeight })
       return
-    } */
+    }
 
     setPlaneInfo({ width, height })
   }, [setPlaneInfo, viewport, camera, cameraZ])
+
+  const scroll = useScroll()
+  const sheet = getProject('Fly Through', { state: flyThroughState }).sheet(
+    'Scene'
+  )
+
+  useFrame(() => {
+    if (sheet.sequence.position < LEAVING_SCREEN_ANIMATION) return
+    const sequenceLength = val(sheet.sequence.pointer.length)
+    sheet.sequence.position =
+      scroll.offset * sequenceLength + LEAVING_SCREEN_ANIMATION
+  })
 
   return (
     <>

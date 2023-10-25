@@ -4,7 +4,7 @@ import React from 'react' //TODO remove that
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 
 export function ModelView() {
-  const model = useLoader(GLTFLoader, './model/portfolio.glb')
+  const model = useLoader(GLTFLoader, './model/portfolioSquare.glb')
 
   const bakedTextures = useTexture('./model/baked.jpg')
   bakedTextures.flipY = false

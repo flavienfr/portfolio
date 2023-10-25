@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import { OrbitControls, PointerLockControls } from '@react-three/drei'
+import { OrbitControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
@@ -16,8 +16,7 @@ root.render(
     <Canvas flat gl={{ preserveDrawingBuffer: true }}>
       <primitive object={new AxesHelper(10)} />
       <color args={['white']} attach="background" />
-      {/*  <OrbitControls makeDefault /> */}
-      {/*       <PointerLockControls /> */}
+      {/* <OrbitControls makeDefault /> */}
       <App />
     </Canvas>
   </React.StrictMode>

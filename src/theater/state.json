@@ -1,53 +1,29 @@
 {
   "sheetsById": {
-    "Scene": {
+    "R3F UI": {
       "staticOverrides": {
         "byObject": {
-          "Camera": {
-            "position": {
-              "x": 0,
-              "y": 0
-            }
-          }
-        }
-      },
-      "sequence": {
-        "subUnitsPerUnit": 30,
-        "length": 10,
-        "type": "PositionalSequence",
-        "tracksByObject": {
-          "Camera": {
-            "trackData": {
-              "YjwWYkb4xL": {
-                "type": "BasicKeyframedTrack",
-                "__debugName": "Camera:[\"position\",\"z\"]",
-                "keyframes": [
-                  {
-                    "id": "RwqL107KzD",
-                    "position": 0,
-                    "connectedRight": true,
-                    "handles": [0.5, 1, 0.68, -0.55],
-                    "value": 1.2
-                  },
-                  {
-                    "id": "px7CQx0YfB",
-                    "position": 3,
-                    "connectedRight": true,
-                    "handles": [0.286, 0.992, 0.5, 0.5],
-                    "value": 16
-                  },
-                  {
-                    "id": "2SXwJYyw6V",
-                    "position": 9.633,
-                    "connectedRight": true,
-                    "handles": [0.5, 0.5, 0.5, 0],
-                    "value": 32
-                  }
-                ]
+          "Editor Camera snapshot #1": {
+            "transform": {
+              "position": {
+                "x": 11.108690364359521,
+                "y": 14.738418333636508,
+                "z": 4.766970230188559
+              },
+              "target": {
+                "x": -1.8148639846384844,
+                "y": 1.8148639846384769,
+                "z": 4.766970230188558
               }
+            }
+          },
+          "Editor": {
+            "transformControls": {
+              "mode": "rotate",
+              "space": "local"
             },
-            "trackIdByPropPath": {
-              "[\"position\",\"z\"]": "YjwWYkb4xL"
+            "viewport": {
+              "shading": "solid"
             }
           }
         }
@@ -56,8 +32,8 @@
   },
   "definitionVersion": "0.4.0",
   "revisionHistory": [
-    "J0RgEvR2ZSnDPQs-",
-    "nX607aLGQ4fR3iGn",
-    "8pE8lkUaDC6Cxvb-"
+    "-wwqm8_m7A--BW1v",
+    "VB4oXOJ4kJDrcTF0",
+    "cdx4F32og1aQghoc"
   ]
 }
