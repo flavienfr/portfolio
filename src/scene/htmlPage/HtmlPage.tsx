@@ -6,8 +6,6 @@ import { LaunchPage } from './LaunchPage'
 //TODO
 // SLow paralax effect in 4K
 
-export const TOTAL_SLIDE = 3
-
 export function HtmlPage({ htmlHeight }) {
   const [scrollFraction, setScrollFraction] = useState(0)
 

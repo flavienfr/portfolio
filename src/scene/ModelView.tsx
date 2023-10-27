@@ -16,7 +16,7 @@ export function ModelView() {
 
       <primitive
         object={model.scene}
-        /* scale={3} */
+        scale={1.25} /* TODO scale in render */
         position={[0.17, -2.31, 2.15]}
       />
 
