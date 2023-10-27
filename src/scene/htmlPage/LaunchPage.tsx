@@ -2,6 +2,7 @@ import { getProject } from '@theatre/core'
 import Parallax from 'parallax-js'
 import React, { useEffect, useRef, useState } from 'react'
 import flyThroughState from '../../theater/state.json'
+import { LEAVING_SCREEN_ANIMATION } from '../WebPage'
 
 export function LaunchPage() {
   const [color, setColor] = useState(false)
@@ -23,7 +24,7 @@ export function LaunchPage() {
 
   const handleClick = () => {
     setColor(true)
-    sheet?.sequence.play({ range: [0, 3] })
+    sheet?.sequence.play({ range: [0, LEAVING_SCREEN_ANIMATION] })
   }
 
   return (

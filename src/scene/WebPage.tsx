@@ -5,11 +5,10 @@ import { HtmlPage } from './htmlPage/HtmlPage.tsx'
 import { getProject, val } from '@theatre/core'
 import flyThroughState from '../theater/state.json'
 
-//const ESCAPE_SCREAN_ANIMATION_DURATION = 3
 const DREI_HTML_SCREEN_RATIO = 400 //680.3
 const MAX_WIDTH_SCREEN = 1858
 const MAX_HEIGHT_SCREEN = 1043
-const LEAVING_SCREEN_ANIMATION = 3
+export const LEAVING_SCREEN_ANIMATION = 2
 
 export function WebPage() {
   const webScreenRef = useRef(null)
@@ -18,10 +17,10 @@ export function WebPage() {
   const [cameraZ, setCameraZ] = useState(camera.position.z)
 
   useFrame(() => {
-    /*   if (sheet.sequence.position < ESCAPE_SCREAN_ANIMATION_DURATION) return
+    /*   if (sheet.sequence.position < LEAVING_SCREEN_ANIMATION) return
     const sequenceLength = val(sheet.sequence.pointer.length)
     sheet.sequence.position =
-      scroll.offset * sequenceLength + ESCAPE_SCREAN_ANIMATION_DURATION */
+      scroll.offset * sequenceLength + LEAVING_SCREEN_ANIMATION */
     //TODO if launch
     if (
       planeInfo.height >= MAX_HEIGHT_SCREEN &&
@@ -53,12 +52,12 @@ export function WebPage() {
     'Scene'
   )
 
-  /*   useFrame(() => {
+  useFrame(() => {
     if (sheet.sequence.position < LEAVING_SCREEN_ANIMATION) return
     const sequenceLength = val(sheet.sequence.pointer.length)
     sheet.sequence.position =
       scroll.offset * sequenceLength + LEAVING_SCREEN_ANIMATION
-  }) */
+  })
 
   return (
     <>

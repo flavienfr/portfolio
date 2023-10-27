@@ -1,12 +1,9 @@
-import { val } from '@theatre/core'
 import React, { useState } from 'react'
 import { WelcomePage } from './WelcomePage'
 import { BioPage } from './BioPage'
 import { LaunchPage } from './LaunchPage'
 
 //TODO
-//- adapt font size small screen
-//-transition douce zoom & opacity
 // SLow paralax effect in 4K
 
 export const TOTAL_SLIDE = 3
