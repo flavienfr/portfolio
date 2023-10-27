@@ -53,12 +53,12 @@ export function WebPage() {
     'Scene'
   )
 
-  useFrame(() => {
+  /*   useFrame(() => {
     if (sheet.sequence.position < LEAVING_SCREEN_ANIMATION) return
     const sequenceLength = val(sheet.sequence.pointer.length)
     sheet.sequence.position =
       scroll.offset * sequenceLength + LEAVING_SCREEN_ANIMATION
-  })
+  }) */
 
   return (
     <>
