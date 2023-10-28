@@ -6,7 +6,7 @@ import { getProject, val } from '@theatre/core'
 import flyThroughState from '../theater/state.json'
 
 const DREI_HTML_SCREEN_RATIO = 400 //680.3
-const MAX_SCREEN_WIDTH = 2600 //1043
+const MAX_SCREEN_WIDTH = 2080 //
 const MAX_SCREEN_HEIGHT = 1043 //2086
 export const LEAVING_SCREEN_ANIMATION = 3
 
@@ -29,8 +29,6 @@ export function WebPage() {
     const distance = Math.abs((cameraZ + 0.5) * DREI_HTML_SCREEN_RATIO)
     let height = (distance * camera.getFilmHeight()) / camera.getFocalLength()
     let width = height * camera.aspect
-    console.log('🚀 ~ height:', height)
-    console.log('🚀 ~ width:', width)
 
     width = width > MAX_SCREEN_WIDTH ? MAX_SCREEN_WIDTH : width
     height = MAX_SCREEN_HEIGHT // height > MAX_SCREEN_HEIGHT ? MAX_SCREEN_HEIGHT : height

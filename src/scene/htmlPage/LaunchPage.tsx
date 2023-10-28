@@ -4,6 +4,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import flyThroughState from '../../theater/state.json'
 import { LEAVING_SCREEN_ANIMATION } from '../WebPage'
 
+const LEAVING_SCREEN_DELAY_MS = 2000
+
 export function LaunchPage() {
   const [color, setColor] = useState(false)
 
@@ -23,8 +25,11 @@ export function LaunchPage() {
   )
 
   const handleClick = () => {
-    setColor(true)
-    sheet?.sequence.play({ range: [0, LEAVING_SCREEN_ANIMATION] })
+    setTimeout(() => {
+      setColor(true)
+      decreaseBackgroundOpacity()
+      sheet?.sequence.play({ range: [0, LEAVING_SCREEN_ANIMATION] })
+    }, 1000)
   }
 
   return (
@@ -65,4 +70,16 @@ export function LaunchPage() {
       </div>
     </div>
   )
+}
+
+function decreaseBackgroundOpacity() {
+  let htmlScreen = document.getElementsByClassName('htmlScreen')[0]
+  let opacity = 1
+  const loopTime = LEAVING_SCREEN_DELAY_MS / (1 / 0.01)
+
+  setInterval(() => {
+    if (opacity == 0) return
+    opacity -= 0.01
+    htmlScreen.style.backgroundColor = `rgba(10, 10, 10, ${opacity})`
+  }, loopTime)
 }
