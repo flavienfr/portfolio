@@ -9,8 +9,8 @@ import studio from '@theatre/studio'
 import { ModelView } from './scene/ModelView.tsx'
 import { WebPage } from './scene/WebPage.tsx'
 
-studio.extend(extension)
-studio.initialize()
+/* studio.extend(extension)
+studio.initialize() */
 
 export const SPEED_SPIN_FACTOR = 0.05
 

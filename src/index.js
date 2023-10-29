@@ -16,7 +16,7 @@ root.render(
     <Canvas flat gl={{ preserveDrawingBuffer: true }}>
       <primitive object={new AxesHelper(10)} />
       <color args={['white']} attach="background" />
-      <OrbitControls makeDefault />
+      {/* <OrbitControls makeDefault /> */}
       <App />
     </Canvas>
   </React.StrictMode>
@@ -28,7 +28,19 @@ root.render(
 reportWebVitals()
 
 /* TODO Global
+- Ameliorer la vue 2
+- Finir brainstorming model 3D blender
+- Finir model blender
+- Ajouter les objets 3d a la scene 3 de paralax
+- Transisiton final vue d'enssemble au dessus avec thanks you qui apparait avec mes liens github linkedin en noir
+
+Improve:
+- BTN launch trop petit et aliase en mode small screen quand on est en vue 3d
+
+Bonus:
+- Smooth scroll transition entre les vues
+
+Final check:
 - Check firefox/safary compatibility
 - performance test with reportWebVitals
-- vue cinema btn launch aliase
 */

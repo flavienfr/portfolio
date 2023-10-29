@@ -2,15 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { useElementOnScreen } from '../../hooks/useElementOnScreen'
 
 export function BioPage() {
-  const [keepVisible, setKeepVisible] = useState(false)
   const [containerRef, isVisible] = useElementOnScreen({
     root: null,
     rootMargin: '0px',
     threshold: 0.8,
-  })
-
-  useEffect(() => {
-    if (isVisible) setKeepVisible(true)
   })
 
   return (

@@ -24,7 +24,7 @@ export function ModelView() {
 
       <primitive
         object={model.scene}
-        scale={1} /* TODO scale in render */
+        scale={1} /* TODO scale to 1.10 in blender on join obj */
         position={[0.8, -1.78, 2.45]}
       />
 

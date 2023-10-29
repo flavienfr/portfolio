@@ -3,19 +3,31 @@ import Parallax from 'parallax-js'
 import React, { useEffect, useRef, useState } from 'react'
 import flyThroughState from '../../theater/state.json'
 import { LEAVING_SCREEN_ANIMATION } from '../WebPage'
+import { useElementOnScreen } from '../../hooks/useElementOnScreen'
 
 const LEAVING_SCREEN_DELAY_MS = 2000
 
 export function LaunchPage() {
   const parallaxScene = useRef()
+  const [paralax, setParalax] = useState<Parallax>()
+
+  const [containerRef, isVisible] = useElementOnScreen({
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1,
+  })
 
   useEffect(() => {
     if (!parallaxScene || !parallaxScene.current) return
-    new Parallax(parallaxScene.current, {
+
+    const para = new Parallax(parallaxScene.current, {
       invertX: false,
       invertY: false,
     })
-  }, [])
+
+    setParalax(para)
+    para.disable()
+  }, [parallaxScene])
 
   const [color, setColor] = useState(false)
   const sheet = getProject('Fly Through', { state: flyThroughState }).sheet(
@@ -30,6 +42,12 @@ export function LaunchPage() {
       sheet?.sequence.play({ range: [0, LEAVING_SCREEN_ANIMATION] })
     }, 1000)
   }
+
+  useEffect(() => {
+    console.log('isVisible: ', isVisible)
+    if (isVisible) paralax?.enable()
+    else paralax?.disable()
+  }, [isVisible])
 
   return (
     <div className="view3" ref={parallaxScene}>
@@ -62,7 +80,12 @@ export function LaunchPage() {
       </div>
       <div className="btnWrapper">
         <div className="btnInnerWrapper">
-          <button onClick={handleClick} className="myButton" disabled={color}>
+          <button
+            onClick={handleClick}
+            className="myButton"
+            disabled={color}
+            ref={containerRef}
+          >
             Launch
           </button>
         </div>
