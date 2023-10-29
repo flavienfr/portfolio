@@ -146,7 +146,7 @@
                 "keyframes": [
                   {
                     "id": "St4bUnpfkj",
-                    "position": 1,
+                    "position": 0,
                     "connectedRight": true,
                     "handles": [
                       0.5,
@@ -510,7 +510,6 @@
   },
   "definitionVersion": "0.4.0",
   "revisionHistory": [
-    "_4kWF1DRPYHILFDD",
     "Xg-Sm9k4dy1xWk-Y",
     "Rulv8cCdLfJ8nebX",
     "ZkQs2ad55Ybc5ERI",

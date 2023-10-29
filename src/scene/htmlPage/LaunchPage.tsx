@@ -7,9 +7,6 @@ import { LEAVING_SCREEN_ANIMATION } from '../WebPage'
 const LEAVING_SCREEN_DELAY_MS = 2000
 
 export function LaunchPage() {
-  const [color, setColor] = useState(false)
-
-  //const sheet = useCurrentSheet() //TODO why can't use it
   const parallaxScene = useRef()
 
   useEffect(() => {
@@ -20,13 +17,15 @@ export function LaunchPage() {
     })
   }, [])
 
+  const [color, setColor] = useState(false)
   const sheet = getProject('Fly Through', { state: flyThroughState }).sheet(
     'Scene'
   )
 
   const handleClick = () => {
+    setColor(true)
+
     setTimeout(() => {
-      setColor(true)
       decreaseBackgroundOpacity()
       sheet?.sequence.play({ range: [0, LEAVING_SCREEN_ANIMATION] })
     }, 1000)
@@ -63,7 +62,7 @@ export function LaunchPage() {
       </div>
       <div className="btnWrapper">
         <div className="btnInnerWrapper">
-          <button onClick={handleClick} className="myButton">
+          <button onClick={handleClick} className="myButton" disabled={color}>
             Launch
           </button>
         </div>
@@ -73,13 +72,15 @@ export function LaunchPage() {
 }
 
 function decreaseBackgroundOpacity() {
-  let htmlScreen = document.getElementsByClassName('htmlScreen')[0]
+  let htmlScreen = document.querySelector('.htmlScreen') as HTMLInputElement
   let opacity = 1
   const loopTime = LEAVING_SCREEN_DELAY_MS / (1 / 0.01)
 
   setInterval(() => {
-    if (opacity == 0) return
+    if (opacity <= 0) return
     opacity -= 0.01
+    const grainOpacity = opacity * 0.08
     htmlScreen.style.backgroundColor = `rgba(10, 10, 10, ${opacity})`
+    htmlScreen.style.setProperty('--backgroundOpacity', grainOpacity.toString())
   }, loopTime)
 }

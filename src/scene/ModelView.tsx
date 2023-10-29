@@ -2,6 +2,7 @@ import { useTexture } from '@react-three/drei'
 import { useLoader } from '@react-three/fiber'
 import React from 'react' //TODO remove that
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
+import { useControls } from 'leva'
 
 export function ModelView() {
   const model = useLoader(GLTFLoader, './model/portfolioSquare.glb')
@@ -9,6 +10,13 @@ export function ModelView() {
   const bakedTextures = useTexture('./model/baked.jpg')
   bakedTextures.flipY = false
 
+  /*   const { position } = useControls({
+    position: {
+      value: { x: 0.17, y: -2, z: 2.5 },
+      step: 0.01,
+    },
+  })
+ */
   return (
     <>
       <ambientLight intensity={0.5} />
@@ -16,8 +24,8 @@ export function ModelView() {
 
       <primitive
         object={model.scene}
-        scale={1.05} /* TODO scale in render */
-        position={[0.17, -2.31, 2.15]} /* {[0.17, -2.31, 3]} */
+        scale={1} /* TODO scale in render */
+        position={[0.8, -1.78, 2.45]}
       />
 
       {/* <mesh

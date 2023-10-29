@@ -19,7 +19,7 @@ export default function App() {
   const sheet = project.sheet('Scene')
 
   project.ready.then(() => {
-    console.log('Project loaded!')
+    console.log('Project loaded!') //TODO deal with loading
   })
 
   return (

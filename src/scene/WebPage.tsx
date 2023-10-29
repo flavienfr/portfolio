@@ -31,7 +31,7 @@ export function WebPage() {
     let width = height * camera.aspect
 
     width = width > MAX_SCREEN_WIDTH ? MAX_SCREEN_WIDTH : width
-    height = MAX_SCREEN_HEIGHT // height > MAX_SCREEN_HEIGHT ? MAX_SCREEN_HEIGHT : height
+    height = MAX_SCREEN_HEIGHT // TODO height > MAX_SCREEN_HEIGHT ? MAX_SCREEN_HEIGHT : height
 
     setPlaneInfo({ width, height })
   }, [setPlaneInfo, viewport, camera, cameraZ])
