@@ -9,24 +9,13 @@ const LEAVING_SCREEN_DELAY_MS = 2000
 
 export function LaunchPage() {
   const parallaxScene = useRef()
-  const [paralax, setParalax] = useState<Parallax>()
-
-  const [containerRef, isVisible] = useElementOnScreen({
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1,
-  })
 
   useEffect(() => {
     if (!parallaxScene || !parallaxScene.current) return
-
-    const para = new Parallax(parallaxScene.current, {
-      invertX: false,
-      invertY: false,
+    new Parallax(parallaxScene.current, {
+      invertX: true,
+      invertY: true,
     })
-
-    setParalax(para)
-    para.disable()
   }, [parallaxScene])
 
   const [color, setColor] = useState(false)
@@ -42,12 +31,6 @@ export function LaunchPage() {
       sheet?.sequence.play({ range: [0, LEAVING_SCREEN_ANIMATION] })
     }, 1000)
   }
-
-  useEffect(() => {
-    console.log('isVisible: ', isVisible)
-    if (isVisible) paralax?.enable()
-    else paralax?.disable()
-  }, [isVisible])
 
   return (
     <div className="view3" ref={parallaxScene}>
@@ -80,12 +63,7 @@ export function LaunchPage() {
       </div>
       <div className="btnWrapper">
         <div className="btnInnerWrapper">
-          <button
-            onClick={handleClick}
-            className="myButton"
-            disabled={color}
-            ref={containerRef}
-          >
+          <button onClick={handleClick} className="myButton" disabled={color}>
             Launch
           </button>
         </div>
