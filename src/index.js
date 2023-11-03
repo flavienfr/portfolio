@@ -15,8 +15,8 @@ root.render(
   <React.StrictMode>
     <Canvas flat gl={{ preserveDrawingBuffer: true }}>
       {/* <primitive object={new AxesHelper(10)} /> */}
-      <color args={['white']} attach="background" />
-      {/* <OrbitControls makeDefault /> */}
+      {/* <color args={['white']} attach="background" /> */}
+      <OrbitControls makeDefault />
       <App />
     </Canvas>
   </React.StrictMode>

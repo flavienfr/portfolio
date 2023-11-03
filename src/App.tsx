@@ -1,6 +1,6 @@
 import { getProject } from '@theatre/core'
 import { PerspectiveCamera, SheetProvider } from '@theatre/r3f'
-import React from 'react' //TODO remove that
+import React, { Suspense } from 'react' //TODO remove that
 import { FOV } from './index.js'
 import flyThroughState from './theater/state.json'
 import extension from '@theatre/r3f/dist/extension'
@@ -8,6 +8,8 @@ import { ScrollControls } from '@react-three/drei'
 import studio from '@theatre/studio'
 import { ModelView } from './scene/ModelView.tsx'
 import { WebPage } from './scene/WebPage.tsx'
+import { Rope } from './cran.tsx'
+import { Physics } from '@react-three/rapier'
 
 /* studio.extend(extension)
 studio.initialize() */
@@ -23,7 +25,7 @@ export default function App() {
   })
 
   return (
-    <ScrollControls pages={5}>
+    <ScrollControls pages={3}>
       <SheetProvider sheet={sheet}>
         <PerspectiveCamera
           theatreKey="Camera"
@@ -33,8 +35,13 @@ export default function App() {
           near={0.1}
           far={1000}
         />
-        <WebPage />
-        <ModelView />
+        {/* <WebPage />
+        <ModelView /> */}
+        <Suspense>
+          <Physics debug>
+            <Rope length={7} />
+          </Physics>
+        </Suspense>
       </SheetProvider>
     </ScrollControls>
   )
