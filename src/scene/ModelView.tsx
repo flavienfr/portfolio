@@ -1,5 +1,6 @@
 import { useTexture } from '@react-three/drei'
 import { useLoader } from '@react-three/fiber'
+import { useControls } from 'leva'
 import React from 'react' //TODO remove that
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 
@@ -9,12 +10,12 @@ export function ModelView() {
   const bakedTextures = useTexture('./model/baked.jpg')
   bakedTextures.flipY = false
 
-  /*  const { position } = useControls({
-    position: {
-      value: { x: 0.14, y: -2.22, z: 2.44 },
-      step: 0.01,
+  const { pos } = useControls({
+    pos: {
+      value: { x: 0, y: 0, z: 0 },
+      step: 0.1,
     },
-  }) */
+  })
 
   /* TODO scale to 1.10 in blender on join obj */
   return (
@@ -28,15 +29,15 @@ export function ModelView() {
         position={[0.14, -2.22, 2.44]}
       /> */}
 
-      <mesh
+      {/*  <mesh
         geometry={model.nodes.Cube042_4.geometry}
         // position={nodes.Walls1.position}
         position={[0, 0, 3.3]}
         // position={[0, 0, 2.5]}
         scale={1.2}
       >
-        <meshBasicMaterial map={bakedTextures} transparent opacity={0.1} />
-      </mesh>
+        <meshBasicMaterial map={bakedTextures} transparent opacity={1} />
+      </mesh> */}
     </>
   )
 }

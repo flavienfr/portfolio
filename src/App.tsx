@@ -1,6 +1,6 @@
 import { getProject } from '@theatre/core'
 import { PerspectiveCamera, SheetProvider } from '@theatre/r3f'
-import React, { Suspense } from 'react' //TODO remove that
+import React, { Suspense, useRef } from 'react' //TODO remove that
 import { FOV } from './index.js'
 import flyThroughState from './theater/state.json'
 import extension from '@theatre/r3f/dist/extension'
@@ -10,9 +10,12 @@ import { ModelView } from './scene/ModelView.tsx'
 import { WebPage } from './scene/WebPage.tsx'
 import { Rope } from './cran.tsx'
 import { Physics } from '@react-three/rapier'
+import { useControls } from 'leva'
+import { useLoader } from '@react-three/fiber'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 
-/* studio.extend(extension)
-studio.initialize() */
+studio.extend(extension)
+studio.initialize()
 
 export const SPEED_SPIN_FACTOR = 0.05
 
@@ -23,6 +26,14 @@ export default function App() {
   project.ready.then(() => {
     console.log('Project loaded!') //TODO deal with loading
   })
+
+  /* const { pos } = useControls({
+    pos: {
+      value: { x: 0, y: 0, z: 0 },
+      step: 0.1,
+    },
+  })
+ */
 
   return (
     <ScrollControls pages={3}>
@@ -35,11 +46,11 @@ export default function App() {
           near={0.1}
           far={1000}
         />
-        {/* <WebPage />
-        <ModelView /> */}
+        {/* <WebPage /> */}
+        <ModelView />
         <Suspense>
           <Physics debug>
-            <Rope length={7} />
+            <Rope length={5} />
           </Physics>
         </Suspense>
       </SheetProvider>
