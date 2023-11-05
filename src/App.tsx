@@ -1,21 +1,13 @@
+import { ScrollControls } from '@react-three/drei'
 import { getProject } from '@theatre/core'
 import { PerspectiveCamera, SheetProvider } from '@theatre/r3f'
-import React, { Suspense, useRef } from 'react' //TODO remove that
+import React from 'react' //TODO remove that
 import { FOV } from './index.js'
+import { ModelsView } from './scene/modelsView/ModelsView.tsx'
 import flyThroughState from './theater/state.json'
-import extension from '@theatre/r3f/dist/extension'
-import { ScrollControls } from '@react-three/drei'
-import studio from '@theatre/studio'
-import { ModelView } from './scene/ModelView.tsx'
-import { WebPage } from './scene/WebPage.tsx'
-import { Rope } from './cran.tsx'
-import { Physics } from '@react-three/rapier'
-import { useControls } from 'leva'
-import { useLoader } from '@react-three/fiber'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 
-studio.extend(extension)
-studio.initialize()
+/* studio.extend(extension)
+studio.initialize() */
 
 export const SPEED_SPIN_FACTOR = 0.05
 
@@ -47,12 +39,7 @@ export default function App() {
           far={1000}
         />
         {/* <WebPage /> */}
-        <ModelView />
-        <Suspense>
-          <Physics debug>
-            <Rope length={5} />
-          </Physics>
-        </Suspense>
+        <ModelsView />
       </SheetProvider>
     </ScrollControls>
   )

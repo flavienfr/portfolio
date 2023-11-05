@@ -7,6 +7,7 @@ import { AxesHelper } from 'three'
 import App from './App.tsx'
 import './index.css'
 import reportWebVitals from './reportWebVitals'
+import { Perf } from 'r3f-perf'
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 export const FOV = 75
@@ -17,6 +18,7 @@ root.render(
       {/* <primitive object={new AxesHelper(10)} /> */}
       {/* <color args={['white']} attach="background" /> */}
       <OrbitControls makeDefault />
+      <Perf />
       <App />
     </Canvas>
   </React.StrictMode>
@@ -43,4 +45,5 @@ Bonus:
 Final check:
 - Check firefox/safary compatibility
 - performance test with reportWebVitals
+- Remove dev dependencies (perf)
 */
