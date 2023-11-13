@@ -1,9 +1,9 @@
 import { useTexture } from '@react-three/drei'
 import { useLoader } from '@react-three/fiber'
-import React from 'react'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
-import { Annotation } from './InvisibleBoxDescriptor'
 import { useControls } from 'leva'
+import React, { useMemo } from 'react'
+import { MeshBasicMaterial } from 'three'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 
 export function Isometric() {
   const model = useLoader(GLTFLoader, './model/portfolioScreen.glb')
@@ -14,53 +14,38 @@ export function Isometric() {
   /* TODO scale to 1.10 in blender on join obj */
   return (
     <>
-      {/* <ambientLight intensity={0.5} />
-      <directionalLight position={[1, 2, 3]} intensity={1.5} /> */}
-
-      {/*   <primitive
-        object={model.scene}
-        scale={1}
-        position={[0.14, -2.22, 2.44]}
-      /> */}
-
-      <ShcoolScene />
-
-      {/*  <mesh
-    geometry={model.nodes.Cube042_4.geometry}
-    // position={nodes.Walls1.position}
-    position={[0, 0, 3.3]}
-    // position={[0, 0, 2.5]}
-    scale={1.2}
-  >
-    <meshBasicMaterial map={bakedTextures} transparent opacity={1} />
-  </mesh> */}
+      <Scene3 />
+      <Crane />
     </>
   )
 }
 
-function ShcoolScene() {
-  const model = useLoader(GLTFLoader, './model/Scene2.glb')
+function Scene3() {
+  const { scene } = useLoader(GLTFLoader, './model/scene3/Scene.glb')
 
-  const bakedTextures = useTexture('./model/Texture_baking_light.png')
+  const bakedTextures = useTexture('./model/scene3/Baking_light.png')
+  bakedTextures.flipY = false
+  const bakedMaterial = new MeshBasicMaterial({ map: bakedTextures })
+
+  useMemo(
+    () =>
+      scene.traverse((obj) => {
+        obj.material = bakedMaterial
+      }),
+    []
+  )
+
+  return <primitive object={scene} dispose={null} />
+}
+
+function Crane() {
+  const model = useLoader(GLTFLoader, './model/crane/crane.glb')
+  const bakedTextures = useTexture('./model/crane/baked.jpg')
   bakedTextures.flipY = false
 
-  const { annotationPos } = useControls({
-    annotationPos: { value: [2.3, 1.1, 1.0], step: 0.1 },
-  })
-
   return (
-    <>
-      <mesh
-        geometry={model.nodes.Scene_1.geometry}
-        // position={nodes.Walls1.position}
-        position={[0, 0, 0]}
-        // position={[0, 0, 2.5]}
-        /* scale={1.2} */
-      >
-        <meshBasicMaterial map={bakedTextures} transparent opacity={1} />
-      </mesh>
-
-      <Annotation position={annotationPos}>My first project</Annotation>
-    </>
+    <mesh geometry={model.nodes.crane.geometry} position={[0, 0, 0]}>
+      <meshBasicMaterial map={bakedTextures} />
+    </mesh>
   )
 }

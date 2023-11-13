@@ -30,14 +30,16 @@ root.render(
 reportWebVitals()
 
 /* TODO Global
-- Ameliorer la vue 2
-- Finir brainstorming model 3D blender
-- Finir model blender
+- Transition entre les scènes camera plus opacité 
+- vue final to be continued crane + liens github
+- intéraction annotation avec les objets
+- insertion drei html dans les écrans.
+- background + sole brainstorming
 - Ajouter les objets 3d a la scene 3 de paralax
-- Transisiton final vue d'enssemble au dessus avec thanks you qui apparait avec mes liens github linkedin en noir
 
 Improve:
 - BTN launch trop petit et aliase en mode small screen quand on est en vue 3d
+- Blender light crane and other model
 
 Bonus:
 - Smooth scroll transition entre les vues
