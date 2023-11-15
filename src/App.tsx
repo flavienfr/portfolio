@@ -5,6 +5,7 @@ import React from 'react' //TODO remove that
 import { FOV } from './index.js'
 import { ModelsView } from './scene/modelsView/ModelsView.tsx'
 import flyThroughState from './theater/state.json'
+import { WebPage } from './scene/WebPage.tsx'
 
 /* studio.extend(extension)
 studio.initialize() */
