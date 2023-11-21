@@ -6,9 +6,11 @@ import { FOV } from './index.js'
 import { ModelsView } from './scene/modelsView/ModelsView.tsx'
 import flyThroughState from './theater/state.json'
 import { WebPage } from './scene/WebPage.tsx'
+import studio from '@theatre/studio'
+import extension from '@theatre/r3f/dist/extension'
 
-/* studio.extend(extension)
-studio.initialize() */
+studio.extend(extension)
+studio.initialize()
 
 export const SPEED_SPIN_FACTOR = 0.05
 
@@ -39,7 +41,7 @@ export default function App() {
           near={0.1}
           far={1000}
         />
-        {/* <WebPage /> */}
+        {/*  <WebPage /> */}
         <ModelsView />
       </SheetProvider>
     </ScrollControls>
