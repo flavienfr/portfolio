@@ -28,7 +28,7 @@ function Scene1() {
   const bakedTextures = useTexture('./model/scene1/baked.jpg')
   bakedTextures.flipY = false
 
-  const { position1 } = useControls({
+  const { position1 } = useControls('isometric', {
     position1: {
       value: [0.17, -2.3, 2.45],
       step: 0.01,
@@ -55,7 +55,7 @@ function Scene2() {
   const bakedTextures = useTexture('./model/scene2/baked.jpg')
   bakedTextures.flipY = false
 
-  const { position2 } = useControls({
+  const { position2 } = useControls('isometric', {
     position2: {
       value: [0.17, 2.1, 2.45],
       step: 0.01,
@@ -82,7 +82,7 @@ function Scene3() {
   const bakedTextures = useTexture('./model/scene3/baked.png')
   bakedTextures.flipY = false
 
-  const { position3 } = useControls({
+  const { position3 } = useControls('isometric', {
     position3: {
       value: [0.17, 6.2, 2.45],
       step: 0.01,

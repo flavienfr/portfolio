@@ -22,14 +22,6 @@ export default function App() {
     console.log('Project loaded!') //TODO deal with loading
   })
 
-  /* const { pos } = useControls({
-    pos: {
-      value: { x: 0, y: 0, z: 0 },
-      step: 0.1,
-    },
-  })
- */
-
   return (
     <ScrollControls pages={3}>
       <SheetProvider sheet={sheet}>

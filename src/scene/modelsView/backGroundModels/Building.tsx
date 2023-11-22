@@ -33,13 +33,13 @@ export function Building({
   useEffect(() => {
     const timer = setTimeout(() => {
       if (buildingRef.current) {
-        buildingRef.current.addForce({ x: -1, y: 0, z: -1 }, true)
+        buildingRef.current.addForce({ x: -0.5, y: 0, z: -0.5 }, true)
       }
     }, 1000)
 
     const timer2 = setTimeout(() => {
       if (buildingRef.current) {
-        buildingRef.current.addForce({ x: 1, y: 0, z: 1 }, true)
+        buildingRef.current.addForce({ x: 0.5, y: 0, z: 0.5 }, true)
       }
     }, 2000)
 
@@ -85,14 +85,11 @@ export function Building({
         posCable.z,
       ]}
     >
-      {/*  <CuboidCollider args={[2.5, 2.5, 2.5]} /> */}
       <mesh
         onClick={radomePush}
         onPointerOver={() => setHovered(true)}
         onPointerOut={() => setHovered(false)}
       >
-        {/*  <boxGeometry args={[BOX_HEIHGT, BOX_HEIHGT, BOX_HEIHGT]} />
-        <meshBasicMaterial wireframe /> */}
         <BuildingModel />
       </mesh>
     </RigidBody>
@@ -106,7 +103,7 @@ function BuildingModel() {
 
   const opacity = useSceneOpacity('crane')
 
-  const { positionBuilding, rotationBuidling } = useControls({
+  const { positionBuilding, rotationBuidling } = useControls('building', {
     positionBuilding: {
       value: [-0.22, -1.86, 0.26],
       step: 0.01,

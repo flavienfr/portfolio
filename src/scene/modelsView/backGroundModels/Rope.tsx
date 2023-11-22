@@ -78,7 +78,7 @@ export function Rope({ length }: { length: number }) {
     Array.from({ length: length }).map(() => createRef<RigidBodyApi>())
   )
 
-  const { posCable } = useControls({
+  const { posCable } = useControls('building', {
     posCable: {
       value: { x: 2.67, y: 20, z: 3.53 },
       step: 0.01,

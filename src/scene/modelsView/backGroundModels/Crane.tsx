@@ -15,7 +15,7 @@ export function Crane({ opacity }: CraneProps) {
   bakedTextures.flipY = false
 
   const { positionCrane, rotationCrane, posCranCollider, rotCranCollider } =
-    useControls({
+    useControls('building', {
       positionCrane: {
         value: [10.8, 16.6, 9],
         step: 0.1,
