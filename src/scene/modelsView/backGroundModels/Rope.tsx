@@ -1,5 +1,4 @@
 import { Cylinder } from '@react-three/drei'
-import { useLoader } from '@react-three/fiber'
 import {
   RapierRigidBody,
   RigidBody,
@@ -14,14 +13,14 @@ import React, {
   forwardRef,
   useRef,
 } from 'react'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-import { BuildingIso } from './BuildingIso'
+import { Building } from './Building'
+import { useControls } from 'leva'
+import { useSceneOpacity } from '../../../hooks/useSceneOpacity'
 
 export const ROPE_FRAGMENT_SPACE_BETZEEN = 0.05
-export const ROPE_FRAGMENT_SIZE = 1
+export const ROPE_FRAGMENT_SIZE = 0.5
 const ROPE_FRAGMENT_DIAMETER = 0.1
-const ROPE_FRAGMENT_RESOLUTION = 10 //TODO ToO HIGHT
-export const BOX_HEIHGT = 1
+const ROPE_FRAGMENT_RESOLUTION = 10 //TODO Too HIGHT
 
 const RopeSegment = forwardRef<
   RapierRigidBody,
@@ -31,8 +30,17 @@ const RopeSegment = forwardRef<
     type: RigidBodyTypeString
   }
 >(({ position, component, type }, ref) => {
+  const opacity = useSceneOpacity('crane') //TODO one call au lieu de 3
+
   return (
-    <RigidBody colliders="cuboid" ref={ref} type={type} position={position}>
+    <RigidBody
+      colliders="cuboid"
+      restitution={0}
+      linearDamping={0.9}
+      ref={ref}
+      type={type}
+      position={position}
+    >
       <Cylinder
         args={[
           ROPE_FRAGMENT_DIAMETER,
@@ -42,8 +50,9 @@ const RopeSegment = forwardRef<
         ]}
       >
         <meshBasicMaterial
-          color={type === 'kinematicPosition' ? 'green' : 'pink'}
-          wireframe
+          color={type === 'kinematicPosition' ? '#38383A' : '#D03030'}
+          transparent
+          opacity={opacity}
         />
       </Cylinder>
     </RigidBody>
@@ -69,6 +78,13 @@ export function Rope({ length }: { length: number }) {
     Array.from({ length: length }).map(() => createRef<RigidBodyApi>())
   )
 
+  const { posCable } = useControls({
+    posCable: {
+      value: { x: 2.67, y: 20, z: 3.53 },
+      step: 0.01,
+    },
+  })
+
   return (
     <group>
       {refs.current.map((ref, i) => (
@@ -76,17 +92,18 @@ export function Rope({ length }: { length: number }) {
           ref={ref}
           key={i}
           position={[
-            0,
-            -i * (ROPE_FRAGMENT_SIZE + ROPE_FRAGMENT_SPACE_BETZEEN),
-            0,
+            posCable.x,
+            posCable.y - i * (ROPE_FRAGMENT_SIZE + ROPE_FRAGMENT_SPACE_BETZEEN),
+            posCable.z,
           ]}
-          type={i === 0 ? 'kinematicPosition' : 'dynamic'}
+          type={i === 0 ? 'kinematicPosition' : 'dynamic' /* dynamic */}
         />
       ))}
 
-      <BuildingIso
+      <Building
         lastRopeSegment={refs.current[refs.current.length - 1]}
         ropeSegmentNumber={refs.current.length}
+        posCable={posCable}
       />
 
       {refs.current.map(

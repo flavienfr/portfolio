@@ -9,6 +9,7 @@ import { val } from '@theatre/core'
 import { LEAVING_SCREEN_ANIMATION } from '../../WebPage'
 import core from '@theatre/studio'
 import { useSceneOpacity } from '../../../hooks/useSceneOpacity'
+import { Crane } from '../backGroundModels/Crane'
 
 export function Isometric() {
   /* TODO scale to 1.10 in blender on join obj */
@@ -16,12 +17,7 @@ export function Isometric() {
     <>
       <Scene1 />
       <Scene2 />
-      <Scene1 />
-      <Scene2 />
       <Scene3 />
-      <Crane />
-      <Building />
-      <Building />
     </>
   )
 }
@@ -103,59 +99,4 @@ function Scene3() {
   })
 
   return <e.group theatreKey="scene3">{geometries}</e.group>
-}
-
-function Crane() {
-  const model = useLoader(GLTFLoader, './model/crane/scene.glb')
-  const bakedTextures = useTexture('./model/crane/baked.jpg')
-  bakedTextures.flipY = false
-
-  const { positionCrane, rotationCrane } = useControls({
-    positionCrane: {
-      value: [10.8, 16.6, 9],
-      step: 0.1,
-    },
-    rotationCrane: {
-      value: [0, -0.85, 0],
-      step: 0.01,
-    },
-  })
-
-  return (
-    <mesh
-      geometry={model.nodes.crane.geometry}
-      position={positionCrane}
-      rotation={rotationCrane}
-      scale={0.9}
-    >
-      <meshBasicMaterial map={bakedTextures} />
-    </mesh>
-  )
-}
-
-function Building() {
-  const model = useLoader(GLTFLoader, './model/building/scene.glb')
-  const bakedTextures = useTexture('./model/building/baked.jpg')
-  bakedTextures.flipY = false
-
-  const { positionBuilding, rotationBuidling } = useControls({
-    positionBuilding: {
-      value: [3.9, 13.6, 3.6],
-      step: 0.1,
-    },
-    rotationBuidling: {
-      value: [0, 0, 0],
-      step: 0.01,
-    },
-  })
-
-  return (
-    <mesh
-      geometry={model.nodes.building.geometry}
-      position={positionBuilding}
-      rotation={rotationBuidling}
-    >
-      <meshBasicMaterial map={bakedTextures} />
-    </mesh>
-  )
 }

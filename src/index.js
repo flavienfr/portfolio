@@ -15,10 +15,10 @@ export const FOV = 75
 root.render(
   <React.StrictMode>
     <Canvas flat gl={{ preserveDrawingBuffer: true }}>
-      <primitive object={new AxesHelper(10)} />
+      {/* <primitive object={new AxesHelper(10)} /> */}
       {/* <color args={['white']} attach="background" /> */}
-      <OrbitControls makeDefault />
       <Perf />
+      {/* <OrbitControls makeDefault /> */}
       <App />
     </Canvas>
   </React.StrictMode>
