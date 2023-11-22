@@ -16,8 +16,11 @@ export function Isometric() {
     <>
       <Scene1 />
       <Scene2 />
+      <Scene1 />
+      <Scene2 />
       <Scene3 />
       <Crane />
+      <Building />
       <Building />
     </>
   )
