@@ -42,18 +42,21 @@ body,
 } */
 
 /* Hide scrollbar for Chrome, Safari and Opera */
-.htmlScreen ::-webkit-scrollbar {
+.htmlScreen ::-webkit-scrollbar,
+.pongWrapper ::-webkit-scrollbar {
   display: none;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
-.htmlScreen {
+.htmlScreen,
+.pongWrapper {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
   position: fixed !important; /* fix html drei scrolling of screen*/
 }
 
-.htmlScreen {
+.htmlScreen,
+.pongWrapper {
   width: 100%;
   height: 100%;
   margin: 0;
@@ -587,4 +590,112 @@ h1 {
 
 .annotation {
   background-color: blue;
+}
+
+/* Pong screan */
+.pongScrean {
+  width: 346px;
+  height: 307px;
+  border: solid 2px #fff;
+  margin: 0 auto;
+  top: 5em;
+  overflow: hidden;
+}
+
+#half {
+  position: absolute;
+  width: 0px;
+  height: 307px;
+  border-left: dotted 2px #fff;
+  left: 50%;
+  z-index: 1;
+}
+
+#sidel {
+  position: absolute;
+  width: 6px;
+  height: 50px;
+  background-color: #fff;
+  left: 13px;
+  top: 40px;
+  animation: sideleft 3s infinite alternate ease-in-out;
+}
+
+#sider {
+  position: absolute;
+  width: 6px;
+  height: 50px;
+  background-color: #fff;
+  left: 327px;
+  top: 190px;
+  animation: sideright 3s infinite ease-in-out;
+}
+
+#ball {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: #fff;
+  left: 322px;
+  top: 250px;
+  animation: pong 3s infinite linear;
+}
+
+@keyframes sideleft {
+  0% {
+    top: 12px;
+  }
+  25% {
+    top: 25px;
+  }
+  50% {
+    top: 224px;
+  }
+  75% {
+    top: 212px;
+  }
+  100% {
+    top: 12px;
+  }
+}
+
+@keyframes sideright {
+  0% {
+    top: 125px;
+  }
+  25% {
+    top: 25px;
+  }
+  50% {
+    top: 150px;
+  }
+  60% {
+    top: 237px;
+  }
+  100% {
+    top: 125px;
+  }
+}
+
+@keyframes pong {
+  0% {
+    left: 18px;
+    top: 37px;
+  }
+  5% {
+    left: 35px;
+    top: 0px;
+  }
+  55% {
+    left: 322px;
+    top: 237px;
+  }
+  65% {
+    left: 288px;
+    top: 300px;
+  }
+  100% {
+    left: 18px;
+    top: 37px;
+  }
 }
