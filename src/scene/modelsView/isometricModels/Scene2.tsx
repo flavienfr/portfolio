@@ -12,12 +12,20 @@ const OPTIONS = {
     step: 0.01,
   },
   shellPos: {
-    value: [-2.02, 2.65, 3.1],
-    step: 0.01,
+    value: [-2.19, 0.555, 0.65],
+    step: 0.001,
   },
   shellRot: {
     value: [0, 0.11, 0],
     step: 0.01,
+  },
+  arcadePos: {
+    value: [2.03, 1.9, 0.96],
+    step: 0.001,
+  },
+  arcadeRot: {
+    value: [1.6, -1.88, 1.6],
+    step: 0.001,
   },
 }
 
@@ -29,60 +37,74 @@ export function Scene2() {
   bakedTextures.flipY = false
 
   const opacity = useSceneOpacity('scene2')
-  const [screanOn, setScreanON] = useState(false)
-
-  useEffect(() => {
-    if (opacity === 1) setScreanON(true)
-    else if (screanOn) setScreanON(false)
-  }, [opacity])
 
   const geometries: Array<React.JSX.Element> = []
   scene.traverse((child) => {
     geometries.push(
-      <mesh geometry={child.geometry} position={position2}>
+      <mesh geometry={child.geometry}>
         <meshBasicMaterial map={bakedTextures} transparent opacity={opacity} />
       </mesh>
     )
   })
 
   return (
-    <>
-      <PongScreen screanOn={screanOn} />
-      <e.group theatreKey="scene2">{geometries}</e.group>
-    </>
+    <e.group theatreKey="scene2" position={position2}>
+      <PongScreen screanOpacity={opacity} />
+      <ArcadeScreen screanOpacity={opacity} />
+      {geometries}
+    </e.group>
   )
 }
 
-interface PongScreenProps {
-  screanOn: boolean
+interface ScreenProps {
+  screanOpacity: number
 }
-//TODO make screan follow iso scene with opacity
-function PongScreen({ screanOn }: PongScreenProps) {
-  const { shellPos, shellRot } = useControls('scene2', OPTIONS)
 
-  useEffect(() => {
-    console.log('screanOn', screanOn)
-  }, [screanOn])
+function PongScreen({ screanOpacity }: ScreenProps) {
+  const { shellPos, shellRot } = useControls('scene2', OPTIONS)
 
   return (
     <Html
-      wrapperClass="pongWrapper"
+      wrapperClass="screenWrapper"
       position={shellPos}
       rotation={shellRot}
       occlude={'blending'}
       transform
       scale={0.1}
-      visible={screanOn}
-      style={{ backgroundColor: 'black' }}
+      style={{ backgroundColor: 'black', opacity: screanOpacity }}
     >
-      {screanOn && (
-        <div className="pongScrean">
-          <div id="half" />
-          <div id="sidel" />
-          <div id="sider" />
-          <div id="ball" />
-        </div>
-      )}
+      <div className="pongScrean">
+        <div id="half" />
+        <div id="sidel" />
+        <div id="sider" />
+        <div id="ball" />
+      </div>
+    </Html>
+  )
+}
+
+/* TODO
+- auto start
+- optimise wraping arcade 
+- download site ?
+*/
+function ArcadeScreen({ screanOpacity }: ScreenProps) {
+  const { arcadePos, arcadeRot } = useControls('scene2', OPTIONS)
+
+  return (
+    <Html
+      wrapperClass="screenWrapper"
+      position={arcadePos}
+      rotation={arcadeRot}
+      occlude={'blending'}
+      transform
+      distanceFactor={0.4}
+      style={{ opacity: screanOpacity }}
+    >
+      <iframe
+        title="arcadeFrame"
+        src="https://tybsi.com/games/wolfenstein-3d/index.html"
+      />
     </Html>
   )
 }
