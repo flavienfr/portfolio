@@ -24,7 +24,7 @@ export function Scene3() {
   const geometries: Array<React.JSX.Element> = []
   scene.traverse((child) => {
     geometries.push(
-      <mesh geometry={child.geometry} position={position3}>
+      <mesh key={child.name} geometry={child.geometry} position={position3}>
         <meshBasicMaterial map={bakedTextures} transparent opacity={opacity} />
       </mesh>
     )
