@@ -585,10 +585,39 @@ h1 {
   }
 }
 
-/* Models html */
+/* Annotations */
+.title {
+  text-align: center;
+  /*  padding-bottom: 3px;
+  margin-bottom: 10px; */
+}
 
-.annotation {
-  background-color: blue;
+.ligne {
+  border-bottom: solid 5px #05809f;
+  border-radius: 3px;
+  margin: 5px 80px 10px 80px;
+}
+
+.content {
+  padding-top: 10px;
+  /* transform: translate3d(calc(50% + 40px), 0, 0); */
+  text-align: left;
+  background: #202035;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  width: 200px;
+}
+
+.content::before {
+  content: '';
+  position: absolute;
+  top: 25px;
+  left: -40px;
+  height: 3px;
+  width: 40px;
+  border-radius: 3px;
+  background: #202035;
 }
 
 /* Pong screan */
@@ -698,9 +727,15 @@ h1 {
     top: 37px;
   }
 }
-/* arcade screen */
-.screenWrapper iframe {
+/* screen */
+.arcadeFrame {
   border: none;
   width: 915px;
   height: 585px;
+}
+
+.presentationFrame {
+  border: none;
+  width: 1038px /* 815px */;
+  height: 800px /*  815px */;
 }

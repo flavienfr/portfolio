@@ -65,6 +65,7 @@ function PongScreen({ screanOpacity }: ScreenProps) {
     </Html>
   )
 }
+
 function MatrixCanvas() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
 
@@ -126,6 +127,7 @@ function ArcadeScreen({ screanOpacity }: ScreenProps) {
     >
       <iframe
         title="arcadeFrame"
+        className="arcadeFrame"
         src="https://tybsi.com/games/wolfenstein-3d/index.html"
         ref={iframeRef}
         onLoad={() => {
@@ -135,6 +137,7 @@ function ArcadeScreen({ screanOpacity }: ScreenProps) {
     </Html>
   )
 }
+
 function PcScreen({ screanOpacity }: ScreenProps) {
   const { PcScreenPos, PcScreenRot } = useControls('scene2', OPTIONS)
 

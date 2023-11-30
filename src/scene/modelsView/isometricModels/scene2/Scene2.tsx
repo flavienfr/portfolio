@@ -5,7 +5,7 @@ import { useControls } from 'leva'
 import React from 'react'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { useSceneOpacity } from '../../../../hooks/useSceneOpacity'
-import { MeshAnnotation } from '../InvisibleBoxDescriptor'
+import { MeshDescriptor } from '../MeshDescriptor'
 import { Screens } from './Screens'
 
 export const OPTIONS = {
@@ -27,7 +27,36 @@ export function Scene2() {
   )
 }
 
+export const OPTIONS2 = {
+  shcoolPos: {
+    value: [-1.1, 2.64, -2.18],
+    step: 0.01,
+  },
+  pcPos: {
+    value: [0, 0, 0],
+    step: 0.01,
+  },
+  serverPos: {
+    value: [0, 0, 0],
+    step: 0.01,
+  },
+  arcadePos: {
+    value: [0, 0, 0],
+    step: 0.01,
+  },
+  paintPos: {
+    value: [0, 0, 0],
+    step: 0.01,
+  },
+  tvPos: {
+    value: [0, 0, 0],
+    step: 0.01,
+  },
+}
+
 function ShcoolSceneObject() {
+  const { shcoolPos, pcPos, serverPos, arcadePos, paintPos, tvPos } =
+    useControls('screens', OPTIONS2)
   const { nodes } = useLoader(GLTFLoader, './model/scene2/scene.glb')
 
   const bakedTextures = useTexture('./model/scene2/baked.jpg')
@@ -40,48 +69,29 @@ function ShcoolSceneObject() {
 
   return (
     <>
-      <MeshAnnotation
-        keyProps={'shcool'}
-        geometry={nodes.shcool.geometry}
+      <MeshDescriptor
+        mesh={nodes.shcool}
         Material={MapMaterial}
-      >
-        test
-      </MeshAnnotation>
-      <MeshAnnotation
-        keyProps={'paint'}
-        geometry={nodes.paint.geometry}
+        position={shcoolPos}
+      />
+      <MeshDescriptor mesh={nodes.pc} Material={MapMaterial} position={pcPos} />
+      <MeshDescriptor
+        mesh={nodes.server}
         Material={MapMaterial}
-      >
-        test
-      </MeshAnnotation>
-      <MeshAnnotation
-        keyProps={'pc'}
-        geometry={nodes.pc.geometry}
+        position={serverPos}
+      />
+      <MeshDescriptor
+        mesh={nodes.arcade}
         Material={MapMaterial}
-      >
-        test
-      </MeshAnnotation>
-      <MeshAnnotation
-        keyProps={'server'}
-        geometry={nodes.server.geometry}
+        position={arcadePos}
+      />
+      <MeshDescriptor
+        mesh={nodes.paint}
         Material={MapMaterial}
-      >
-        test
-      </MeshAnnotation>
-      <MeshAnnotation
-        keyProps={'arcade'}
-        geometry={nodes.arcade.geometry}
-        Material={MapMaterial}
-      >
-        test
-      </MeshAnnotation>
-      <MeshAnnotation
-        keyProps={'tv'}
-        geometry={nodes.tv.geometry}
-        Material={MapMaterial}
-      >
-        test
-      </MeshAnnotation>
+        position={paintPos}
+      />
+      <MeshDescriptor mesh={nodes.tv} Material={MapMaterial} position={tvPos} />
+
       <mesh key={'room'} geometry={nodes.room.geometry}>
         <MapMaterial />
       </mesh>

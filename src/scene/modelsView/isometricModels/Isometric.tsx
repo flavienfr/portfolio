@@ -17,7 +17,7 @@ export function Isometric() {
   const providerValue = { objRef, setObjs }
 
   return (
-    <OutlineObjContext.Provider value={providerValue}>
+    /*    <OutlineObjContext.Provider value={providerValue}>
       <EffectComposer multisampling={8} autoClear={false}>
         <Outline
           selection={objRef ? [objRef] : objRef}
@@ -26,9 +26,14 @@ export function Isometric() {
           edgeStrength={100}
         />
       </EffectComposer>
-      <Scene1 />
+  
       <Scene2 />
-      {/*<Scene3 /> */}
-    </OutlineObjContext.Provider>
+      <Scene3 />
+    </OutlineObjContext.Provider> */
+    <>
+      <Scene1 />
+      {/* <Scene2 /> */}
+      <Scene3 />
+    </>
   )
 }

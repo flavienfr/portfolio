@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { getProject } from '@theatre/core'
 import flyThroughState from '../theater/state.json'
 
+//TODO use memo or use call back
+
 export function useSceneOpacity(objTitle: string) {
   const [opacity, setOpacity] = useState(0)
 

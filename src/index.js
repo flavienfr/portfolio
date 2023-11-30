@@ -7,6 +7,7 @@ import { AxesHelper } from 'three'
 import App from './App.tsx'
 import './index.css'
 import reportWebVitals from './reportWebVitals'
+import { Leva } from 'leva'
 import { Perf } from 'r3f-perf'
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
@@ -14,6 +15,7 @@ export const FOV = 75
 
 root.render(
   <React.StrictMode>
+    {/* <Leva collapsed /> */}
     <Canvas flat gl={{ preserveDrawingBuffer: true }}>
       {/* <primitive object={new AxesHelper(10)} /> */}
       {/* <color args={['white']} attach="background" /> */}
