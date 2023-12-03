@@ -6,7 +6,7 @@ export function ModelsView() {
   return (
     <>
       {/*   <BackgroundModels /> */}
-      {/* <Isometric /> */}
+      {<Isometric />}
     </>
   )
 }
