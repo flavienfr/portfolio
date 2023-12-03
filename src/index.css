@@ -161,6 +161,7 @@ h1 {
 .btnWrapper {
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
 .btnInnerWrapper {
@@ -171,6 +172,7 @@ h1 {
 }
 
 .myButton {
+  /*  z-index: 1000; */
   box-shadow: 0px 0px 30px 4px #ffff; /* 1645e9 */
   background-color: #000000;
   border: 3px solid var(--backGroundColor);
@@ -250,13 +252,23 @@ h1 {
 
 .view3 {
   border: solid 1px red;
+}
+
+.fixedView {
+  /* position: absolute; */
+  width: 2080px;
+  height: 1043px;
   position: relative;
+  left: calc(-1040px + 50%);
+  border: solid 3px blue;
+  /*  
+  left: calc(-50vw + 50%); */
 }
 
 .seat {
-  position: absolute;
-  left: 5%;
-  top: 5%;
+  position: relative;
+  left: 50px;
+  top: 50px;
   width: 100px;
   height: auto;
   /* transform: rotate(15deg); */
@@ -265,7 +277,7 @@ h1 {
 }
 
 .arcade {
-  position: absolute;
+  position: relative;
   left: 60%;
   bottom: 10%;
   width: 50%;
@@ -275,7 +287,7 @@ h1 {
 }
 
 .pong {
-  position: absolute;
+  position: relative;
   left: 60%;
   width: 10%;
   height: auto;
@@ -284,21 +296,21 @@ h1 {
 }
 
 .school {
-  position: absolute;
+  position: relative;
   left: 60%;
   width: 10%;
   height: auto;
 }
 
 .cube {
-  position: absolute;
+  position: relative;
   left: 60%;
   width: 10%;
   height: auto;
 }
 
 .desk {
-  position: absolute;
+  position: relative;
   left: 30%;
   bottom: 5%;
   width: 30%;

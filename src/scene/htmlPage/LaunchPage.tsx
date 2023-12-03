@@ -34,35 +34,37 @@ export function LaunchPage() {
 
   return (
     <div className="view3" /* ref={parallaxScene} */>
-      {/* <img
-        src="./img/seat.png"
-        className={` seat + ${color ? 'imgColor' : 'imgBlack'}`}
-      />
+      <div className="fixedView">
+        <img
+          src="./img/seat.png"
+          className={` seat + ${color ? 'imgColor' : 'imgBlack'}`}
+        />
 
-      <img
-        src="./img/arcade.png"
-        className={` arcade  + ${color ? 'imgColor' : 'imgBlack'}`}
-      />
+        <img
+          src="./img/arcade.png"
+          className={` arcade  + ${color ? 'imgColor' : 'imgBlack'}`}
+        />
 
-      <img
-        src="./img/pong.png"
-        className={` pong  + ${color ? 'imgColor' : 'imgBlack'}`}
-      />
+        <img
+          src="./img/pong.png"
+          className={` pong  + ${color ? 'imgColor' : 'imgBlack'}`}
+        />
 
-      <img
-        src="./img/school.png"
-        className={` school + ${color ? 'imgColor' : 'imgBlack'}`}
-      />
+        <img
+          src="./img/school.png"
+          className={` school + ${color ? 'imgColor' : 'imgBlack'}`}
+        />
 
-      <img
-        src="./img/cube.png"
-        className={` cube  + ${color ? 'imgColor' : 'imgBlack'}`}
-      />
+        <img
+          src="./img/cube.png"
+          className={` cube  + ${color ? 'imgColor' : 'imgBlack'}`}
+        />
 
-      <img
-        src="./img/desk.png"
-        className={` desk  + ${color ? 'imgColor' : 'imgBlack'}`}
-      /> */}
+        <img
+          src="./img/desk.png"
+          className={` desk  + ${color ? 'imgColor' : 'imgBlack'}`}
+        />
+      </div>
 
       <div className="btnWrapper">
         <div className="btnInnerWrapper">
