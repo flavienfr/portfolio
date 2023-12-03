@@ -41,17 +41,16 @@ export function MeshDescriptor({
       ref={objRef}
     >
       <Material />
-      {/*  <boxGeometry /> */}
 
-      {hovered && opacity === 1 /* meshObj.name === 'shcool'  */ && (
-        <Html position={position} /*  distanceFactor={10} */>
+      {/* {hovered && opacity === 1  && (
+        <Html position={position} >
           <div className="content">
             <div className="title">{objDescriptor[meshObj.name].title}</div>
             <div className="ligne" />
             {objDescriptor[meshObj.name].description}
           </div>
         </Html>
-      )}
+      )} */}
     </mesh>
   )
 }

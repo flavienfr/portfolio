@@ -117,10 +117,14 @@ h1 {
   line-height: 1.7;
   color: #ffffff;
 }
+.textWrapper div {
+  width: 800px;
+}
 
 @media screen and (min-width: 1050px) {
   .textWrapper {
     font-size: 40px;
+    margin: none;
   }
 }
 
@@ -237,53 +241,68 @@ h1 {
 
 /* Animation */
 /* TODO handle over flow qui augmente la taille de view3 (mettre border pour comprendre)*/
+/* 
 .layer {
-  position: relative;
   width: 100%;
   height: 100%;
   user-select: none;
+} */
+
+.view3 {
+  border: solid 1px red;
+  position: relative;
 }
 
-.glasses {
+.seat {
   position: absolute;
   left: 5%;
   top: 5%;
-  width: 25%;
+  width: 100px;
   height: auto;
-  transform: rotate(15deg);
+  /* transform: rotate(15deg); */
   /* filter: blur(0px); */
   /* animation: floating 6s ease-in-out 0s infinite; */
 }
-.img1 {
-  z-index: 10;
-}
 
-.glasses1 {
-  position: absolute;
-  right: 20px;
-  bottom: 20px;
-  width: 15%;
-  height: auto;
-  transform: scaleX(-1) rotate(-5deg);
-  filter: blur(1px);
-  /* animation: floating 12s ease-in-out 0s infinite; */
-}
-.img2 {
-  z-index: 10;
-}
-
-.glasses2 {
+.arcade {
   position: absolute;
   left: 60%;
-  top: 20%;
+  bottom: 10%;
+  width: 50%;
+  height: auto;
+  /* filter: blur(1px); */
+  /* animation: floating 12s ease-in-out 0s infinite; */
+}
+
+.pong {
+  position: absolute;
+  left: 60%;
   width: 10%;
   height: auto;
-  z-index: 1;
-  filter: blur(3px);
+  /*  filter: blur(3px); */
   /* animation: floating 6s ease-in-out 0s infinite; */
 }
-.img3 {
-  z-index: 1;
+
+.school {
+  position: absolute;
+  left: 60%;
+  width: 10%;
+  height: auto;
+}
+
+.cube {
+  position: absolute;
+  left: 60%;
+  width: 10%;
+  height: auto;
+}
+
+.desk {
+  position: absolute;
+  left: 30%;
+  bottom: 5%;
+  width: 30%;
+  height: auto;
 }
 
 @keyframes floating {

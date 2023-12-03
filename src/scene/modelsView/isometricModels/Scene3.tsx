@@ -87,7 +87,10 @@ function PresentationScreen({ screanOpacity }: ScreenProps) {
       occlude={'blending'}
       transform
       distanceFactor={0.75}
-      style={{ opacity: screanOpacity }}
+      style={{
+        opacity: screanOpacity,
+        backgroundColor: 'white',
+      }}
     >
       <video
         autoPlay

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 
-interface WelcomePageProps {
+export interface WelcomePageProps {
   scrollFraction: number
 }
+
 export function WelcomePage({ scrollFraction }: WelcomePageProps) {
   const [opacity, setOpacity] = useState(1)
   const [zoom, setZoom] = useState(1)

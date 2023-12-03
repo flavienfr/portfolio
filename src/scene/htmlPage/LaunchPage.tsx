@@ -33,34 +33,37 @@ export function LaunchPage() {
   }
 
   return (
-    <div className="view3" ref={parallaxScene}>
-      <div
-        className={`layer img1 + ${color ? 'imgColor' : 'imgBlack'}`}
-        data-depth="1"
-      >
-        <img
-          src="./img/seatCompress.png"
-          alt="3d glasses"
-          className="glasses"
-        />
-      </div>
+    <div className="view3" /* ref={parallaxScene} */>
+      {/* <img
+        src="./img/seat.png"
+        className={` seat + ${color ? 'imgColor' : 'imgBlack'}`}
+      />
 
-      <div
-        className={`layer img2  + ${color ? 'imgColor' : 'imgBlack'}`}
-        data-depth="0.6"
-      >
-        <img
-          src="./img/seatCompress.png"
-          alt="3d glasses"
-          className="glasses1"
-        />
-      </div>
-      <div
-        className={`layer 3  + ${color ? 'imgColor' : 'imgBlack'}`}
-        data-depth="0.2"
-      >
-        <img src="./img/arcade.png" alt="3d glasses" className="glasses2" />
-      </div>
+      <img
+        src="./img/arcade.png"
+        className={` arcade  + ${color ? 'imgColor' : 'imgBlack'}`}
+      />
+
+      <img
+        src="./img/pong.png"
+        className={` pong  + ${color ? 'imgColor' : 'imgBlack'}`}
+      />
+
+      <img
+        src="./img/school.png"
+        className={` school + ${color ? 'imgColor' : 'imgBlack'}`}
+      />
+
+      <img
+        src="./img/cube.png"
+        className={` cube  + ${color ? 'imgColor' : 'imgBlack'}`}
+      />
+
+      <img
+        src="./img/desk.png"
+        className={` desk  + ${color ? 'imgColor' : 'imgBlack'}`}
+      /> */}
+
       <div className="btnWrapper">
         <div className="btnInnerWrapper">
           <button onClick={handleClick} className="myButton" disabled={color}>

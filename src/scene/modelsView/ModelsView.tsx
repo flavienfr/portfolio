@@ -5,8 +5,8 @@ import { BackgroundModels } from './backGroundModels/BackgroundModels'
 export function ModelsView() {
   return (
     <>
-      <BackgroundModels />
-      <Isometric />
+      {/*   <BackgroundModels /> */}
+      {/* <Isometric /> */}
     </>
   )
 }
