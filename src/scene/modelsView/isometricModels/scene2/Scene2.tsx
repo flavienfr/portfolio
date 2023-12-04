@@ -29,27 +29,27 @@ export function Scene2() {
 
 export const OPTIONS2 = {
   shcoolPos: {
-    value: [-1.1, 2.64, -2.18],
+    value: [-1.57, 2.64, -2.18],
     step: 0.01,
   },
   pcPos: {
-    value: [0, 0, 0],
+    value: [2.75, 1.89, -1.25],
     step: 0.01,
   },
   serverPos: {
-    value: [0, 0, 0],
+    value: [0.4, 1.97, -3.01],
     step: 0.01,
   },
   arcadePos: {
-    value: [0, 0, 0],
+    value: [1.98, 2.03, 0.21],
     step: 0.01,
   },
   paintPos: {
-    value: [0, 0, 0],
+    value: [2.61, 2.57, 1.7],
     step: 0.01,
   },
   tvPos: {
-    value: [0, 0, 0],
+    value: [-1.31, 0.24, 0.36],
     step: 0.01,
   },
 }
@@ -84,13 +84,20 @@ function ShcoolSceneObject() {
         mesh={nodes.arcade}
         Material={MapMaterial}
         position={arcadePos}
+        annotationPos="Left"
       />
       <MeshDescriptor
         mesh={nodes.paint}
         Material={MapMaterial}
         position={paintPos}
+        annotationPos="Left"
       />
-      <MeshDescriptor mesh={nodes.tv} Material={MapMaterial} position={tvPos} />
+      <MeshDescriptor
+        mesh={nodes.tv}
+        Material={MapMaterial}
+        position={tvPos}
+        annotationPos="Bottom"
+      />
 
       <mesh key={'room'} geometry={nodes.room.geometry}>
         <MapMaterial />

@@ -20,7 +20,7 @@ root.render(
       {/* <primitive object={new AxesHelper(10)} /> */}
       {/* <color args={['white']} attach="background" /> */}
       <Perf />
-      <OrbitControls makeDefault />
+      {/* <OrbitControls makeDefault /> */}
       <App />
     </Canvas>
   </React.StrictMode>

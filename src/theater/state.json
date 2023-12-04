@@ -651,6 +651,43 @@
             "trackIdByPropPath": {
               "[\"opacity\"]": "ZxK-WHwL2v"
             }
+          },
+          "showScene": {
+            "trackData": {
+              "jc4Gx25U1a": {
+                "type": "BasicKeyframedTrack",
+                "__debugName": "showScene:[\"showScene\"]",
+                "keyframes": [
+                  {
+                    "id": "9mOPWKXJud",
+                    "position": 0,
+                    "connectedRight": true,
+                    "handles": [
+                      0.5,
+                      1,
+                      0.5,
+                      0.5
+                    ],
+                    "value": 0
+                  },
+                  {
+                    "id": "mo7FyXbzR6",
+                    "position": 12,
+                    "connectedRight": true,
+                    "handles": [
+                      0.5,
+                      0.5,
+                      0.5,
+                      0
+                    ],
+                    "value": 12
+                  }
+                ]
+              }
+            },
+            "trackIdByPropPath": {
+              "[\"showScene\"]": "jc4Gx25U1a"
+            }
           }
         }
       }
@@ -658,6 +695,7 @@
   },
   "definitionVersion": "0.4.0",
   "revisionHistory": [
+    "4oRuwgVD7AeqUOsD",
     "lhf9iKSX_N9O3w6f",
     "_4kWF1DRPYHILFDD",
     "Xg-Sm9k4dy1xWk-Y",

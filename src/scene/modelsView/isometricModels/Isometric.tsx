@@ -1,9 +1,10 @@
-import React, { createContext, useState } from 'react'
+import { useCurrentSheet } from '@theatre/r3f'
+import React, { createContext, useEffect, useState } from 'react'
+import { BufferGeometry, Material, Mesh } from 'three'
 import { Scene1 } from './Scene1'
 import { Scene3 } from './Scene3'
+import { useShowScene } from '../../../hooks/useSceneOpacity'
 import { Scene2 } from './scene2/Scene2'
-import { EffectComposer, Outline } from '@react-three/postprocessing'
-import { Mesh, BufferGeometry, Material } from 'three'
 
 export const OutlineObjContext = createContext({
   objRef: null,
@@ -13,11 +14,24 @@ export const OutlineObjContext = createContext({
 })
 
 export function Isometric() {
+  /*  const value = useShowScene() */
+
+  return (
+    <>
+      <Scene1 />
+      <Scene2 />
+      <Scene3 />
+    </>
+  )
+}
+
+//TODO find overliner but low consumer
+{
+  /*
   const [objRef, setObjs] = useState(null)
   const providerValue = { objRef, setObjs }
 
-  return (
-    /*    <OutlineObjContext.Provider value={providerValue}>
+  <OutlineObjContext.Provider value={providerValue}>
       <EffectComposer multisampling={8} autoClear={false}>
         <Outline
           selection={objRef ? [objRef] : objRef}
@@ -26,14 +40,8 @@ export function Isometric() {
           edgeStrength={100}
         />
       </EffectComposer>
-  
-      <Scene2 />
-      <Scene3 />
-    </OutlineObjContext.Provider> */
-    <>
       <Scene1 />
-      {/* <Scene2 /> */}
-      <Scene3 />
-    </>
-  )
+       <Scene2 />
+       <Scene3 />
+    </OutlineObjContext.Provider> */
 }

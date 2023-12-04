@@ -12,7 +12,6 @@ export function BioPage({ scrollFraction }: WelcomePageProps) {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    console.log('scrollFraction', scrollFraction)
     if (scrollFraction >= 0.3) setIsVisible(true)
     else if (isVisible && scrollFraction < 0.3) setIsVisible(false)
   }, [scrollFraction])
