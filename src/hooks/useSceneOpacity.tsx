@@ -1,7 +1,5 @@
-import { useEffect, useState } from 'react'
-import { getProject } from '@theatre/core'
-import flyThroughState from '../theater/state.json'
 import { useCurrentSheet } from '@theatre/r3f'
+import { useEffect, useState } from 'react'
 
 //TODO use memo or use call back
 
@@ -15,7 +13,7 @@ export function useSceneOpacity(objTitle: string) {
   })
 
   useEffect(() => {
-    const unsub = obj.onValuesChange((obj) => {
+    /* const unsub =  */ obj.onValuesChange((obj) => {
       setOpacity(obj.opacity)
     })
     /*TODO return unsub() */
@@ -25,6 +23,7 @@ export function useSceneOpacity(objTitle: string) {
 }
 
 export function useShowScene() {
+  //TODO setShowScene too many time
   const [showScene, setShowScene] = useState(0)
 
   const sheet = useCurrentSheet()
@@ -34,14 +33,12 @@ export function useShowScene() {
   })
 
   useEffect(() => {
-    const unsub = obj.onValuesChange((obj) => {
-      console.log('(obj.showScene', obj.showScene)
-      setShowScene(obj.showScene)
+    obj.onValuesChange((obj) => {
+      const state = obj.showScene
+      if (state >= 5.7 && state <= 8.0) setShowScene(2)
+      else if (state >= 9.0 && state <= 10.0) setShowScene(3)
+      else setShowScene(0)
     })
-
-    return () => {
-      unsub()
-    }
   }, [obj])
 
   return showScene

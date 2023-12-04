@@ -1,8 +1,8 @@
 import { Html } from '@react-three/drei'
 import { Vector3 } from '@react-three/fiber'
-import React, { useEffect, useMemo, useRef, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { Object3D } from 'three'
-import { useSceneOpacity } from '../../../hooks/useSceneOpacity'
+import { useShowScene } from '../../../hooks/useSceneOpacity'
 import { objDescriptor } from '../../../text/objDescriptor'
 
 interface MeshDescriptorProps {
@@ -10,6 +10,7 @@ interface MeshDescriptorProps {
   mesh: Object3D
   Material: () => React.JSX.Element
   annotationPos?: 'Left' | 'Bottom'
+  scene: number
 }
 
 //TODO deal with glith selected obj. Bloqué sur le premier obj trouvé
@@ -19,51 +20,56 @@ export function MeshDescriptor({
   mesh: meshObj,
   Material,
   annotationPos,
+  scene,
 }: MeshDescriptorProps) {
   const [hovered, setHovered] = useState(false)
-  const objRef = useRef(null)
-  /*  const { setObjs } = useContext(OutlineObjContext) */
+  const currentScene = useShowScene()
 
-  const opacity = useSceneOpacity('scene2')
-
-  useEffect(() => {
-    if (opacity !== 1) return
-    document.body.style.cursor = hovered ? 'pointer' : 'auto'
-    /* setObjs(hovered ? objRef : null) */
-  }, [hovered])
+  const handleHovered = (hover: boolean) => {
+    if (currentScene !== scene) {
+      if (hovered) setHovered(false)
+      document.body.style.cursor = 'auto'
+      return
+    }
+    document.body.style.cursor = hover ? 'pointer' : 'auto'
+    setHovered(hover)
+  }
 
   const lignes = useMemo(
     () => objDescriptor[meshObj.name].description.split('\n'),
-    [objDescriptor]
+    [meshObj]
   )
 
   return (
     <mesh
       key={meshObj.name}
       geometry={meshObj.geometry}
-      onPointerOver={() => setHovered(true)}
-      onPointerOut={() => setHovered(false)}
-      ref={objRef}
+      onPointerOver={() => handleHovered(true)}
+      onPointerOut={() => handleHovered(false)}
+      /* ref={objRef} */
     >
       <Material />
 
-      {/*    <mesh position={position}>
+      {/*  <mesh position={position}>
         <boxGeometry />
-      </mesh>
- */}
-      {hovered /* meshObj.name === 'pc' */ && opacity === 1 && (
-        <Html position={position}>
-          <div
-            className={annotationPos ? `content${annotationPos}` : 'content'}
-          >
-            <div className="title">{objDescriptor[meshObj.name].title}</div>
-            <div className="ligne" />
-            {lignes.map((ligne, idx) => (
-              <p key={idx}>{ligne}</p>
-            ))}
-          </div>
-        </Html>
-      )}
+      </mesh> */}
+
+      <Html
+        position={position}
+        wrapperClass="wrapAnnotation"
+        style={{
+          opacity: hovered ? 1 : 0,
+          transition: 'opacity 0.5s',
+        }}
+      >
+        <div className={annotationPos ? `content${annotationPos}` : 'content'}>
+          <div className="title">{objDescriptor[meshObj.name].title}</div>
+          <div className="ligne" />
+          {lignes.map((ligne, idx) => (
+            <p key={idx}>{ligne}</p>
+          ))}
+        </div>
+      </Html>
     </mesh>
   )
 }

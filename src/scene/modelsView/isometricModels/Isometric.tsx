@@ -1,25 +1,22 @@
-import { useCurrentSheet } from '@theatre/r3f'
-import React, { createContext, useEffect, useState } from 'react'
-import { BufferGeometry, Material, Mesh } from 'three'
+import React from 'react'
 import { Scene1 } from './Scene1'
-import { Scene3 } from './Scene3'
-import { useShowScene } from '../../../hooks/useSceneOpacity'
 import { Scene2 } from './scene2/Scene2'
+import { Scene3 } from './scene3/Scene3'
 
-export const OutlineObjContext = createContext({
+/* export const OutlineObjContext = createContext({
   objRef: null,
   setObjs: (
     objRef: React.Ref<Mesh<BufferGeometry, Material | Material[]>>
   ) => {},
-})
+}) */
 
 export function Isometric() {
   /*  const value = useShowScene() */
 
   return (
     <>
-      <Scene1 />
-      <Scene2 />
+      {/*   <Scene1 />
+      <Scene2 /> */}
       <Scene3 />
     </>
   )

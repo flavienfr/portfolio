@@ -17,7 +17,7 @@ export const objDescriptor = {
   pc: {
     title: 'Shell',
     description:
-      'As a duo, we developed a mini shell. The shell is a command interpreter commonly found in our terminals, allowing us to input commands like:\n\n$> echo "hello world"\n$> cat textFile |grep -w anyWord\n\nLanguage: C',
+      'As a duo, we developed a mini shell. The shell is a command interpreter commonly found in our terminals, allowing us to input commands like:\n\n$> echo "hello world"\n$> cat textFile | grep -w anyWord\n\nLanguage: C',
   },
   tv: {
     title: 'Pong online',
@@ -28,5 +28,10 @@ export const objDescriptor = {
     title: 'Urban art',
     description:
       '42 is also an urban art museum where you might come across works by Banksy around a corridor.',
+  },
+  upslide: {
+    title: 'UpSlide',
+    description:
+      "La première entreprise dans laquelle j'ai travaillé à partir de 2021 en tant que développeur full stack. Upslide facilite la création de documents Microsoft 365 grâce à une multitude d'outils, tels que la liaison entre Excel et PowerPoint, qui met à jour votre présentation lorsque les données de votre fichier Excel changent.",
   },
 }
