@@ -2,12 +2,12 @@ export const objDescriptor = {
   shcool: {
     title: '42 school',
     description:
-      '42 is a school that offers an innovative training program without classes, teachers, or traditional courses. The emphasis is on learning how to learn to succeed. I have completed numerous projects within this school, and some of them are illustrated in this room.',
+      "In 2019 I joined 42, a programming school where education takes a revolutionary turn, breaking free from traditional classes and teachers. The emphasis is on learning how to learn. Throughout my journey, I've successfully undertaken numerous projects, some of which are showcased in this space.",
   },
   arcade: {
     title: 'Wolfenstein 3D',
     description:
-      "I rebuilt the game engine of Wolfenstein 3D, one of the first games that creates the illusion of 3D by playing with perspectives. This is achieved through ray-casting, a graphics rendering technique that simulates tracing rays from the viewer's eye to determine intersections with objects in a 3D scene.",
+      'Wolfenstein 3D is a pioneering game that mesmerized players with its early 3D illusions. This project led me to rebuild the game engine, unraveling the magic behind the scenes. Through the wizardry of ray-casting, a graphics technique that traces rays to determine intersections with objects in a 3D scene, I touched a piece of gaming history.',
   },
   server: {
     title: 'Web server',
@@ -32,6 +32,11 @@ export const objDescriptor = {
   upslide: {
     title: 'UpSlide',
     description:
-      "La première entreprise dans laquelle j'ai travaillé à partir de 2021 en tant que développeur full stack. Upslide facilite la création de documents Microsoft 365 grâce à une multitude d'outils, tels que la liaison entre Excel et PowerPoint, qui met à jour votre présentation lorsque les données de votre fichier Excel changent.",
+      "In 2021, I joined UpSlide as a full-stack developer. The company's mission was to automate the creation of Microsoft 365 documents. \nOne standout feature was the seamless connection between Excel and PowerPoint, quickly updating your presentations when you modify your excel file link to it.",
+  },
+  cubes: {
+    title: 'Languages',
+    description:
+      'I worked on the creation of an administration website, strategically designed to oversee the management of client licenses and user interactions, among other pivotal functionalities.\n\nBackend: ASP.NET framework\nFrontend: TypeScript, React library',
   },
 }

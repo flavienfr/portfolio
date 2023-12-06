@@ -7,6 +7,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 import reportWebVitals from './reportWebVitals'
+import { OrbitControls } from '@react-three/drei'
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 export const FOV = 75
@@ -18,7 +19,7 @@ root.render(
       {/* <primitive object={new AxesHelper(10)} /> */}
       {/* <color args={['white']} attach="background" /> */}
       <Perf />
-      {/*       <OrbitControls makeDefault /> */}
+      {/* <OrbitControls makeDefault /> */}
       <App />
     </Canvas>
   </React.StrictMode>
@@ -40,6 +41,7 @@ reportWebVitals()
 Improve:
 - BTN launch trop petit et aliase en mode small screen quand on est en vue 3d
 - Blender light crane and other model
+- Info clickable obj (light)
 
 Bonus:
 - Smooth scroll transition entre les vues

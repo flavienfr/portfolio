@@ -13,7 +13,11 @@ TODO
 
 const OPTIONS = {
   upslidePos: {
-    value: [0, 0, 0],
+    value: [-1.21, 2.79, -3.26],
+    step: 0.01,
+  },
+  cubesPos: {
+    value: [-0.79, -0.42, 1.8],
     step: 0.01,
   },
 }
@@ -23,7 +27,7 @@ interface UpslideSceneObjectProps {
 }
 
 export function UpslideSceneObject({ opacity }: UpslideSceneObjectProps) {
-  const { upslidePos } = useControls('scene3', OPTIONS)
+  const { upslidePos, cubesPos } = useControls('scene3', OPTIONS)
   const { nodes } = useLoader(GLTFLoader, './model/scene3/scene.glb')
 
   const bakedTextures = useTexture('./model/scene3/baked.jpg')
@@ -41,15 +45,13 @@ export function UpslideSceneObject({ opacity }: UpslideSceneObjectProps) {
         scene={3}
       />
 
-      <mesh key={'c'} geometry={nodes.c.geometry}>
-        <MapMaterial />
-      </mesh>
-      <mesh key={'ts'} geometry={nodes.ts.geometry}>
-        <MapMaterial />
-      </mesh>
-      <mesh key={'react'} geometry={nodes.react.geometry}>
-        <MapMaterial />
-      </mesh>
+      <MeshDescriptor
+        mesh={nodes.cubes}
+        Material={MapMaterial}
+        position={cubesPos}
+        annotationPos="Bottom"
+        scene={3}
+      />
 
       <mesh key={'laptop'} geometry={nodes.laptop.geometry}>
         <MapMaterial />

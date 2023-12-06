@@ -46,11 +46,10 @@ export function MeshDescriptor({
       geometry={meshObj.geometry}
       onPointerOver={() => handleHovered(true)}
       onPointerOut={() => handleHovered(false)}
-      /* ref={objRef} */
     >
       <Material />
 
-      {/*  <mesh position={position}>
+      {/* <mesh position={position}>
         <boxGeometry />
       </mesh> */}
 
