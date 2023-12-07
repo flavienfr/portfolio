@@ -608,14 +608,21 @@ h1 {
 /* Annotations */
 .title {
   text-align: center;
-  /*  padding-bottom: 3px;
-  margin-bottom: 10px; */
+  font-family: sf;
+  font-size: 28px;
+  font-weight: 700;
 }
 
 .ligne {
   border-bottom: solid 5px #05809f;
   border-radius: 3px;
-  margin: 5px 80px 10px 80px;
+  margin: 3px 80px 0px 80px;
+}
+
+.textLignes {
+  font-family: mulish;
+  font-size: 18px;
+  color: #ffffff;
 }
 
 .content {
@@ -626,7 +633,7 @@ h1 {
   color: white;
   padding: 10px 15px;
   border-radius: 5px;
-  width: 200px;
+  width: 300px;
 }
 
 .content::before {
@@ -648,7 +655,7 @@ h1 {
   color: white;
   padding: 10px 15px;
   border-radius: 5px;
-  width: 200px;
+  width: 300px;
 }
 
 .contentBottom::before {
@@ -670,7 +677,7 @@ h1 {
   color: white;
   padding: 10px 15px;
   border-radius: 5px;
-  width: 200px;
+  width: 300px;
 }
 
 .contentLeft::before {
@@ -807,4 +814,18 @@ h1 {
   border: none;
   width: 1038px /* 815px */;
   height: 800px /*  815px */;
+}
+
+/* End text */
+.endTextWrapper {
+  position: fixed !important;
+  pointer-events: none;
+}
+
+.endTextWrapper h1 {
+  color: var(--textColor);
+  font-size: 100px;
+  font-family: sf;
+  font-weight: 700;
+  line-height: 100px;
 }

@@ -46,6 +46,7 @@ export function MeshDescriptor({
       geometry={meshObj.geometry}
       onPointerOver={() => handleHovered(true)}
       onPointerOut={() => handleHovered(false)}
+      /* onPointerDown={() => () => handleHovered(!hovered)} */
     >
       <Material />
 
@@ -57,16 +58,20 @@ export function MeshDescriptor({
         position={position}
         wrapperClass="wrapAnnotation"
         style={{
-          opacity: hovered ? 1 : 0,
+          opacity: /* meshObj.name === 'arcade' */ hovered ? 1 : 0,
           transition: 'opacity 0.5s',
         }}
       >
         <div className={annotationPos ? `content${annotationPos}` : 'content'}>
           <div className="title">{objDescriptor[meshObj.name].title}</div>
+
           <div className="ligne" />
-          {lignes.map((ligne, idx) => (
-            <p key={idx}>{ligne}</p>
-          ))}
+
+          <div className="textLignes">
+            {lignes.map((ligne, idx) => (
+              <p key={idx}>{ligne}</p>
+            ))}
+          </div>
         </div>
       </Html>
     </mesh>

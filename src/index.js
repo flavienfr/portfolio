@@ -38,10 +38,14 @@ reportWebVitals()
 - background + sole brainstorming
 - Ajouter les objets 3d a la scene 3 de paralax
 
+Mobile:
+- Annotation clikable
+
 Improve:
 - BTN launch trop petit et aliase en mode small screen quand on est en vue 3d
 - Blender light crane and other model
 - Info clickable obj (light)
+- Hover animation des objets page launch
 
 Bonus:
 - Smooth scroll transition entre les vues
@@ -50,4 +54,10 @@ Final check:
 - Check firefox/safary compatibility
 - performance test with reportWebVitals
 - Remove dev dependencies (perf)
+
+
+Models:
+Improve:
+- base de la grue doit etre plus sombre (tester sur photoshop)
+- Cable devrait avoir ca propre material
 */
