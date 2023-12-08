@@ -123,7 +123,9 @@ function ArcadeScreen({ screanOpacity }: ScreenProps) {
       occlude={'blending'}
       transform
       distanceFactor={0.4}
-      style={{ opacity: screanOpacity }}
+      style={{
+        opacity: screanOpacity,
+      }}
     >
       <iframe
         title="arcadeFrame"
