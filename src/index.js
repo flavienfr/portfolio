@@ -1,13 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 import { Canvas } from '@react-three/fiber'
-import { Leva } from 'leva'
 import { Perf } from 'r3f-perf'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 import reportWebVitals from './reportWebVitals'
-import { OrbitControls } from '@react-three/drei'
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 export const FOV = 75
