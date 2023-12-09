@@ -21,12 +21,7 @@ export function BackGroundModel() {
   const { nodes } = useLoader(GLTFLoader, './model/background/scene.glb')
 
   return (
-    <mesh
-      scale={25}
-      position={posSol}
-      rotation={rotSol}
-      geometry={nodes.Cube.geometry}
-    >
+    <mesh position={posSol} rotation={rotSol} geometry={nodes.cube.geometry}>
       <meshMatcapMaterial matcap={map} />
     </mesh>
   )

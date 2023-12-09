@@ -6,16 +6,10 @@ import {
   Vector3Tuple,
   useSphericalJoint,
 } from '@react-three/rapier'
-import React, {
-  ReactNode,
-  RefObject,
-  createRef,
-  forwardRef,
-  useRef,
-} from 'react'
-import { Building } from './Building'
 import { useControls } from 'leva'
+import React, { RefObject, createRef, forwardRef, useRef } from 'react'
 import { useSceneOpacity } from '../../../hooks/useSceneOpacity'
+import { Building } from './Building'
 
 export const ROPE_FRAGMENT_SPACE_BETZEEN = 0.05
 export const ROPE_FRAGMENT_SIZE = 0.5
@@ -26,10 +20,9 @@ const RopeSegment = forwardRef<
   RapierRigidBody,
   {
     position: Vector3Tuple
-    component: ReactNode
     type: RigidBodyTypeString
   }
->(({ position, component, type }, ref) => {
+>(({ position, type }, ref) => {
   const opacity = useSceneOpacity('crane') //TODO one call au lieu de 3
 
   return (
@@ -96,7 +89,7 @@ export function Rope({ length }: { length: number }) {
             posCable.y - i * (ROPE_FRAGMENT_SIZE + ROPE_FRAGMENT_SPACE_BETZEEN),
             posCable.z,
           ]}
-          type={i === 0 ? 'kinematicPosition' : 'dynamic' /* dynamic */}
+          type={i === 0 ? 'kinematicPosition' : 'dynamic'}
         />
       ))}
 

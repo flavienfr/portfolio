@@ -2,17 +2,18 @@ import { ScrollControls } from '@react-three/drei'
 import { getProject } from '@theatre/core'
 import { PerspectiveCamera, SheetProvider } from '@theatre/r3f'
 import React from 'react' //TODO remove that
-import { FOV } from './index.js'
 import { ModelsView } from './scene/modelsView/ModelsView.tsx'
 import flyThroughState from './theater/state.json'
 import { WebPage } from './scene/WebPage.tsx'
 import studio from '@theatre/studio'
 import extension from '@theatre/r3f/dist/extension'
+import { CurrentSceneContext } from './context/CurrentSceneContext.tsx'
 
-/* studio.extend(extension)
-studio.initialize() */
+studio.extend(extension)
+studio.initialize()
 
 export const SPEED_SPIN_FACTOR = 0.05
+export const FOV = 75
 
 export default function App() {
   const project = getProject('Fly Through', { state: flyThroughState })
@@ -34,11 +35,10 @@ export default function App() {
           far={1000}
         />
         <WebPage />
-        <ModelsView />
+        <CurrentSceneContext sheet={sheet}>
+          <ModelsView />
+        </CurrentSceneContext>
       </SheetProvider>
     </ScrollControls>
   )
 }
-
-//Dolby inspiration
-//https://www.youtube.com/watch?v=hesv-etwK_o&ab_channel=Dolby

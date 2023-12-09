@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { useElementOnScreen } from '../../hooks/useElementOnScreen'
 import { WelcomePageProps } from './WelcomePage'
 
 export function BioPage({ scrollFraction }: WelcomePageProps) {

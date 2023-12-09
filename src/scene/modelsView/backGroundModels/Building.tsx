@@ -1,15 +1,18 @@
-import {
-  CuboidCollider,
-  RigidBody,
-  useSphericalJoint,
-} from '@react-three/rapier'
-import React, { createRef, useEffect, useRef, useState } from 'react'
-import { ROPE_FRAGMENT_SPACE_BETZEEN, ROPE_FRAGMENT_SIZE } from './Rope'
 import { useTexture } from '@react-three/drei'
 import { useLoader } from '@react-three/fiber'
+import { RigidBody, useSphericalJoint } from '@react-three/rapier'
 import { useControls } from 'leva'
+import React, {
+  createRef,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { useSceneOpacity } from '../../../hooks/useSceneOpacity'
+import { ROPE_FRAGMENT_SIZE, ROPE_FRAGMENT_SPACE_BETZEEN } from './Rope'
+import { currentSceneContext } from '../../../context/CurrentSceneContext'
 
 const BOX_HEIHGT = 1.25
 
@@ -30,27 +33,30 @@ export function Building({
     [0, -ROPE_FRAGMENT_SIZE / 2 - ROPE_FRAGMENT_SPACE_BETZEEN / 2, 0],
   ])
 
+  const currentScene = useContext(currentSceneContext)
+
   useEffect(() => {
+    console.log('currentScene', currentScene)
+    if (currentScene !== 3) return
+
+    if (buildingRef.current) {
+      buildingRef.current.addForce({ x: -0.5, y: 0, z: -0.5 }, true)
+      console.log('push 0')
+    }
+
     const timer = setTimeout(() => {
       if (buildingRef.current) {
-        buildingRef.current.addForce({ x: -0.5, y: 0, z: -0.5 }, true)
+        buildingRef.current.addForce({ x: 0.5, y: 0, z: 0.5 }, true)
+        console.log('push 1')
       }
     }, 1000)
 
-    const timer2 = setTimeout(() => {
-      if (buildingRef.current) {
-        buildingRef.current.addForce({ x: 0.5, y: 0, z: 0.5 }, true)
-      }
-    }, 2000)
-
     return () => {
-      clearTimeout(timer)
-      clearTimeout(timer2)
+      //TODO clearTimeout(timer) ??
     }
-  }, [])
+  }, [currentScene])
 
   const radomePush = () => {
-    console.log('Click')
     if (buildingRef.current) {
       buildingRef.current.applyImpulse(
         { x: Math.random() * 0.5, y: 0, z: Math.random() * 0.5 },
@@ -96,6 +102,17 @@ export function Building({
   )
 }
 
+const OPTIONS = {
+  positionBuilding: {
+    value: [-0.22, -1.86, 0.26],
+    step: 0.01,
+  },
+  rotationBuidling: {
+    value: [0, 0, 0],
+    step: 0.01,
+  },
+}
+
 function BuildingModel() {
   const model = useLoader(GLTFLoader, './model/building/scene.glb')
   const bakedTextures = useTexture('./model/building/baked.jpg')
@@ -103,16 +120,10 @@ function BuildingModel() {
 
   const opacity = useSceneOpacity('crane')
 
-  const { positionBuilding, rotationBuidling } = useControls('building', {
-    positionBuilding: {
-      value: [-0.22, -1.86, 0.26],
-      step: 0.01,
-    },
-    rotationBuidling: {
-      value: [0, 0, 0],
-      step: 0.01,
-    },
-  })
+  const { positionBuilding, rotationBuidling } = useControls(
+    'building',
+    OPTIONS
+  )
 
   return (
     <mesh

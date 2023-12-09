@@ -6,13 +6,14 @@ import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 import reportWebVitals from './reportWebVitals'
+import { Leva } from 'leva'
+import { OrbitControls } from '@react-three/drei'
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
-export const FOV = 75
 
 root.render(
   <React.StrictMode>
-    {/*   <Leva collapsed /> */}
+    {/* <Leva collapsed /> */}
     <Canvas flat gl={{ preserveDrawingBuffer: true }}>
       {/* <primitive object={new AxesHelper(10)} /> */}
       {/* <color args={['white']} attach="background" /> */}

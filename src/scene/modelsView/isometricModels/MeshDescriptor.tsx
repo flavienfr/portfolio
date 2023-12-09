@@ -1,9 +1,10 @@
 import { Html } from '@react-three/drei'
 import { Vector3 } from '@react-three/fiber'
-import React, { useMemo, useState } from 'react'
+import React, { useContext, useMemo, useState } from 'react'
 import { Object3D } from 'three'
 import { objDescriptor } from '../../../text/objDescriptor'
 import { useShowScene } from '../../../hooks/useShowScene'
+import { currentSceneContext } from '../../../context/CurrentSceneContext'
 
 interface MeshDescriptorProps {
   position: Vector3
@@ -23,10 +24,10 @@ export function MeshDescriptor({
   scene,
 }: MeshDescriptorProps) {
   const [hovered, setHovered] = useState(false)
-  const currentScene = useShowScene()
+  const currentScene = useContext(currentSceneContext)
 
   const handleHovered = (hover: boolean) => {
-    if (currentScene !== scene) {
+    if (Math.abs(currentScene) !== scene) {
       if (hovered) setHovered(false)
       document.body.style.cursor = 'auto'
       return

@@ -3,7 +3,6 @@ import Parallax from 'parallax-js'
 import React, { useEffect, useRef, useState } from 'react'
 import flyThroughState from '../../theater/state.json'
 import { LEAVING_SCREEN_ANIMATION } from '../WebPage'
-import { useElementOnScreen } from '../../hooks/useElementOnScreen'
 
 const LEAVING_SCREEN_DELAY_MS = 2000
 
@@ -38,31 +37,37 @@ export function LaunchPage() {
         <img
           src="./img/seat.png"
           className={` seat + ${color ? 'imgColor' : 'imgBlack'}`}
+          alt="cinema seat"
         />
 
         <img
           src="./img/arcade.png"
           className={` arcade  + ${color ? 'imgColor' : 'imgBlack'}`}
+          alt="arcade machine"
         />
 
         <img
           src="./img/pong.png"
           className={` pong  + ${color ? 'imgColor' : 'imgBlack'}`}
+          alt="old console and tv with pong on it"
         />
 
         <img
           src="./img/school.png"
           className={` school + ${color ? 'imgColor' : 'imgBlack'}`}
+          alt="42 logo"
         />
 
         <img
           src="./img/cube.png"
           className={` cube  + ${color ? 'imgColor' : 'imgBlack'}`}
+          alt="programming logo languages on cubes"
         />
 
         <img
           src="./img/desk.png"
           className={` desk  + ${color ? 'imgColor' : 'imgBlack'}`}
+          alt="desktop with pc"
         />
       </div>
 

@@ -18,7 +18,7 @@ export function WebPage() {
   const [blending, setBlending] = useState(false)
 
   //**** Screen resizer ****
-  //TODO use useFframe is optimised ?
+  //TODO use useframe is optimised ? bha non
   useFrame(() => {
     setCameraZ(camera.position.z)
     //TODO I put 0 insted of LEAVING_SCREEN_ANIMATION, to remove scroll bar.
