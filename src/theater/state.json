@@ -50,7 +50,6 @@
             },
             "near": 0.1,
             "far": 1000,
-            "fov": 75,
             "zoom": 1
           },
           "scene22": {
@@ -81,60 +80,35 @@
                     "id": "tRIh5bf5pk",
                     "position": 1,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": 0
                   },
                   {
                     "id": "Zd2Vtz-7os",
                     "position": 3,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": -3.79
                   },
                   {
                     "id": "8-qZfSjcpk",
                     "position": 9,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": -3.79
                   },
                   {
                     "id": "7E9P_sYyfo",
                     "position": 12,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": -15.539521853461524
                   },
                   {
                     "id": "45kbR4agnA",
                     "position": 12.033,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": -6.79
                   }
                 ]
@@ -147,72 +121,42 @@
                     "id": "St4bUnpfkj",
                     "position": 1,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": 0
                   },
                   {
                     "id": "Kf3Mb_LZ7z",
                     "position": 3,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": 1.5199999999999998
                   },
                   {
                     "id": "flZjKJb5fh",
                     "position": 6,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": 5.639999999999995
                   },
                   {
                     "id": "ogP-j_pgwE",
                     "position": 9,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": 9.829999999999968
                   },
                   {
                     "id": "tVm_ISeIco",
                     "position": 12,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": 12.409737019403785
                   },
                   {
                     "id": "tDyhRd0INo",
                     "position": 12.033,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": 11.479999999999958
                   }
                 ]
@@ -225,60 +169,35 @@
                     "id": "DoYpXg1vwq",
                     "position": 0,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": 1.2
                   },
                   {
                     "id": "CwdbcUdTkO",
                     "position": 3,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0.5
-                    ],
+                    "handles": [0.5, 1, 0.5, 0.5],
                     "value": 5.96
                   },
                   {
                     "id": "rCHHe66ipi",
                     "position": 9,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": 5.96
                   },
                   {
                     "id": "AButpgT8Rr",
                     "position": 12,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": 17.45952185346155
                   },
                   {
                     "id": "4ltPzeMArx",
                     "position": 12.033,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": 8.96
                   }
                 ]
@@ -291,48 +210,28 @@
                     "id": "ZhnXG_kCaI",
                     "position": 0.967,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": 0
                   },
                   {
                     "id": "lpsul-Zbe2",
                     "position": 3,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": -0.7706189629449646
                   },
                   {
                     "id": "XTGwVVI5Xr",
                     "position": 9,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": -0.7706189629449646
                   },
                   {
                     "id": "mXCNqobmo2",
                     "position": 12,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": -0.16179775061926482
                   }
                 ]
@@ -345,48 +244,28 @@
                     "id": "UmpsSGQQPw",
                     "position": 0.967,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": 0
                   },
                   {
                     "id": "xeiKC_PZE-",
                     "position": 3,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": -0.6621311043427766
                   },
                   {
                     "id": "BOS8cUZR_1",
                     "position": 9,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": -0.6621311043427766
                   },
                   {
                     "id": "7bXMVBmyrt",
                     "position": 12,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": -0.7675660360586045
                   }
                 ]
@@ -399,48 +278,28 @@
                     "id": "J7RV6ADHWG",
                     "position": 0.967,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": 0
                   },
                   {
                     "id": "8pMvvdlHNG",
                     "position": 3,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": -0.5561333155827736
                   },
                   {
                     "id": "oi14z3N-0z",
                     "position": 9,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": -0.5561333155827736
                   },
                   {
                     "id": "Lc9d98B0Bd",
                     "position": 12,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": -0.11611193602625676
                   }
                 ]
@@ -470,24 +329,14 @@
                     "id": "0kOVPLJdrB",
                     "position": 3,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": 3.14
                   },
                   {
                     "id": "6eqUG0voRH",
                     "position": 6,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": 0
                   }
                 ]
@@ -514,24 +363,14 @@
                     "id": "tsNmOU1XXQ",
                     "position": 4,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": 0
                   },
                   {
                     "id": "BIP9Y5aucR",
                     "position": 6,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": 1
                   }
                 ]
@@ -551,24 +390,14 @@
                     "id": "tDut3UvBiA",
                     "position": 7,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": 0
                   },
                   {
                     "id": "g_nx0JmQd4",
                     "position": 9,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": 1
                   }
                 ]
@@ -588,24 +417,14 @@
                     "id": "wqRiGtbPTV",
                     "position": 6,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": 3.14
                   },
                   {
                     "id": "xUK4_LuARd",
                     "position": 9,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": 0
                   }
                 ]
@@ -625,24 +444,14 @@
                     "id": "KEIKC5EkOk",
                     "position": 9,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": 0
                   },
                   {
                     "id": "-APY69NcfS",
                     "position": 12,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 1, 0.5, 0],
                     "value": 1
                   }
                 ]
@@ -662,24 +471,14 @@
                     "id": "9mOPWKXJud",
                     "position": 0,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      1,
-                      0.5,
-                      0.5
-                    ],
+                    "handles": [0.5, 1, 0.5, 0.5],
                     "value": 0
                   },
                   {
                     "id": "mo7FyXbzR6",
                     "position": 12,
                     "connectedRight": true,
-                    "handles": [
-                      0.5,
-                      0.5,
-                      0.5,
-                      0
-                    ],
+                    "handles": [0.5, 0.5, 0.5, 0],
                     "value": 12
                   }
                 ]

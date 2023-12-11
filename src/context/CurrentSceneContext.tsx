@@ -1,5 +1,7 @@
 import { ISheet, onChange } from '@theatre/core'
 import React, { ReactNode, createContext, useEffect, useState } from 'react' //TODO remove that
+import { FOV } from '../App'
+import { useCurrentSheet } from '@theatre/r3f'
 
 const SCENE_2 = { start: 5.7, end: 8 }
 const SCENE_3 = { start: 8.7, end: 10 }
@@ -7,21 +9,18 @@ const SCENE_3 = { start: 8.7, end: 10 }
 export const currentSceneContext = createContext(0)
 
 interface CurrentSceneContextProps {
-  sheet: ISheet
   children: ReactNode
 }
 
 /* currentScene is negative when scroll down esle positive*/
-export function CurrentSceneContext({
-  sheet,
-  children,
-}: CurrentSceneContextProps) {
+export function CurrentSceneContext({ children }: CurrentSceneContextProps) {
   const [currentScene, setCurrentScene] = useState(0)
+  const sheet = useCurrentSheet()
 
   useEffect(() => {
     let lastPos = 0
 
-    const unsub = onChange(sheet.sequence.pointer.position, (pos) => {
+    const unsub = onChange(sheet!.sequence.pointer.position, (pos) => {
       const direction = lastPos < pos ? 1 : -1
       lastPos = pos
 

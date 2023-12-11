@@ -2,7 +2,7 @@ import { getProject } from '@theatre/core'
 import Parallax from 'parallax-js'
 import React, { useEffect, useRef, useState } from 'react'
 import flyThroughState from '../../theater/state.json'
-import { LEAVING_SCREEN_ANIMATION } from '../WebPage'
+import { LEAVING_SCREEN_ANIMATION } from '../../hooks/useScreenResize'
 
 const LEAVING_SCREEN_DELAY_MS = 2000
 

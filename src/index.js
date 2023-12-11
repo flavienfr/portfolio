@@ -13,11 +13,11 @@ const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 root.render(
   <React.StrictMode>
-    {/* <Leva collapsed /> */}
+    <Leva collapsed />
     <Canvas flat gl={{ preserveDrawingBuffer: true }}>
       {/* <primitive object={new AxesHelper(10)} /> */}
       {/* <color args={['white']} attach="background" /> */}
-      <Perf />
+      {/* <Perf /> */}
       {/* <OrbitControls makeDefault /> */}
       <App />
     </Canvas>
@@ -59,4 +59,5 @@ Models:
 Improve:
 - base de la grue doit etre plus sombre (tester sur photoshop)
 - Cable devrait avoir ca propre material
+- Cadre sur l'easle pour la video
 */

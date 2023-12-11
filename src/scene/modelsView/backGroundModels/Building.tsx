@@ -36,7 +36,6 @@ export function Building({
   const currentScene = useContext(currentSceneContext)
 
   useEffect(() => {
-    console.log('currentScene', currentScene)
     if (currentScene !== 3) return
 
     if (buildingRef.current) {

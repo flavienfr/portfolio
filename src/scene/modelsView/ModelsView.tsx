@@ -10,7 +10,7 @@ export function ModelsView() {
     <>
       <BackGroundModel />
       <Scene1 />
-      <Scene2 />
+      {/* <Scene2 /> */}
       <Scene3 />
       <BackgroundModels />
     </>
