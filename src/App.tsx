@@ -19,7 +19,6 @@ export const SPEED_SPIN_FACTOR = 0.05
 export default function App() {
   const project = getProject('Fly Through', { state: flyThroughState })
   const sheet = project.sheet('Scene')
-  const { fov } = useFov()
 
   useEffect(() => {
     project.ready.then(() => {
@@ -31,19 +30,29 @@ export default function App() {
     <ScrollControls pages={3}>
       <SheetProvider sheet={sheet}>
         <ScrollScene />
-        <PerspectiveCamera
-          theatreKey="Camera"
-          makeDefault
-          fov={fov}
-          position={[0, 0, 1.2]}
-          near={0.1}
-          far={1000}
-        />
         <WebPage />
         <CurrentSceneContext>
+          <CameraScene />
           <ModelsView />
         </CurrentSceneContext>
       </SheetProvider>
     </ScrollControls>
+  )
+}
+
+function CameraScene() {
+  const { fov } = useFov()
+
+  return (
+    <>
+      <PerspectiveCamera
+        theatreKey="Camera"
+        makeDefault
+        fov={fov}
+        position={[0, 0, 1.2]}
+        near={0.1}
+        far={1000}
+      />
+    </>
   )
 }

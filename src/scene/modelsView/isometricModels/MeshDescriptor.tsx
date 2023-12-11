@@ -2,9 +2,8 @@ import { Html } from '@react-three/drei'
 import { Vector3 } from '@react-three/fiber'
 import React, { useContext, useMemo, useState } from 'react'
 import { Object3D } from 'three'
-import { objDescriptor } from '../../../text/objDescriptor'
-import { useShowScene } from '../../../hooks/useShowScene'
 import { currentSceneContext } from '../../../context/CurrentSceneContext'
+import { objDescriptor } from '../../../text/objDescriptor'
 
 interface MeshDescriptorProps {
   position: Vector3

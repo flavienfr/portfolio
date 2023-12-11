@@ -27,7 +27,6 @@ export function useScreenResize() {
     )
     let height = (distance * camera.getFilmHeight()) / camera.getFocalLength()
     let width = height * camera.aspect
-    console.log('Update', { width, height })
 
     width = width > MAX_SCREEN_WIDTH ? MAX_SCREEN_WIDTH : width
     height = MAX_SCREEN_HEIGHT // TODO height > MAX_SCREEN_HEIGHT ? MAX_SCREEN_HEIGHT : height

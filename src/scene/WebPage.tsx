@@ -1,10 +1,7 @@
-import { Html, useScroll } from '@react-three/drei'
+import { Html } from '@react-three/drei'
 import React, { useRef } from 'react' //TODO remove that
-import { HtmlPage } from './htmlPage/HtmlPage.tsx'
-import { getProject, val } from '@theatre/core'
-import flyThroughState from '../theater/state.json'
-import { useFov } from '../hooks/useFov.tsx'
 import { useScreenResize } from '../hooks/useScreenResize.tsx'
+import { HtmlPage } from './htmlPage/HtmlPage.tsx'
 
 export function WebPage() {
   const webScreenRef = useRef(null)

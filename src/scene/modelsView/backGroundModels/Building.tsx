@@ -40,13 +40,11 @@ export function Building({
 
     if (buildingRef.current) {
       buildingRef.current.addForce({ x: -0.5, y: 0, z: -0.5 }, true)
-      console.log('push 0')
     }
 
     const timer = setTimeout(() => {
       if (buildingRef.current) {
         buildingRef.current.addForce({ x: 0.5, y: 0, z: 0.5 }, true)
-        console.log('push 1')
       }
     }, 1000)
 
