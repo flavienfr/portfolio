@@ -2,6 +2,7 @@ import { Html } from '@react-three/drei'
 import { useControls } from 'leva'
 import React, { useEffect, useRef, useState } from 'react'
 import { ScreenProps } from '../scene2/Screens'
+import { useSceneScreenBlending } from '../../../../hooks/useSceneScreenBlending'
 
 const OPTIONS = {
   presPos: {
@@ -21,6 +22,7 @@ export function PresentationScreen({ screanOpacity }: ScreenProps) {
   const { presPos, presRot } = useControls('screens', OPTIONS)
   const videoRef = useRef(null)
   const [videoIdx, setVideoIdx] = useState(0)
+  const blending = useSceneScreenBlending(3)
 
   const videoEnded = (e) => {
     const idx = (videoIdx + 1) % upslideVideos.length
@@ -36,7 +38,7 @@ export function PresentationScreen({ screanOpacity }: ScreenProps) {
       wrapperClass="screenWrapper"
       position={presPos}
       rotation={presRot}
-      occlude={'blending'}
+      occlude={blending ? 'blending' : false}
       transform
       distanceFactor={0.75}
       style={{

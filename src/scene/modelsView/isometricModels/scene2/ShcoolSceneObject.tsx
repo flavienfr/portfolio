@@ -1,8 +1,6 @@
-import { useTexture } from '@react-three/drei'
-import { useLoader } from '@react-three/fiber'
+import { useGLTF, useTexture } from '@react-three/drei'
 import { useControls } from 'leva'
 import React from 'react'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { MeshDescriptor } from '../MeshDescriptor'
 
 export const OPTIONS = {
@@ -39,8 +37,8 @@ interface ShcoolSceneObjectProps {
 export function ShcoolSceneObject({ opacity }: ShcoolSceneObjectProps) {
   const { shcoolPos, pcPos, serverPos, arcadePos, paintPos, tvPos } =
     useControls('screens', OPTIONS)
-  const { nodes } = useLoader(GLTFLoader, './model/scene2/scene.glb')
 
+  const { nodes } = useGLTF('./model/scene2/scene.glb')
   const bakedTextures = useTexture('./model/scene2/baked.jpg')
   bakedTextures.flipY = false
   const MapMaterial = () => (
@@ -95,3 +93,6 @@ export function ShcoolSceneObject({ opacity }: ShcoolSceneObjectProps) {
     </>
   )
 }
+
+useGLTF.preload('./model/scene2/scene.glb')
+useTexture.preload('./model/scene2/baked.jpg')

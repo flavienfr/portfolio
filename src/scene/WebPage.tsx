@@ -12,7 +12,7 @@ export function WebPage() {
       <mesh name="Screen" position={[0, 0, -0.5]} ref={webScreenRef}>
         <Html
           transform={true}
-          occlude={blending ? 'blending' : undefined}
+          occlude={blending ? 'blending' : true}
           wrapperClass="htmlScreen"
           distanceFactor={1}
           style={{

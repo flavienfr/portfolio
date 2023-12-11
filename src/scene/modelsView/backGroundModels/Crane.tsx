@@ -1,39 +1,39 @@
-import { useTexture } from '@react-three/drei'
-import { useLoader } from '@react-three/fiber'
+import { useGLTF, useTexture } from '@react-three/drei'
+import { CuboidCollider, RigidBody } from '@react-three/rapier'
 import { useControls } from 'leva'
 import React from 'react'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
-import { CuboidCollider, RigidBody } from '@react-three/rapier'
+
+const OPTIONS = {
+  positionCrane: {
+    value: [10.8, 16.6, 9],
+    step: 0.1,
+  },
+  rotationCrane: {
+    value: [0, -0.85, 0],
+    step: 0.01,
+  },
+  posCranCollider: {
+    value: [5.2, 21.7, 5.2],
+    step: 0.1,
+  },
+
+  rotCranCollider: {
+    value: [0, -0.6, 0],
+    step: 0.1,
+  },
+}
 
 interface CraneProps {
   opacity: number
 }
 
 export function Crane({ opacity }: CraneProps) {
-  const model = useLoader(GLTFLoader, './model/crane/scene.glb')
+  const model = useGLTF('./model/crane/scene.glb')
   const bakedTextures = useTexture('./model/crane/baked.jpg')
   bakedTextures.flipY = false
 
   const { positionCrane, rotationCrane, posCranCollider, rotCranCollider } =
-    useControls('building', {
-      positionCrane: {
-        value: [10.8, 16.6, 9],
-        step: 0.1,
-      },
-      rotationCrane: {
-        value: [0, -0.85, 0],
-        step: 0.01,
-      },
-      posCranCollider: {
-        value: [5.2, 21.7, 5.2],
-        step: 0.1,
-      },
-
-      rotCranCollider: {
-        value: [0, -0.6, 0],
-        step: 0.1,
-      },
-    })
+    useControls('building', OPTIONS)
 
   return (
     <RigidBody colliders={false} type={'kinematicPosition'}>
@@ -53,3 +53,6 @@ export function Crane({ opacity }: CraneProps) {
     </RigidBody>
   )
 }
+
+useGLTF.preload('./model/crane/scene.glb')
+useTexture.preload('./model/crane/baked.jpg')

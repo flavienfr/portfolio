@@ -1,5 +1,4 @@
-import { useTexture } from '@react-three/drei'
-import { useLoader } from '@react-three/fiber'
+import { useGLTF, useTexture } from '@react-three/drei'
 import { RigidBody, useSphericalJoint } from '@react-three/rapier'
 import { useControls } from 'leva'
 import React, {
@@ -9,10 +8,9 @@ import React, {
   useRef,
   useState,
 } from 'react'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import { currentSceneContext } from '../../../context/CurrentSceneContext'
 import { useSceneOpacity } from '../../../hooks/useSceneOpacity'
 import { ROPE_FRAGMENT_SIZE, ROPE_FRAGMENT_SPACE_BETZEEN } from './Rope'
-import { currentSceneContext } from '../../../context/CurrentSceneContext'
 
 const BOX_HEIHGT = 1.25
 
@@ -111,7 +109,7 @@ const OPTIONS = {
 }
 
 function BuildingModel() {
-  const model = useLoader(GLTFLoader, './model/building/scene.glb')
+  const model = useGLTF('./model/building/scene.glb')
   const bakedTextures = useTexture('./model/building/baked.jpg')
   bakedTextures.flipY = false
 
@@ -132,3 +130,6 @@ function BuildingModel() {
     </mesh>
   )
 }
+
+useGLTF.preload('./model/building/scene.glb')
+useTexture.preload('./model/building/baked.jpg')

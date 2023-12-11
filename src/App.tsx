@@ -11,8 +11,8 @@ import { CurrentSceneContext } from './context/CurrentSceneContext.tsx'
 import { useFov } from './hooks/useFov.tsx'
 import { ScrollScene } from './hooks/ScrollScene.tsx'
 
-studio.extend(extension)
-studio.initialize()
+/* studio.extend(extension)
+studio.initialize() */
 
 export const SPEED_SPIN_FACTOR = 0.05
 

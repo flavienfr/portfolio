@@ -1,26 +1,29 @@
 // eslint-disable-next-line no-unused-vars
 import { Canvas } from '@react-three/fiber'
 import { Perf } from 'r3f-perf'
-import React from 'react'
+import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 import reportWebVitals from './reportWebVitals'
 import { Leva } from 'leva'
-import { OrbitControls } from '@react-three/drei'
+import { Loader, OrbitControls } from '@react-three/drei'
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 root.render(
   <React.StrictMode>
     <Leva collapsed />
-    <Canvas flat gl={{ preserveDrawingBuffer: true }}>
-      {/* <primitive object={new AxesHelper(10)} /> */}
-      {/* <color args={['white']} attach="background" /> */}
-      {/* <Perf /> */}
-      {/* <OrbitControls makeDefault /> */}
-      <App />
-    </Canvas>
+    <Loader />
+    <Suspense fallback={null}>
+      <Canvas flat gl={{ preserveDrawingBuffer: true }}>
+        {/* <primitive object={new AxesHelper(10)} /> */}
+        {/* <color args={['white']} attach="background" /> */}
+        {/* <Perf /> */}
+        {/* <OrbitControls makeDefault /> */}
+        <App />
+      </Canvas>
+    </Suspense>
   </React.StrictMode>
 )
 
@@ -45,6 +48,7 @@ Improve:
 - Blender light crane and other model
 - Info clickable obj (light)
 - Hover animation des objets page launch
+- had shadow on the floor
 
 Bonus:
 - Smooth scroll transition entre les vues

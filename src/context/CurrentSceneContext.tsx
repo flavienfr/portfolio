@@ -25,12 +25,13 @@ export function CurrentSceneContext({ children }: CurrentSceneContextProps) {
       lastPos = pos
 
       if (pos >= SCENE_1.start && pos <= SCENE_1.end) setCurrentScene(1)
+      else if (pos > SCENE_1.end && pos < SCENE_2.start) setCurrentScene(1.5)
       else if (pos >= SCENE_2.start && pos <= SCENE_2.end)
         setCurrentScene(2 * direction)
+      else if (pos > SCENE_2.end && pos < SCENE_3.start) setCurrentScene(2.5)
       else if (pos >= SCENE_3.start && pos <= SCENE_3.end)
         setCurrentScene(3 * direction)
       else if (pos > SCENE_3.end) setCurrentScene(4 * direction)
-      else setCurrentScene(0)
     })
 
     return () => {

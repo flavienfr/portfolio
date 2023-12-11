@@ -1,6 +1,7 @@
 import { Html } from '@react-three/drei'
 import { useControls } from 'leva'
 import React, { useEffect, useRef } from 'react'
+import { useSceneScreenBlending } from '../../../../hooks/useSceneScreenBlending'
 
 const OPTIONS = {
   pongPos: {
@@ -29,40 +30,52 @@ const OPTIONS = {
   },
 }
 
-interface ScreenProps {
+interface ScreensProps {
   screanOpacity: number
 }
 
-export function Screens({ screanOpacity }: ScreenProps) {
+export function Screens({ screanOpacity }: ScreensProps) {
+  const blending = useSceneScreenBlending(2)
+
   return (
     <>
-      <PongScreen screanOpacity={screanOpacity} />
-      <ArcadeScreen screanOpacity={screanOpacity} />
-      <PcScreen screanOpacity={screanOpacity} />
+      <PongScreen screanOpacity={screanOpacity} blending={blending} />
+      <ArcadeScreen screanOpacity={screanOpacity} blending={blending} />
+      <PcScreen screanOpacity={screanOpacity} blending={blending} />
     </>
   )
 }
 
-function PongScreen({ screanOpacity }: ScreenProps) {
+interface ScreenProps {
+  screanOpacity: number
+  blending: boolean
+}
+
+function PongScreen({ screanOpacity, blending }: ScreenProps) {
   const { pongPos, pongRot } = useControls('scene2', OPTIONS)
 
   return (
-    <Html
-      wrapperClass="screenWrapper"
-      position={pongPos}
-      rotation={pongRot}
-      occlude={'blending'}
-      transform
-      scale={0.1}
-      style={{ backgroundColor: 'black', opacity: screanOpacity }}
-    >
-      <div className="pongScrean">
-        <div id="half" />
-        <div id="sidel" />
-        <div id="sider" />
-        <div id="ball" />
-      </div>
-    </Html>
+    <>
+      <Html
+        wrapperClass="screenWrapper"
+        position={pongPos}
+        rotation={pongRot}
+        occlude={blending ? 'blending' : false}
+        transform
+        scale={0.1}
+        style={{
+          backgroundColor: 'black',
+          opacity: screanOpacity,
+        }}
+      >
+        <div className="pongScrean">
+          <div id="half" />
+          <div id="sidel" />
+          <div id="sider" />
+          <div id="ball" />
+        </div>
+      </Html>
+    </>
   )
 }
 
@@ -111,7 +124,7 @@ function MatrixCanvas() {
 /* TODO
 - optimise wraping arcade
 */
-function ArcadeScreen({ screanOpacity }: ScreenProps) {
+function ArcadeScreen({ screanOpacity, blending }: ScreenProps) {
   const { arcadePos, arcadeRot } = useControls('scene2', OPTIONS)
   const iframeRef = useRef(null)
 
@@ -120,7 +133,7 @@ function ArcadeScreen({ screanOpacity }: ScreenProps) {
       wrapperClass="screenWrapper"
       position={arcadePos}
       rotation={arcadeRot}
-      occlude={'blending'}
+      occlude={blending ? 'blending' : false}
       transform
       distanceFactor={0.4}
       style={{
@@ -140,7 +153,7 @@ function ArcadeScreen({ screanOpacity }: ScreenProps) {
   )
 }
 
-function PcScreen({ screanOpacity }: ScreenProps) {
+function PcScreen({ screanOpacity, blending }: ScreenProps) {
   const { PcScreenPos, PcScreenRot } = useControls('scene2', OPTIONS)
 
   return (
@@ -148,7 +161,7 @@ function PcScreen({ screanOpacity }: ScreenProps) {
       wrapperClass="screenWrapper"
       position={PcScreenPos}
       rotation={PcScreenRot}
-      occlude={'blending'}
+      occlude={blending ? 'blending' : false}
       transform
       distanceFactor={0.36}
       style={{ opacity: screanOpacity }}
