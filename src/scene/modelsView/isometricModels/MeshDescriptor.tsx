@@ -1,6 +1,6 @@
 import { Html } from '@react-three/drei'
 import { Vector3 } from '@react-three/fiber'
-import React, { useContext, useMemo, useState } from 'react'
+import React, { useContext, useEffect, useMemo, useState } from 'react'
 import { Object3D } from 'three'
 import { currentSceneContext } from '../../../context/CurrentSceneContext'
 import { objDescriptor } from '../../../text/objDescriptor'
@@ -53,16 +53,20 @@ export function MeshDescriptor({
       </mesh> */}
 
       <Html position={position} wrapperClass="wrapAnnotation">
-        <Indication
-          displayIndication={displayIndication}
-          annotationConfig={annotationPos === 'Bottom' ? 2 : 1}
-        />
+        {displayIndication && (
+          <Indication
+            displayIndication={true /* displayIndication */}
+            annotationConfig={annotationPos === 'Bottom' ? 2 : 1}
+          />
+        )}
 
-        <Annotation
-          hovered={hovered}
-          annotationPos={annotationPos}
-          meshObj={meshObj}
-        />
+        {hovered && (
+          <Annotation
+            hovered={hovered}
+            annotationPos={annotationPos}
+            meshObj={meshObj}
+          />
+        )}
       </Html>
     </mesh>
   )

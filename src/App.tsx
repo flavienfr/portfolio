@@ -30,8 +30,8 @@ export default function App() {
     <ScrollControls pages={3}>
       <SheetProvider sheet={sheet}>
         <ScrollScene />
-        <WebPage />
         <CurrentSceneContext>
+          <WebPage />
           <CameraScene />
           <ModelsView />
         </CurrentSceneContext>
