@@ -237,6 +237,7 @@ h1 {
 /* Animation */
 .view3 {
   position: relative;
+  user-select: none;
 }
 
 .fixedView {
@@ -839,8 +840,7 @@ h1 {
   border-radius: 50%;
   display: inline-block;
   position: absolute;
-  /* animation: fireflyAnime 3s infinite ease; */
-  box-shadow: 0px 0px 55px 10px #ffffff;
+  animation: fireflyAnime 3s infinite ease;
 }
 
 @keyframes fireflyAnime {
@@ -861,8 +861,7 @@ h1 {
   border-radius: 50%;
   position: absolute;
   display: inline-block;
-  /* animation: fireflyInnerAnime 3s infinite ease; */
-  box-shadow: inset 0px 0px 50px 50px #ffffff;
+  animation: fireflyInnerAnime 3s infinite ease;
 }
 
 @keyframes fireflyInnerAnime {

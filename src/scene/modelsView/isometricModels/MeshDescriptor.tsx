@@ -55,12 +55,11 @@ export function MeshDescriptor({
       <Html position={position} wrapperClass="wrapAnnotation">
         {displayIndication && (
           <Indication
-            displayIndication={true /* displayIndication */}
+            displayIndication={displayIndication}
             annotationConfig={annotationPos === 'Bottom' ? 2 : 1}
           />
         )}
-
-        {hovered && (
+        {Math.abs(currentScene) === scene && (
           <Annotation
             hovered={hovered}
             annotationPos={annotationPos}

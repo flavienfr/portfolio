@@ -1,10 +1,10 @@
 import { editable as e } from '@theatre/r3f'
 import { useControls } from 'leva'
 import React, { useContext } from 'react'
+import { currentSceneContext } from '../../../../context/CurrentSceneContext'
+import { useSceneOpacity } from '../../../../hooks/useSceneOpacity'
 import { PresentationScreen } from './PresentationScreen'
 import { UpslideSceneObject } from './UpslideSceneObject'
-import { useSceneOpacity } from '../../../../hooks/useSceneOpacity'
-import { currentSceneContext } from '../../../../context/CurrentSceneContext'
 
 const OPTIONS = {
   position3: {

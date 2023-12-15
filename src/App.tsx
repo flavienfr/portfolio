@@ -31,8 +31,8 @@ export default function App() {
       <SheetProvider sheet={sheet}>
         <ScrollScene />
         <CurrentSceneContext>
-          <WebPage />
           <CameraScene />
+          <WebPage />
           <ModelsView />
         </CurrentSceneContext>
       </SheetProvider>

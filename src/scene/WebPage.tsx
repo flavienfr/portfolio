@@ -10,7 +10,7 @@ export function WebPage() {
 
   return (
     <>
-      {Math.abs(currentScene) <= 2 && (
+      {Math.abs(currentScene) < 2 && (
         <Html
           position={[0, 0, -0.5]}
           transform={true}

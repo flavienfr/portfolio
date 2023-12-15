@@ -13,11 +13,6 @@ import {
 //TODO optimise rendu progressif des scène
 export function ModelsView() {
   const currentScene = useContext(currentSceneContext)
-  /*  useCameraMooving() */
-
-  useEffect(() => {
-    console.log('🚀 ~ currentScene:', currentScene)
-  }, [currentScene])
 
   return (
     <>
