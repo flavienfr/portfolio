@@ -827,3 +827,52 @@ h1 {
   font-weight: 700;
   line-height: 100px;
 }
+
+/* Annotation indication */
+.fireflyWrapper {
+  display: relative;
+}
+
+.firefly {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  /* animation: fireflyAnime 3s infinite ease; */
+  box-shadow: 0px 0px 55px 10px #ffffff;
+}
+
+@keyframes fireflyAnime {
+  0% {
+    box-shadow: 0px 0px 0px 0px #ffffff00;
+  }
+  50% {
+    box-shadow: 0px 0px 55px 10px #ffffff;
+  }
+  100% {
+    box-shadow: 0px 0px 0px 0px #ffffff00;
+  }
+}
+
+.fireflyInner {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  position: absolute;
+  display: inline-block;
+  /* animation: fireflyInnerAnime 3s infinite ease; */
+  box-shadow: inset 0px 0px 50px 50px #ffffff;
+}
+
+@keyframes fireflyInnerAnime {
+  0% {
+    box-shadow: inset 0px 0px 50px 50px #ffffff00;
+  }
+  50% {
+    box-shadow: inset 0px 0px 50px 50px #ffffff;
+  }
+  100% {
+    box-shadow: inset 0px 0px 50px 50px #ffffff00;
+  }
+}

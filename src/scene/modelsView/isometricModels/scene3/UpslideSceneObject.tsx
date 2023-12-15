@@ -2,6 +2,7 @@ import { useGLTF, useTexture } from '@react-three/drei'
 import { useControls } from 'leva'
 import React from 'react'
 import { MeshDescriptor } from '../MeshDescriptor'
+import { useIndicationsDisplay } from '../scene2/ShcoolSceneObject'
 
 /* 
 TODO
@@ -20,6 +21,8 @@ const OPTIONS = {
   },
 }
 
+const SCENE = 3
+
 interface UpslideSceneObjectProps {
   opacity: number
 }
@@ -34,13 +37,20 @@ export function UpslideSceneObject({ opacity }: UpslideSceneObjectProps) {
     <meshBasicMaterial map={bakedTextures} transparent opacity={opacity} />
   )
 
+  const { updateHideIndications, showIndication } = useIndicationsDisplay(
+    2,
+    SCENE
+  )
+
   return (
     <>
       <MeshDescriptor
         mesh={nodes.upslide}
         Material={MapMaterial}
         position={upslidePos}
-        scene={3}
+        scene={SCENE}
+        updateHideIndications={updateHideIndications}
+        displayIndication={showIndication[0]}
       />
 
       <MeshDescriptor
@@ -48,7 +58,9 @@ export function UpslideSceneObject({ opacity }: UpslideSceneObjectProps) {
         Material={MapMaterial}
         position={cubesPos}
         annotationPos="Bottom"
-        scene={3}
+        scene={SCENE}
+        updateHideIndications={updateHideIndications}
+        displayIndication={showIndication[1]}
       />
 
       <mesh key={'laptop'} geometry={nodes.laptop.geometry}>

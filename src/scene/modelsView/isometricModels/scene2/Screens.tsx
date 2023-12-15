@@ -113,7 +113,7 @@ function MatrixCanvas() {
         })
       }
 
-      setInterval(matrix, 50)
+      setInterval(matrix, 50) //TODO clear
     }
     initializeMatrix()
   }, [canvasRef])

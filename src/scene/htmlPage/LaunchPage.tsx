@@ -86,7 +86,7 @@ function decreaseBackgroundOpacity() {
   let htmlScreen = document.querySelector('.htmlScreen') as HTMLInputElement
   let opacity = 1
   const loopTime = LEAVING_SCREEN_DELAY_MS / (1 / 0.01)
-
+  //TODO clear
   setInterval(() => {
     if (opacity <= 0) return
     opacity -= 0.01

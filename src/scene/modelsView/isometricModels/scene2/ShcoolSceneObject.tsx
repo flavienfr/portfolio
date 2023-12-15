@@ -1,11 +1,12 @@
-import { useGLTF, useTexture } from '@react-three/drei'
+import { Html, useGLTF, useTexture } from '@react-three/drei'
 import { useControls } from 'leva'
-import React from 'react'
+import React, { useContext, useEffect, useReducer, useState } from 'react'
 import { MeshDescriptor } from '../MeshDescriptor'
+import { currentSceneContext } from '../../../../context/CurrentSceneContext'
 
 export const OPTIONS = {
   shcoolPos: {
-    value: [-1.57, 2.64, -2.18],
+    value: [-1.51, 2.69, -2.18],
     step: 0.01,
   },
   pcPos: {
@@ -17,11 +18,11 @@ export const OPTIONS = {
     step: 0.01,
   },
   arcadePos: {
-    value: [1.98, 2.03, 0.21],
+    value: [2.18, 2.55, 0.21],
     step: 0.01,
   },
   paintPos: {
-    value: [2.61, 2.57, 1.7],
+    value: [2.15, 3.03, 1.77],
     step: 0.01,
   },
   tvPos: {
@@ -45,6 +46,8 @@ export function ShcoolSceneObject({ opacity }: ShcoolSceneObjectProps) {
     <meshBasicMaterial map={bakedTextures} transparent opacity={opacity} />
   )
 
+  const { updateHideIndications, showIndication } = useIndicationsDisplay(6, 2)
+
   return (
     <>
       <MeshDescriptor
@@ -52,18 +55,24 @@ export function ShcoolSceneObject({ opacity }: ShcoolSceneObjectProps) {
         Material={MapMaterial}
         position={shcoolPos}
         scene={2}
-      />
-      <MeshDescriptor
-        mesh={nodes.pc}
-        Material={MapMaterial}
-        position={pcPos}
-        scene={2}
+        updateHideIndications={updateHideIndications}
+        displayIndication={showIndication[0]}
       />
       <MeshDescriptor
         mesh={nodes.server}
         Material={MapMaterial}
         position={serverPos}
         scene={2}
+        updateHideIndications={updateHideIndications}
+        displayIndication={showIndication[2]}
+      />
+      <MeshDescriptor
+        mesh={nodes.pc}
+        Material={MapMaterial}
+        position={pcPos}
+        scene={2}
+        updateHideIndications={updateHideIndications}
+        displayIndication={showIndication[1]}
       />
       <MeshDescriptor
         mesh={nodes.arcade}
@@ -71,6 +80,8 @@ export function ShcoolSceneObject({ opacity }: ShcoolSceneObjectProps) {
         position={arcadePos}
         annotationPos="Left"
         scene={2}
+        updateHideIndications={updateHideIndications}
+        displayIndication={showIndication[3]}
       />
       <MeshDescriptor
         mesh={nodes.paint}
@@ -78,6 +89,8 @@ export function ShcoolSceneObject({ opacity }: ShcoolSceneObjectProps) {
         position={paintPos}
         annotationPos="Left"
         scene={2}
+        updateHideIndications={updateHideIndications}
+        displayIndication={showIndication[4]}
       />
       <MeshDescriptor
         mesh={nodes.tv}
@@ -85,6 +98,8 @@ export function ShcoolSceneObject({ opacity }: ShcoolSceneObjectProps) {
         position={tvPos}
         annotationPos="Bottom"
         scene={2}
+        updateHideIndications={updateHideIndications}
+        displayIndication={showIndication[5]}
       />
 
       <mesh key={'room'} geometry={nodes.room.geometry}>
@@ -96,3 +111,40 @@ export function ShcoolSceneObject({ opacity }: ShcoolSceneObjectProps) {
 
 useGLTF.preload('./model/scene2/scene.glb')
 useTexture.preload('./model/scene2/baked.jpg')
+
+//TODO remove array and set only one state for all
+//TODO not redender when not currentScene
+export function useIndicationsDisplay(indicNumber: number, scene: number) {
+  const currentScene = useContext(currentSceneContext)
+
+  /*  const [hideIndications, setHideIndications] = useState(false) */
+  const [showIndication, setShowIndication] = useState(
+    new Array(indicNumber).fill(false)
+  )
+
+  /*   useEffect(() => {
+    let newIdx = 0
+
+    const timer = setInterval(() => {
+      if (hideIndications) return
+      setShowIndication(
+        new Array(indicNumber).fill(false).map((_, idx) => idx === newIdx)
+      )
+      newIdx = (newIdx + 1) % indicNumber
+    }, 3000)
+    return () => clearInterval(timer)
+  }, [hideIndications]) */
+
+  useEffect(() => {
+    setShowIndication(
+      new Array(indicNumber).fill(scene === Math.abs(currentScene))
+    )
+  }, [currentScene])
+
+  const updateHideIndications = (status: boolean) => {
+    /* setHideIndications(status) */
+    setShowIndication(new Array(indicNumber).fill(!status))
+  }
+
+  return { updateHideIndications, showIndication }
+}
