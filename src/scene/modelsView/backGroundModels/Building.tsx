@@ -42,12 +42,15 @@ export function Building({
 
     const timer = setTimeout(() => {
       if (buildingRef.current) {
-        buildingRef.current.addForce({ x: 0.5, y: 0, z: 0.5 }, true)
+        try {
+          buildingRef.current.addForce({ x: 0.5, y: 0, z: 0.5 }, true)
+        } catch {}
       }
     }, 1000)
 
     return () => {
       //TODO clearTimeout(timer) ??
+      /* clearTimeout(timer) */
     }
   }, [currentScene])
 
