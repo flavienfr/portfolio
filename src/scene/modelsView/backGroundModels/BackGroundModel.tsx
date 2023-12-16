@@ -1,6 +1,6 @@
 import { useGLTF, useTexture } from '@react-three/drei'
 import { useControls } from 'leva'
-import React from 'react' //TODO remove that
+import React from 'react'
 
 const OPTIONS = {
   posSol: {

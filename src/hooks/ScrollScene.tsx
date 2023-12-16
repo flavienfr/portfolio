@@ -1,7 +1,7 @@
 import { useScroll } from '@react-three/drei'
 import { val } from '@theatre/core'
 import { useCurrentSheet } from '@theatre/r3f'
-import React from 'react' //TODO remove that
+import React from 'react'
 import { useFrame } from '@react-three/fiber'
 import { LEAVING_SCREEN_ANIMATION } from './useScreenResize'
 

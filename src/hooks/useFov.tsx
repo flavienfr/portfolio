@@ -1,6 +1,6 @@
 import { useThree } from '@react-three/fiber'
 import { useCurrentSheet } from '@theatre/r3f'
-import { useContext, useEffect, useState } from 'react' //TODO remove that
+import { useContext, useEffect, useState } from 'react'
 import { currentSceneContext } from '../context/CurrentSceneContext'
 import { LEAVING_SCREEN_ANIMATION } from './useScreenResize'
 

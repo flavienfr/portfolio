@@ -1,7 +1,7 @@
 import { ScrollControls } from '@react-three/drei'
 import { getProject } from '@theatre/core'
 import { PerspectiveCamera, SheetProvider } from '@theatre/r3f'
-import React, { useEffect } from 'react' //TODO remove that
+import { useEffect } from 'react'
 import { ModelsView } from './scene/modelsView/ModelsView.tsx'
 import flyThroughState from './theater/state.json'
 import { WebPage } from './scene/WebPage.tsx'
@@ -10,6 +10,7 @@ import extension from '@theatre/r3f/dist/extension'
 import { CurrentSceneContext } from './context/CurrentSceneContext.tsx'
 import { useFov } from './hooks/useFov.tsx'
 import { ScrollScene } from './hooks/ScrollScene.tsx'
+import React from 'react'
 
 /* studio.extend(extension)
 studio.initialize() */

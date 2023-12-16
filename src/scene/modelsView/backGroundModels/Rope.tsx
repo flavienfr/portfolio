@@ -8,23 +8,21 @@ import {
 } from '@react-three/rapier'
 import { useControls } from 'leva'
 import React, { RefObject, createRef, forwardRef, useRef } from 'react'
-import { useSceneOpacity } from '../../../hooks/useSceneOpacity'
 import { Building } from './Building'
 
 export const ROPE_FRAGMENT_SPACE_BETZEEN = 0.05
 export const ROPE_FRAGMENT_SIZE = 0.5
 const ROPE_FRAGMENT_DIAMETER = 0.1
-const ROPE_FRAGMENT_RESOLUTION = 10 //TODO Too HIGHT
+const ROPE_FRAGMENT_RESOLUTION = 8
 
 const RopeSegment = forwardRef<
   RapierRigidBody,
   {
     position: Vector3Tuple
     type: RigidBodyTypeString
+    opacity: number
   }
->(({ position, type }, ref) => {
-  const opacity = useSceneOpacity('crane') //TODO one call au lieu de 3
-
+>(({ position, type, opacity }, ref) => {
   return (
     <RigidBody
       colliders="cuboid"
@@ -66,7 +64,12 @@ const RopeJoint = ({
   return null
 }
 
-export function Rope({ length }: { length: number }) {
+interface RopeProps {
+  length: number
+  opacity: number
+}
+
+export function Rope({ length, opacity }: RopeProps) {
   const refs = useRef(
     Array.from({ length: length }).map(() => createRef<RigidBodyApi>())
   )
@@ -90,6 +93,7 @@ export function Rope({ length }: { length: number }) {
             posCable.z,
           ]}
           type={i === 0 ? 'kinematicPosition' : 'dynamic'}
+          opacity={opacity}
         />
       ))}
 
@@ -97,6 +101,7 @@ export function Rope({ length }: { length: number }) {
         lastRopeSegment={refs.current[refs.current.length - 1]}
         ropeSegmentNumber={refs.current.length}
         posCable={posCable}
+        opacity={opacity}
       />
 
       {refs.current.map(

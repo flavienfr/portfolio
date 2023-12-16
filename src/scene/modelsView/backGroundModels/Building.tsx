@@ -9,7 +9,6 @@ import React, {
   useState,
 } from 'react'
 import { currentSceneContext } from '../../../context/CurrentSceneContext'
-import { useSceneOpacity } from '../../../hooks/useSceneOpacity'
 import { ROPE_FRAGMENT_SIZE, ROPE_FRAGMENT_SPACE_BETZEEN } from './Rope'
 
 const BOX_HEIHGT = 1.25
@@ -18,11 +17,13 @@ export interface BuildingIso {
   lastRopeSegment: any
   ropeSegmentNumber: number
   posCable: { x: number; y: number; z: number }
+  opacity: number
 }
 export function Building({
   lastRopeSegment,
   ropeSegmentNumber,
   posCable,
+  opacity,
 }: BuildingIso) {
   const buildingRef = useRef(createRef<RigidBodyApi>())
 
@@ -47,11 +48,6 @@ export function Building({
         } catch {}
       }
     }, 1000)
-
-    return () => {
-      //TODO clearTimeout(timer) ??
-      /* clearTimeout(timer) */
-    }
   }, [currentScene])
 
   const radomePush = () => {
@@ -67,7 +63,6 @@ export function Building({
 
   useEffect(() => {
     document.body.style.cursor = hovered ? 'pointer' : 'auto'
-    //TODO highlight obj
   }, [hovered])
 
   return (
@@ -94,7 +89,7 @@ export function Building({
         onPointerOver={() => setHovered(true)}
         onPointerOut={() => setHovered(false)}
       >
-        <BuildingModel />
+        <BuildingModel opacity={opacity} />
       </mesh>
     </RigidBody>
   )
@@ -111,12 +106,10 @@ const OPTIONS = {
   },
 }
 
-function BuildingModel() {
+function BuildingModel({ opacity }: { opacity: number }) {
   const model = useGLTF('./model/building/scene.glb')
   const bakedTextures = useTexture('./model/building/baked.jpg')
   bakedTextures.flipY = false
-
-  const opacity = useSceneOpacity('crane')
 
   const { positionBuilding, rotationBuidling } = useControls(
     'building',

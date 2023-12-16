@@ -33,21 +33,16 @@ root.render(
 reportWebVitals()
 
 /* TODO Global
-- Transition entre les scènes camera plus opacité 
-- vue final to be continued crane + liens github
-- intéraction annotation avec les objets
-- insertion drei html dans les écrans.
-- background + sole brainstorming
-- Ajouter les objets 3d a la scene 3 de paralax
+- Loading font, images, gif dans le chargement
+- vue final liens github
 
 Mobile:
 - Annotation clikable
+- BTN fleche pour changer de scnène (anti lag)
 
 Improve:
 - BTN launch trop petit et aliase en mode small screen quand on est en vue 3d
-- Blender light crane and other model
 - Info clickable obj (light)
-- Hover animation des objets page launch
 - had shadow on the floor
 
 Bonus:
@@ -58,10 +53,9 @@ Final check:
 - performance test with reportWebVitals
 - Remove dev dependencies (perf)
 
-
 Models:
 Improve:
+- Blender add light to scenes
 - base de la grue doit etre plus sombre (tester sur photoshop)
 - Cable devrait avoir ca propre material
-- Cadre sur l'easle pour la video
 */

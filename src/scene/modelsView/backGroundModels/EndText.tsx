@@ -1,4 +1,4 @@
-import React from 'react' //TODO remove that
+import React from 'react' /
 import { Html } from '@react-three/drei'
 import { useControls } from 'leva'
 

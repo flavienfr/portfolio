@@ -15,7 +15,6 @@ interface MeshDescriptorProps {
   displayIndication: boolean
 }
 
-//TODO deal with glith selected obj. Bloqué sur le premier obj trouvé
 export function MeshDescriptor({
   position,
   mesh: meshObj,

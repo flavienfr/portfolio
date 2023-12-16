@@ -1,5 +1,5 @@
 import { useFrame, useThree } from '@react-three/fiber'
-import { useEffect, useState } from 'react' //TODO remove that
+import { useEffect, useState } from 'react'
 import { useCurrentSheet } from '@theatre/r3f'
 
 const DREI_HTML_SCREEN_RATIO = 400
@@ -10,7 +10,7 @@ export const LEAVING_SCREEN_ANIMATION = 3
 export function useScreenResize() {
   const sheet = useCurrentSheet()
   const { camera, viewport } = useThree() //TODO import ts for camera
-  const [planeInfo, setPlaneInfo] = useState({ width: 1000, height: 1000 }) //init value wrong
+  const [planeInfo, setPlaneInfo] = useState({ width: 1000, height: 1000 })
   const [cameraZ, setCameraZ] = useState(camera.position.z)
   const [blending, setBlending] = useState(false)
 

@@ -1,7 +1,6 @@
 import { onChange } from '@theatre/core'
 import { useCurrentSheet } from '@theatre/r3f'
-import React, { ReactNode, createContext, useEffect, useState } from 'react' //TODO remove that
-
+import React, { ReactNode, createContext, useEffect, useState } from 'react'
 export const SCENE_1 = { start: 0.25, end: 3 }
 const SCENE_2 = { start: 5.7, end: 8 }
 const SCENE_3 = { start: 8.7, end: 10 }

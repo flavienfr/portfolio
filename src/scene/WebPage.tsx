@@ -1,8 +1,8 @@
 import { Html } from '@react-three/drei'
-import React, { useContext, useRef } from 'react' //TODO remove that
+import React, { useContext } from 'react'
+import { currentSceneContext } from '../context/CurrentSceneContext.tsx'
 import { useScreenResize } from '../hooks/useScreenResize.tsx'
 import { HtmlPage } from './htmlPage/HtmlPage.tsx'
-import { currentSceneContext } from '../context/CurrentSceneContext.tsx'
 
 export function WebPage() {
   const { blending, planeInfo } = useScreenResize()
