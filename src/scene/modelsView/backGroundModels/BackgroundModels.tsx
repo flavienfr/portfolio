@@ -17,7 +17,7 @@ export function BackgroundModels() {
         </Physics>
       </Suspense>
 
-      {/* <EndText opacity={opacity} /> */}
+      <EndText opacity={opacity} />
     </>
   )
 }
