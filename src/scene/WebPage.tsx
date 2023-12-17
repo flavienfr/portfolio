@@ -14,7 +14,7 @@ export function WebPage() {
         <Html
           position={[0, 0, -0.5]}
           transform={true}
-          occlude={/* blending ? 'blending' : */ false}
+          occlude={blending ? 'blending' : false}
           wrapperClass="htmlScreen"
           distanceFactor={1}
           style={{

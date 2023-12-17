@@ -1,6 +1,6 @@
 import { Html } from '@react-three/drei'
-import { Vector3 } from '@react-three/fiber'
-import React, { useContext, useEffect, useMemo, useState } from 'react'
+import { Vector3, useFrame } from '@react-three/fiber'
+import React, { useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { Object3D } from 'three'
 import { currentSceneContext } from '../../../context/CurrentSceneContext'
 import { objDescriptor } from '../../../text/objDescriptor'
@@ -38,6 +38,16 @@ export function MeshDescriptor({
     updateHideIndications(hover)
   }
 
+  /*   const indicRef = useRef(null)
+  useFrame((state) => {})
+
+  useEffect(() => {
+    if (!indicRef || !indicRef.current) return
+    console.log('state', indicRef.current.material.opacity)
+    indicRef.current.material.opacity = 0
+    indicRef.current.needsUpdate = true
+  }, [indicRef]) */
+
   return (
     <mesh
       key={meshObj.name}
@@ -47,15 +57,17 @@ export function MeshDescriptor({
     >
       <Material />
 
-      {/* <mesh position={position}>
+      {/*     <mesh position={position} ref={indicRef}>
         <boxGeometry />
-      </mesh> */}
-
-      {/*  <Html
+        <meshBasicMaterial opacity={0.5} />
+      </mesh>
+ */}
+      <Html
         position={position}
         wrapperClass="wrapAnnotation"
         occlude={false}
         zIndexRange={[16777271, 16777260]}
+        sprite
       >
         {displayIndication && (
           <Indication
@@ -70,7 +82,7 @@ export function MeshDescriptor({
             meshObj={meshObj}
           />
         )}
-      </Html> */}
+      </Html>
     </mesh>
   )
 }
