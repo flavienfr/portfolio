@@ -105,9 +105,9 @@ export function ShcoolSceneObject({ opacity }: ShcoolSceneObjectProps) {
         displayIndication={showIndication}
       />
 
-      {/* <mesh key={'room'} geometry={nodes.room.geometry}>
+      <mesh key={'room'} geometry={nodes.room.geometry}>
         <MapMaterial />
-      </mesh> */}
+      </mesh>
     </>
   )
 }

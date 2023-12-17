@@ -61,7 +61,7 @@ export function UpslideSceneObject({ opacity }: UpslideSceneObjectProps) {
         displayIndication={showIndication}
       />
 
-      {/* <mesh key={'laptop'} geometry={nodes.laptop.geometry}>
+      <mesh key={'laptop'} geometry={nodes.laptop.geometry}>
         <MapMaterial />
       </mesh>
       <mesh key={'chair'} geometry={nodes.chair.geometry}>
@@ -69,7 +69,7 @@ export function UpslideSceneObject({ opacity }: UpslideSceneObjectProps) {
       </mesh>
       <mesh key={'room'} geometry={nodes.room.geometry}>
         <MapMaterial />
-      </mesh> */}
+      </mesh>
     </>
   )
 }

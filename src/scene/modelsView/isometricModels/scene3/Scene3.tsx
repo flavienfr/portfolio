@@ -22,9 +22,10 @@ export function Scene3() {
   return (
     <e.group theatreKey="scene3" position={position3}>
       <UpslideSceneObject opacity={opacity} />
-      {Math.abs(currentScene) >= 3 && Math.abs(currentScene) < 4 && (
+
+      {/*   {Math.abs(currentScene) >= 3 && Math.abs(currentScene) < 4 && (
         <PresentationScreen screanOpacity={opacity} />
-      )}
+      )} */}
     </e.group>
   )
 }

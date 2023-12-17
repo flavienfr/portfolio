@@ -12,8 +12,8 @@ export function ModelsView() {
 
   return (
     <>
-      {/* <BackGroundModel /> */}
-      {/* <Scene1 /> */}
+      <BackGroundModel />
+      <Scene1 />
       {Math.abs(currentScene) >= 1.5 && <Scene2 />}
       {Math.abs(currentScene) >= 2 && <Scene3 />}
       {Math.abs(currentScene) >= 3 && <BackgroundModels />}

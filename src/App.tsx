@@ -33,7 +33,7 @@ export default function App() {
         <ScrollScene />
         <CurrentSceneContext>
           <CameraScene />
-          <WebPage />
+          {/* <WebPage /> */}
           <ModelsView />
         </CurrentSceneContext>
       </SheetProvider>

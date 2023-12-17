@@ -41,17 +41,17 @@ export function MeshDescriptor({
   return (
     <mesh
       key={meshObj.name}
-      /* geometry={meshObj.geometry} */
+      geometry={meshObj.geometry}
       onPointerOver={() => handleHovered(true)}
       onPointerOut={() => handleHovered(false)}
     >
-      {/*     <Material /> */}
+      <Material />
 
       {/* <mesh position={position}>
         <boxGeometry />
       </mesh> */}
 
-      <Html
+      {/*  <Html
         position={position}
         wrapperClass="wrapAnnotation"
         occlude={false}
@@ -70,7 +70,7 @@ export function MeshDescriptor({
             meshObj={meshObj}
           />
         )}
-      </Html>
+      </Html> */}
     </mesh>
   )
 }
