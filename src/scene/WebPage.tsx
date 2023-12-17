@@ -5,7 +5,7 @@ import { useScreenResize } from '../hooks/useScreenResize.tsx'
 import { HtmlPage } from './htmlPage/HtmlPage.tsx'
 
 export function WebPage() {
-  const { blending, planeInfo } = useScreenResize()
+  const { blending, planeInfo, smallRatio } = useScreenResize()
   const currentScene = useContext(currentSceneContext)
 
   return (
@@ -22,7 +22,7 @@ export function WebPage() {
             height: planeInfo.height,
           }}
         >
-          <HtmlPage htmlHeight={planeInfo.height} />
+          <HtmlPage htmlHeight={planeInfo.height} smallRatio={smallRatio} />
         </Html>
       )}
     </>

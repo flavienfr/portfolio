@@ -16,7 +16,7 @@ root.render(
     <Leva collapsed />
     <Loader />
     <Suspense fallback={null}>
-      <Canvas flat gl={{ preserveDrawingBuffer: true }}>
+      <Canvas flat /* antialias={false} */ gl={{ preserveDrawingBuffer: true }}>
         {/* <primitive object={new AxesHelper(10)} /> */}
         {/* <color args={['white']} attach="background" /> */}
         {/* <OrbitControls makeDefault /> */}
@@ -39,6 +39,7 @@ reportWebVitals()
 Mobile:
 - Annotation clikable
 - BTN fleche pour changer de scnène (anti lag)
+- Does show images if ratio bad
 
 Improve:
 - BTN launch trop petit et aliase en mode small screen quand on est en vue 3d
@@ -58,4 +59,7 @@ Improve:
 - Blender add light to scenes
 - base de la grue doit etre plus sombre (tester sur photoshop)
 - Cable devrait avoir ca propre material
+
+Scroll trop loin
+welcome wmooth
 */

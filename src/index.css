@@ -1,7 +1,7 @@
 :root {
   --textColor: #f5f5f7;
   --backGroundColor: #0a0a0a;
-  --backgroundOpacity: 0.08; /* Only used to manipulate pseudo element property */
+  --backgroundOpacity: 0.12; /* Only used to manipulate pseudo element property */
 }
 
 @font-face {
@@ -12,6 +12,14 @@
 @font-face {
   font-family: 'sf';
   src: url('./fonts/SFProText.ttf') format('truetype');
+}
+
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -71,6 +79,8 @@ body,
   opacity: var(--backgroundOpacity);
   z-index: -1;
   background: transparent url('../public/img/grain.gif');
+  background-repeat: repeat;
+  background-size: 10%;
 }
 
 .fullwidth {
@@ -324,7 +334,7 @@ h1 {
   height: 100%;
   background: transparent url('../public/img/grain.gif') /*  repeat 0 0 */;
   /*  background-repeat: repeat; */
-  opacity: 0.08;
+  opacity: 0.12;
   visibility: visible;
   pointer-events: none;
   z-index: 500;

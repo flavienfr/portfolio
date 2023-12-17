@@ -52,7 +52,7 @@ export function MeshDescriptor({
       </mesh> */}
 
       <Html position={position} wrapperClass="wrapAnnotation">
-        {displayIndication && (
+        {/*  {displayIndication && (
           <Indication
             displayIndication={displayIndication}
             annotationConfig={annotationPos === 'Bottom' ? 2 : 1}
@@ -64,7 +64,7 @@ export function MeshDescriptor({
             annotationPos={annotationPos}
             meshObj={meshObj}
           />
-        )}
+        )} */}
       </Html>
     </mesh>
   )

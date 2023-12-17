@@ -4,10 +4,9 @@ import { BioPage } from './BioPage'
 import { LaunchPage } from './LaunchPage'
 
 //TODO
-// SLow paralax effect in 4K
 // agrandir l'html une quitter le mode pleinne écran
 
-export function HtmlPage({ htmlHeight }) {
+export function HtmlPage({ htmlHeight, smallRatio }) {
   const [scrollFraction, setScrollFraction] = useState(0)
 
   const handleScroll = (event) => {
@@ -23,7 +22,7 @@ export function HtmlPage({ htmlHeight }) {
       <div className="fullwidth" onScroll={handleScroll}>
         <WelcomePage scrollFraction={scrollFraction} />
         <BioPage scrollFraction={scrollFraction} />
-        <LaunchPage />
+        <LaunchPage smallRatio={smallRatio} />
       </div>
     </>
   )

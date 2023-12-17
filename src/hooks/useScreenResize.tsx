@@ -13,6 +13,7 @@ export function useScreenResize() {
   const [planeInfo, setPlaneInfo] = useState({ width: 1000, height: 1000 })
   const [cameraZ, setCameraZ] = useState(camera.position.z)
   const [blending, setBlending] = useState(false)
+  const [smallRatio, setSmallRatio] = useState(false)
 
   //TODO use useframe is optimised ? bha non
   useFrame(() => {
@@ -22,6 +23,8 @@ export function useScreenResize() {
   })
 
   useEffect(() => {
+    setSmallRatio(camera.aspect < 1)
+
     const distance = Math.abs(
       (camera.position.z + 0.5) * DREI_HTML_SCREEN_RATIO
     )
@@ -34,5 +37,5 @@ export function useScreenResize() {
     setPlaneInfo({ width, height })
   }, [setPlaneInfo, viewport, camera, cameraZ])
 
-  return { blending, planeInfo }
+  return { blending, planeInfo, smallRatio }
 }
