@@ -64,7 +64,11 @@ export function LaunchPage({ smallRatio }) {
 
       <div className="btnWrapper">
         <div className="btnInnerWrapper">
-          <button onClick={handleClick} className="myButton" disabled={color}>
+          <button
+            onClick={handleClick}
+            className="myButton"
+            /*  disabled={color} */
+          >
             Launch
           </button>
         </div>
@@ -76,8 +80,8 @@ export function LaunchPage({ smallRatio }) {
 function decreaseBackgroundOpacity() {
   let htmlScreen = document.querySelector('.htmlScreen') as HTMLInputElement
   let opacity = 1
-  const loopTime = LEAVING_SCREEN_DELAY_MS / (1 / 0.01)
 
+  const loopTime = LEAVING_SCREEN_DELAY_MS / (1 / 0.01)
   setInterval(() => {
     if (opacity <= 0) return
     opacity -= 0.01
