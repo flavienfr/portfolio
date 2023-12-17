@@ -28,6 +28,7 @@ export function EndText({ opacity }: EndTextProps) {
       <Html
         position={textPos}
         rotation={textRot}
+        occlude={false}
         wrapperClass="endTextWrapper"
         style={{ opacity: opacity }}
         transform

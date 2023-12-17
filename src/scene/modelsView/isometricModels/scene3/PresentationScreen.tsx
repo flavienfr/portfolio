@@ -22,7 +22,7 @@ export function PresentationScreen({ screanOpacity }: ScreenProps) {
   const { presPos, presRot } = useControls('screens', OPTIONS)
   const videoRef = useRef(null)
   const [videoIdx, setVideoIdx] = useState(0)
-  const blending = useSceneScreenBlending(3)
+  /* const blending = useSceneScreenBlending(3) */
 
   const videoEnded = (e) => {
     const idx = (videoIdx + 1) % upslideVideos.length
@@ -38,9 +38,10 @@ export function PresentationScreen({ screanOpacity }: ScreenProps) {
       wrapperClass="screenWrapper"
       position={presPos}
       rotation={presRot}
-      occlude={blending ? 'blending' : false}
+      occlude={/* blending ? 'blending' : */ false}
       transform
       distanceFactor={0.75}
+      zIndexRange={[16777200, 16777210]}
       style={{
         opacity: screanOpacity,
         backgroundColor: 'white',

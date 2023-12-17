@@ -41,18 +41,23 @@ export function MeshDescriptor({
   return (
     <mesh
       key={meshObj.name}
-      geometry={meshObj.geometry}
+      /* geometry={meshObj.geometry} */
       onPointerOver={() => handleHovered(true)}
       onPointerOut={() => handleHovered(false)}
     >
-      <Material />
+      {/*     <Material /> */}
 
       {/* <mesh position={position}>
         <boxGeometry />
       </mesh> */}
 
-      <Html position={position} wrapperClass="wrapAnnotation">
-        {/*  {displayIndication && (
+      <Html
+        position={position}
+        wrapperClass="wrapAnnotation"
+        occlude={false}
+        zIndexRange={[16777271, 16777260]}
+      >
+        {displayIndication && (
           <Indication
             displayIndication={displayIndication}
             annotationConfig={annotationPos === 'Bottom' ? 2 : 1}
@@ -64,7 +69,7 @@ export function MeshDescriptor({
             annotationPos={annotationPos}
             meshObj={meshObj}
           />
-        )} */}
+        )}
       </Html>
     </mesh>
   )

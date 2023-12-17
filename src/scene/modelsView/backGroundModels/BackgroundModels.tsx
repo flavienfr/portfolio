@@ -10,14 +10,14 @@ export function BackgroundModels() {
 
   return (
     <>
-      <Suspense>
+      {/*    <Suspense>
         <Physics gravity={[0, -9.81, 0]}>
           <Crane opacity={opacity} />
           <Rope length={8} opacity={opacity} />
         </Physics>
       </Suspense>
-
-      {/*   <EndText opacity={opacity} /> */}
+ */}
+      <EndText opacity={opacity} />
     </>
   )
 }

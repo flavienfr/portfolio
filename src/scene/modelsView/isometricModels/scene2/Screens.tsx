@@ -35,23 +35,20 @@ interface ScreensProps {
 }
 
 export function Screens({ screanOpacity }: ScreensProps) {
-  const blending = useSceneScreenBlending(2)
-
   return (
     <>
-      <PongScreen screanOpacity={screanOpacity} blending={blending} />
-      <ArcadeScreen screanOpacity={screanOpacity} blending={blending} />
-      <PcScreen screanOpacity={screanOpacity} blending={blending} />
+      <PongScreen screanOpacity={screanOpacity} />
+      <ArcadeScreen screanOpacity={screanOpacity} />
+      <PcScreen screanOpacity={screanOpacity} />
     </>
   )
 }
 
 interface ScreenProps {
   screanOpacity: number
-  blending: boolean
 }
 
-function PongScreen({ screanOpacity, blending }: ScreenProps) {
+function PongScreen({ screanOpacity }: ScreenProps) {
   const { pongPos, pongRot } = useControls('scene2', OPTIONS)
 
   return (
@@ -60,7 +57,7 @@ function PongScreen({ screanOpacity, blending }: ScreenProps) {
         wrapperClass="screenWrapper"
         position={pongPos}
         rotation={pongRot}
-        occlude={blending ? 'blending' : false}
+        occlude={false}
         transform
         scale={0.1}
         style={{
@@ -124,7 +121,7 @@ function MatrixCanvas() {
 /* TODO
 - optimise wraping arcade
 */
-function ArcadeScreen({ screanOpacity, blending }: ScreenProps) {
+function ArcadeScreen({ screanOpacity }: ScreenProps) {
   const { arcadePos, arcadeRot } = useControls('scene2', OPTIONS)
   const iframeRef = useRef(null)
 
@@ -133,7 +130,7 @@ function ArcadeScreen({ screanOpacity, blending }: ScreenProps) {
       wrapperClass="screenWrapper"
       position={arcadePos}
       rotation={arcadeRot}
-      occlude={blending ? 'blending' : false}
+      occlude={false}
       transform
       distanceFactor={0.4}
       style={{
@@ -153,7 +150,7 @@ function ArcadeScreen({ screanOpacity, blending }: ScreenProps) {
   )
 }
 
-function PcScreen({ screanOpacity, blending }: ScreenProps) {
+function PcScreen({ screanOpacity }: ScreenProps) {
   const { PcScreenPos, PcScreenRot } = useControls('scene2', OPTIONS)
 
   return (
@@ -161,7 +158,7 @@ function PcScreen({ screanOpacity, blending }: ScreenProps) {
       wrapperClass="screenWrapper"
       position={PcScreenPos}
       rotation={PcScreenRot}
-      occlude={blending ? 'blending' : false}
+      occlude={false}
       transform
       distanceFactor={0.36}
       style={{ opacity: screanOpacity }}

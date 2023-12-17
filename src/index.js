@@ -7,7 +7,12 @@ import App from './App.tsx'
 import './index.css'
 import reportWebVitals from './reportWebVitals'
 import { Leva } from 'leva'
-import { Loader, OrbitControls } from '@react-three/drei'
+import {
+  AdaptiveDpr,
+  Loader,
+  OrbitControls,
+  PerformanceMonitor,
+} from '@react-three/drei'
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
@@ -16,11 +21,18 @@ root.render(
     <Leva collapsed />
     <Loader />
     <Suspense fallback={null}>
-      <Canvas flat /* antialias={false} */ gl={{ preserveDrawingBuffer: true }}>
+      <Canvas
+        flat
+        /* antialias={false} */ gl={{
+          preserveDrawingBuffer: true,
+          antialias: false,
+        }}
+      >
         {/* <primitive object={new AxesHelper(10)} /> */}
         {/* <color args={['white']} attach="background" /> */}
         {/* <OrbitControls makeDefault /> */}
         {/* <Perf /> */}
+        <AdaptiveDpr pixelated />
         <App />
       </Canvas>
     </Suspense>
