@@ -64,11 +64,7 @@ export function LaunchPage({ smallRatio }) {
 
       <div className="btnWrapper">
         <div className="btnInnerWrapper">
-          <button
-            onClick={handleClick}
-            className="myButton"
-            /*  disabled={color} */
-          >
+          <button onClick={handleClick} className="myButton" disabled={color}>
             Launch
           </button>
         </div>
