@@ -92,7 +92,7 @@ export function Rope({ length, opacity }: RopeProps) {
             posCable.y - i * (ROPE_FRAGMENT_SIZE + ROPE_FRAGMENT_SPACE_BETZEEN),
             posCable.z,
           ]}
-          type={i === 0 ? 'kinematicPosition' : 'kinematicPosition'}
+          type={i === 0 ? 'kinematicPosition' : 'dynamic'}
           opacity={opacity}
         />
       ))}

@@ -34,7 +34,7 @@ export function Building({
 
   const currentScene = useContext(currentSceneContext)
 
-  /* useEffect(() => {
+  useEffect(() => {
     if (currentScene !== 3) return
 
     if (buildingRef.current) {
@@ -48,15 +48,15 @@ export function Building({
         } catch {}
       }
     }, 1000)
-  }, [currentScene]) */
+  }, [currentScene])
 
   const radomePush = () => {
-    /*  if (buildingRef.current) {
+    if (buildingRef.current) {
       buildingRef.current.applyImpulse(
         { x: Math.random() * 0.5, y: 0, z: Math.random() * 0.5 },
         true
       )
-    } */
+    }
   }
 
   const [hovered, setHovered] = useState(false)
@@ -69,7 +69,7 @@ export function Building({
     <RigidBody
       colliders="cuboid"
       ref={buildingRef}
-      type={'kinematicPosition'}
+      type={'dynamic'}
       restitution={0}
       density={0.001}
       linearDamping={0.1}
