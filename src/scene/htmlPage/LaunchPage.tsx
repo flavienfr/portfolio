@@ -4,26 +4,16 @@ import React, { useEffect, useRef, useState } from 'react'
 import flyThroughState from '../../theater/state.json'
 import { LEAVING_SCREEN_ANIMATION } from '../../hooks/useScreenResize'
 
-const LEAVING_SCREEN_DELAY_MS = 2000
+const LEAVING_SCREEN_DELAY_MS = 1500
 
 export function LaunchPage() {
-  const parallaxScene = useRef()
-
-  useEffect(() => {
-    if (!parallaxScene || !parallaxScene.current) return
-    new Parallax(parallaxScene.current, {
-      invertX: true,
-      invertY: true,
-    })
-  }, [parallaxScene])
-
   const [color, setColor] = useState(false)
   const sheet = getProject('Fly Through', { state: flyThroughState }).sheet(
     'Scene'
   )
 
   const handleClick = () => {
-    setColor(true)
+    /*  setColor(true) */
 
     setTimeout(() => {
       decreaseBackgroundOpacity()
@@ -32,8 +22,8 @@ export function LaunchPage() {
   }
 
   return (
-    <div className="view3" /* ref={parallaxScene} */>
-      <div className="fixedView">
+    <div className="view3">
+      {/* <div className="fixedView">
         <img
           src="./img/seat.png"
           className={` seat + ${color ? 'imgColor' : 'imgBlack'}`}
@@ -69,11 +59,15 @@ export function LaunchPage() {
           className={` desk  + ${color ? 'imgColor' : 'imgBlack'}`}
           alt="desktop with pc"
         />
-      </div>
+      </div> */}
 
       <div className="btnWrapper">
         <div className="btnInnerWrapper">
-          <button onClick={handleClick} className="myButton" disabled={color}>
+          <button
+            onClick={handleClick}
+            className="myButton"
+            /*  disabled={color} */
+          >
             Launch
           </button>
         </div>
@@ -86,7 +80,6 @@ function decreaseBackgroundOpacity() {
   let htmlScreen = document.querySelector('.htmlScreen') as HTMLInputElement
   let opacity = 1
   const loopTime = LEAVING_SCREEN_DELAY_MS / (1 / 0.01)
-  //TODO clear
   setInterval(() => {
     if (opacity <= 0) return
     opacity -= 0.01

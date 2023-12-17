@@ -2,12 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { WelcomePageProps } from './WelcomePage'
 
 export function BioPage({ scrollFraction }: WelcomePageProps) {
-  /* const [containerRef, isVisible] = useElementOnScreen({
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.8,
-  }) */
-
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {

@@ -58,4 +58,7 @@ Improve:
 - Blender add light to scenes
 - base de la grue doit etre plus sombre (tester sur photoshop)
 - Cable devrait avoir ca propre material
+
+Scroll trop loin
+welcome wmooth
 */

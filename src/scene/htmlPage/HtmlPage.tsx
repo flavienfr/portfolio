@@ -4,7 +4,6 @@ import { BioPage } from './BioPage'
 import { LaunchPage } from './LaunchPage'
 
 //TODO
-// SLow paralax effect in 4K
 // agrandir l'html une quitter le mode pleinne écran
 
 export function HtmlPage({ htmlHeight }) {
