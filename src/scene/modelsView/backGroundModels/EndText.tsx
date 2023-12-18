@@ -1,6 +1,7 @@
-import React from 'react'
-import { Html } from '@react-three/drei'
+import { Text } from '@react-three/drei'
 import { useControls } from 'leva'
+import React from 'react'
+import sf from '../../../fonts/SFProText.ttf'
 
 const OPTIONS = {
   textPos: {
@@ -22,23 +23,17 @@ export function EndText({ opacity }: EndTextProps) {
 
   return (
     <>
-      {/*  <mesh position={textPos}>
-        <boxGeometry />
-      </mesh> */}
-      <Html
+      <Text
         position={textPos}
         rotation={textRot}
-        occlude={false}
-        wrapperClass="endTextWrapper"
-        style={{ opacity: opacity }}
-        transform
+        fontSize={2.5}
+        font={sf}
+        lineHeight={1}
+        color={'#f5f5f7'}
+        maxWidth={10}
       >
-        <h1>
-          To be
-          <br />
-          continued
-        </h1>
-      </Html>
+        To be continued
+      </Text>
     </>
   )
 }

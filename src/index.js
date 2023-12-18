@@ -18,7 +18,7 @@ const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 root.render(
   <React.StrictMode>
-    <Leva collapsed />
+    {/*   <Leva collapsed /> */}
     <Loader />
     <Suspense fallback={null}>
       <Canvas
@@ -57,6 +57,7 @@ Improve:
 - BTN launch trop petit et aliase en mode small screen quand on est en vue 3d
 - Info clickable obj (light)
 - had shadow on the floor
+- Try mesh reflectorMaterial plane floor
 
 Bonus:
 - Smooth scroll transition entre les vues
@@ -74,4 +75,8 @@ Improve:
 
 Scroll trop loin
 welcome wmooth
+
+Next project:
+- read drei doc to inspire for new project https://github.com/pmndrs/drei
+exemple: Couloire musée sur les mure texture figé et quand on est proche rendu HTML d'un projet on clique dessus est on ce projette dans le projet
 */

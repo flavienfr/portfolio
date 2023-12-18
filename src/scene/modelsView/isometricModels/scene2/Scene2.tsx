@@ -24,9 +24,7 @@ export function Scene2() {
     <e.group theatreKey="scene2" position={position2}>
       <ShcoolSceneObject opacity={opacity} />
 
-      {/*    {Math.abs(currentScene) >= 2 && Math.abs(currentScene) <= 2 && (
-        <Screens screanOpacity={opacity} />
-      )} */}
+      {Math.abs(currentScene) === 2 && <Screens screanOpacity={opacity} />}
     </e.group>
   )
 }

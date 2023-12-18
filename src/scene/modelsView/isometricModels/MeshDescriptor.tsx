@@ -1,4 +1,4 @@
-import { Html } from '@react-three/drei'
+import { Html, Text } from '@react-three/drei'
 import { Vector3, useFrame } from '@react-three/fiber'
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { Object3D } from 'three'
@@ -38,6 +38,7 @@ export function MeshDescriptor({
     updateHideIndications(hover)
   }
 
+  /* TODO explore  mesh insted of HTML */
   /*   const indicRef = useRef(null)
   useFrame((state) => {})
 
@@ -56,7 +57,6 @@ export function MeshDescriptor({
       onPointerOut={() => handleHovered(false)}
     >
       <Material />
-
       {/*     <mesh position={position} ref={indicRef}>
         <boxGeometry />
         <meshBasicMaterial opacity={0.5} />

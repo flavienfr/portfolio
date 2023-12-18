@@ -824,20 +824,6 @@ h1 {
   height: 800px /*  815px */;
 }
 
-/* End text */
-.endTextWrapper {
-  position: fixed !important;
-  pointer-events: none;
-}
-
-.endTextWrapper h1 {
-  color: var(--textColor);
-  font-size: 100px;
-  font-family: sf;
-  font-weight: 700;
-  line-height: 100px;
-}
-
 /* Annotation indication */
 .fireflyWrapper {
   display: relative;

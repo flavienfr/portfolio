@@ -1,23 +1,27 @@
 import { Physics } from '@react-three/rapier'
-import React, { Suspense } from 'react'
+import React, { Suspense, useEffect } from 'react'
 import { useSceneOpacity } from '../../../hooks/useSceneOpacity'
 import { Crane } from './Crane'
 import { EndText } from './EndText'
 import { Rope } from './Rope'
 
-export function BackgroundModels() {
+interface BackGroundModelProps {
+  render: boolean
+}
+
+export function BackgroundModels({ render }: BackGroundModelProps) {
   const opacity = useSceneOpacity('crane')
 
   return (
     <>
       <Suspense>
-        <Physics gravity={[0, -9.81, 0]}>
+        <Physics gravity={[0, -9.81, 0]} paused={!render}>
           <Crane opacity={opacity} />
           <Rope length={8} opacity={opacity} />
         </Physics>
       </Suspense>
 
-      <EndText opacity={opacity} />
+      {render && <EndText opacity={opacity} />}
     </>
   )
 }
