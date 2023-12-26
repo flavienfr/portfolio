@@ -42,10 +42,9 @@ interface ScreensProps {
 export function Screens({ screanOpacity }: ScreensProps) {
   return (
     <>
-      {/* <PongScreen screanOpacity={screanOpacity} /> */}
-
+      <PongScreen screanOpacity={screanOpacity} />
       <ArcadeScreen screanOpacity={screanOpacity} />
-      {/* <PcScreen screanOpacity={screanOpacity} /> */}
+      <PcScreen screanOpacity={screanOpacity} />
     </>
   )
 }
@@ -144,16 +143,16 @@ function ArcadeScreen({ screanOpacity }: ScreenProps) {
 
   return (
     <>
-      <Text
+      {/*       <Text
         position={arcadeStartPos}
         rotation={arcadeRot}
         fontSize={0.5}
         onClick={arcadePlay}
-        /*  onPointerEnter={Float moovement} */
+         onPointerEnter={Float moovement}
       >
         Play
-      </Text>
-      {/*   <Html
+      </Text> */}
+      <Html
         wrapperClass="screenWrapper"
         position={arcadePos}
         rotation={arcadeRot}
@@ -173,7 +172,7 @@ function ArcadeScreen({ screanOpacity }: ScreenProps) {
             console.log('wolf loaded')
           }}
         />
-      </Html> */}
+      </Html>
     </>
   )
 }

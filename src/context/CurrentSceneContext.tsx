@@ -45,7 +45,7 @@ export function CurrentSceneContext({ children }: CurrentSceneContextProps) {
   )
 }
 
-export function useCameraMooving() {
+/* export function useCameraMooving() {
   const sheet = useCurrentSheet()
   const [mooving, setMooving] = useState(false)
 
@@ -59,3 +59,4 @@ export function useCameraMooving() {
     }
   }, [sheet])
 }
+ */

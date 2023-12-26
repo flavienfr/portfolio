@@ -23,16 +23,16 @@ root.render(
     <Suspense fallback={null}>
       <Canvas
         flat
-        /* antialias={false} */ gl={{
+        gl={{
           preserveDrawingBuffer: true,
-          antialias: false,
+          /* antialias: false, */
         }}
       >
         {/* <primitive object={new AxesHelper(10)} /> */}
         {/* <color args={['white']} attach="background" /> */}
         {/* <OrbitControls makeDefault /> */}
         {/* <Perf /> */}
-        <AdaptiveDpr pixelated />
+        {/*TODO  <AdaptiveDpr pixelated /> */}
         <App />
       </Canvas>
     </Suspense>
