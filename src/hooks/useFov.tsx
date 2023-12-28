@@ -47,7 +47,6 @@ export function useFov() {
     if (!sheet || sheet.sequence.position < LEAVING_SCREEN_ANIMATION) return
     const newFov = calculateFov()
     setFov(newFov)
-    // console.log('aspect:', camera.aspect, 'FOV:', camera.fov)
   }, [camera, viewport, currentScene])
 
   return { fov }

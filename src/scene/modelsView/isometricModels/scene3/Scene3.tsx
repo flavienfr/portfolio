@@ -1,8 +1,8 @@
 import { editable as e } from '@theatre/r3f'
 import { useControls } from 'leva'
-import React, { useContext } from 'react'
-import { currentSceneContext } from '../../../../context/CurrentSceneContext'
+import React from 'react'
 import { useSceneOpacity } from '../../../../hooks/useSceneOpacity'
+import { useFadeScreenScene } from '../../../../hooks/useFadeScreenScene'
 import { PresentationScreen } from './PresentationScreen'
 import { UpslideSceneObject } from './UpslideSceneObject'
 
@@ -16,16 +16,13 @@ const OPTIONS = {
 export function Scene3() {
   const { position3 } = useControls('isometric', OPTIONS)
   const opacity = useSceneOpacity('scene3')
-
-  const currentScene = useContext(currentSceneContext)
+  const { screanOpacity, showScreen } = useFadeScreenScene(3)
 
   return (
     <e.group theatreKey="scene3" position={position3}>
       <UpslideSceneObject opacity={opacity} />
 
-      {Math.abs(currentScene) >= 3 && Math.abs(currentScene) < 4 && (
-        <PresentationScreen screanOpacity={opacity} />
-      )}
+      {showScreen && <PresentationScreen screanOpacity={screanOpacity} />}
     </e.group>
   )
 }

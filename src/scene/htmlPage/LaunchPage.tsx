@@ -78,8 +78,10 @@ function decreaseBackgroundOpacity() {
   let opacity = 1
 
   const loopTime = LEAVING_SCREEN_DELAY_MS / (1 / 0.01)
-  setInterval(() => {
-    if (opacity <= 0) return
+  const timer = setInterval(() => {
+    if (opacity <= 0) {
+      return
+    }
     opacity -= 0.01
     const grainOpacity = opacity * 0.12
     htmlScreen.style.backgroundColor = `rgba(10, 10, 10, ${opacity})`

@@ -13,12 +13,13 @@ import {
   OrbitControls,
   PerformanceMonitor,
 } from '@react-three/drei'
+import { ArcadeScene } from './scene/modelsView/isometricModels/arcadeScene/ArcadeScene.tsx'
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 root.render(
   <React.StrictMode>
-    {/*   <Leva collapsed /> */}
+    <Leva collapsed />
     <Loader />
     <Suspense fallback={null}>
       <Canvas
@@ -30,10 +31,11 @@ root.render(
       >
         {/* <primitive object={new AxesHelper(10)} /> */}
         {/* <color args={['white']} attach="background" /> */}
-        {/* <OrbitControls makeDefault /> */}
+        {/* <OrbitControls enableZoom={false} makeDefault /> */}
         {/* <Perf /> */}
         {/*TODO  <AdaptiveDpr pixelated /> */}
         <App />
+        {/* <ArcadeScene /> */}
       </Canvas>
     </Suspense>
   </React.StrictMode>
@@ -47,6 +49,7 @@ reportWebVitals()
 /* TODO Global
 - Loading font, images, gif dans le chargement
 - vue final liens github
+- box selection raycasting simplify shapes
 
 Mobile:
 - Annotation clikable

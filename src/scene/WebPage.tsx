@@ -9,6 +9,7 @@ export function WebPage() {
   const currentScene = useContext(currentSceneContext)
 
   return (
+    //TODO stop blending and replace by smooth opacity to 0 into cut off
     <>
       {Math.abs(currentScene) < 2 && (
         <Html

@@ -12,9 +12,9 @@ import { useFov } from './hooks/useFov.tsx'
 import { ScrollScene } from './hooks/ScrollScene.tsx'
 import React from 'react'
 
-studio.extend(extension)
+/* studio.extend(extension)
 studio.initialize()
-
+ */
 export const SPEED_SPIN_FACTOR = 0.05
 
 export default function App() {

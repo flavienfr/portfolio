@@ -1,8 +1,6 @@
 import { Html, Text } from '@react-three/drei'
 import { useControls } from 'leva'
 import React, { useEffect, useRef } from 'react'
-import { useSceneScreenBlending } from '../../../../hooks/useSceneScreenBlending'
-import { useCurrentSheet } from '@theatre/r3f'
 
 const OPTIONS = {
   pongPos: {
@@ -127,32 +125,29 @@ function MatrixCanvas() {
 - optimise wraping arcade
 */
 function ArcadeScreen({ screanOpacity }: ScreenProps) {
-  const { arcadePos, arcadeStartPos, arcadeRot } = useControls(
-    'scene2',
-    OPTIONS
-  )
-  const iframeRef = useRef(null)
-
-  const sheet = useCurrentSheet()
+  const { arcadeStartPos, arcadeRot } = useControls('scene2', OPTIONS)
 
   const arcadePlay = () => {
-    /* sheet?.sequence.play({ range: [0, LEAVING_SCREEN_ANIMATION] })
-    }, 1000) */
     console.log("let's play")
+  }
+
+  const handleHover = () => {
+    console.log('🚀 ~  Zoom by red ')
   }
 
   return (
     <>
-      {/*       <Text
+      <Text
         position={arcadeStartPos}
         rotation={arcadeRot}
         fontSize={0.5}
         onClick={arcadePlay}
-         onPointerEnter={Float moovement}
+        onPointerEnter={handleHover}
+        fillOpacity={screanOpacity}
       >
         Play
-      </Text> */}
-      <Html
+      </Text>
+      {/*  <Html
         wrapperClass="screenWrapper"
         position={arcadePos}
         rotation={arcadeRot}
@@ -172,7 +167,7 @@ function ArcadeScreen({ screanOpacity }: ScreenProps) {
             console.log('wolf loaded')
           }}
         />
-      </Html>
+      </Html> */}
     </>
   )
 }
