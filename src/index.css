@@ -870,3 +870,23 @@ h1 {
     box-shadow: inset 0px 0px 50px 50px #ffffff00;
   }
 }
+
+/* IHM */
+.Ihm {
+  position: absolute;
+  z-index: 9999999;
+  bottom: 0px;
+  width: 100%;
+  border: solid 1px red;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.Ihm .buttons {
+  border: solid green 1px;
+}
+
+.Ihm .sceneTitle {
+  border: solid blue 1px;
+}

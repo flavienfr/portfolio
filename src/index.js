@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import { Canvas } from '@react-three/fiber'
 import { Perf } from 'r3f-perf'
-import React, { Suspense } from 'react'
+import React, { Suspense, useEffect } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
@@ -14,6 +14,8 @@ import {
   PerformanceMonitor,
 } from '@react-three/drei'
 import { ArcadeScene } from './scene/modelsView/isometricModels/arcadeScene/ArcadeScene.tsx'
+import { SceneContext } from './context/SceneContext.tsx'
+import { Ihm } from './scene/ihm/Ihm.tsx'
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
@@ -22,6 +24,15 @@ root.render(
     <Leva collapsed />
     <Loader />
     <Suspense fallback={null}>
+      <Content />
+    </Suspense>
+  </React.StrictMode>
+)
+
+function Content() {
+  return (
+    <SceneContext>
+      <Ihm />
       <Canvas
         flat
         gl={{
@@ -37,9 +48,14 @@ root.render(
         <App />
         {/* <ArcadeScene /> */}
       </Canvas>
-    </Suspense>
-  </React.StrictMode>
-)
+    </SceneContext>
+  )
+}
+
+//TODO next
+//- mobile version, fleche haut bas scroll désactivé
+// - déplacement possibleléger gauche droite
+// - arcade play bande d'arcade fond noir sole noir brillant, btn play into fondue grain like webscreean
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

@@ -5,7 +5,7 @@ import flyThroughState from '../../theater/state.json'
 
 const LEAVING_SCREEN_DELAY_MS = 2000
 
-export function LaunchPage({ smallRatio }) {
+export function LaunchPage({ smallRatio, setScene }) {
   const [color, setColor] = useState(false)
   const sheet = getProject('Fly Through', { state: flyThroughState }).sheet(
     'Scene'
@@ -16,7 +16,13 @@ export function LaunchPage({ smallRatio }) {
 
     setTimeout(() => {
       decreaseBackgroundOpacity()
-      sheet?.sequence.play({ range: [0, LEAVING_SCREEN_ANIMATION] })
+
+      const promise = sheet?.sequence.play({
+        range: [0, LEAVING_SCREEN_ANIMATION],
+      })
+      promise.finally(() => {
+        setScene(1)
+      })
     }, 1000)
   }
 

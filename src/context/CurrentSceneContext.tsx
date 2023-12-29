@@ -44,19 +44,3 @@ export function CurrentSceneContext({ children }: CurrentSceneContextProps) {
     </currentSceneContext.Provider>
   )
 }
-
-/* export function useCameraMooving() {
-  const sheet = useCurrentSheet()
-  const [mooving, setMooving] = useState(false)
-
-  useEffect(() => {
-    const unsub = onChange(sheet!.sequence.pointer.position, (pos) => {
-      console.log('🚀 ~ pos:', pos)
-    })
-
-    return () => {
-      unsub()
-    }
-  }, [sheet])
-}
- */

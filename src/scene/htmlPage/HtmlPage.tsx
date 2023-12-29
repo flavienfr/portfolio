@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import { WelcomePage } from './WelcomePage'
 import { BioPage } from './BioPage'
 import { LaunchPage } from './LaunchPage'
+import { WelcomePage } from './WelcomePage'
 
 //TODO
 // agrandir l'html une quitter le mode pleinne écran
 
-export function HtmlPage({ htmlHeight, smallRatio }) {
+export function HtmlPage({ htmlHeight, smallRatio, setScene }) {
   const [scrollFraction, setScrollFraction] = useState(0)
 
   const handleScroll = (event) => {
@@ -22,7 +22,7 @@ export function HtmlPage({ htmlHeight, smallRatio }) {
       <div className="fullwidth" onScroll={handleScroll}>
         <WelcomePage scrollFraction={scrollFraction} />
         <BioPage scrollFraction={scrollFraction} />
-        <LaunchPage smallRatio={smallRatio} />
+        <LaunchPage smallRatio={smallRatio} setScene={setScene} />
       </div>
     </>
   )

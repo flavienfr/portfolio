@@ -3,10 +3,12 @@ import React, { useContext } from 'react'
 import { currentSceneContext } from '../context/CurrentSceneContext.tsx'
 import { useScreenResize } from '../hooks/useScreenResize.tsx'
 import { HtmlPage } from './htmlPage/HtmlPage.tsx'
+import { sceneContext } from '../context/SceneContext.tsx'
 
 export function WebPage() {
   const { blending, planeInfo, smallRatio } = useScreenResize()
   const currentScene = useContext(currentSceneContext)
+  const { setScene } = useContext(sceneContext)
 
   return (
     //TODO stop blending and replace by smooth opacity to 0 into cut off
@@ -23,7 +25,11 @@ export function WebPage() {
             height: planeInfo.height,
           }}
         >
-          <HtmlPage htmlHeight={planeInfo.height} smallRatio={smallRatio} />
+          <HtmlPage
+            htmlHeight={planeInfo.height}
+            smallRatio={smallRatio}
+            setScene={setScene}
+          />
         </Html>
       )}
     </>

@@ -27,7 +27,6 @@ export function useFadeScreenScene(sceneId: number) {
   }
 
   useEffect(() => {
-    console.log('currentScene', currentScene, 'laststate', lastState)
     if (Math.abs(currentScene) === sceneId && lastState !== sceneId) {
       setShowScreen(true)
       Animation(1)

@@ -1,7 +1,7 @@
-import { ScrollControls } from '@react-three/drei'
+import { Html, ScrollControls } from '@react-three/drei'
 import { getProject } from '@theatre/core'
 import { PerspectiveCamera, SheetProvider } from '@theatre/r3f'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { ModelsView } from './scene/modelsView/ModelsView.tsx'
 import flyThroughState from './theater/state.json'
 import { WebPage } from './scene/WebPage.tsx'
@@ -9,12 +9,12 @@ import studio from '@theatre/studio'
 import extension from '@theatre/r3f/dist/extension'
 import { CurrentSceneContext } from './context/CurrentSceneContext.tsx'
 import { useFov } from './hooks/useFov.tsx'
-import { ScrollScene } from './hooks/ScrollScene.tsx'
+import { JumpScene, ScrollScene } from './hooks/ScrollScene.tsx'
 import React from 'react'
 
-/* studio.extend(extension)
+studio.extend(extension)
 studio.initialize()
- */
+
 export const SPEED_SPIN_FACTOR = 0.05
 
 export default function App() {
@@ -30,10 +30,11 @@ export default function App() {
   return (
     <ScrollControls pages={3}>
       <SheetProvider sheet={sheet}>
-        <ScrollScene />
+        {/*  <ScrollScene /> */}
+        <JumpScene />
         <CurrentSceneContext>
           <CameraScene />
-          <WebPage />
+          {/*       <WebPage /> */}
           <ModelsView />
         </CurrentSceneContext>
       </SheetProvider>
