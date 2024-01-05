@@ -32,7 +32,6 @@ export function Ihm() {
           className="arrowDown"
           style={{
             opacity: downOpacity,
-            transition: ' opacity 1s',
             cursor: downOpacity === 1 ? 'pointer' : 'auto',
           }}
         >
@@ -42,7 +41,6 @@ export function Ihm() {
           className="arrowUp"
           style={{
             opacity: upOpacity,
-            transition: ' opacity 1s',
             cursor: upOpacity === 1 ? 'pointer' : 'auto',
             transform: 'rotate(0.5turn)',
           }}
