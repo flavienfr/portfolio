@@ -30,7 +30,7 @@ export default function App() {
   return (
     <ScrollControls pages={3}>
       <SheetProvider sheet={sheet}>
-        {/*  <ScrollScene /> */}
+        {/* <ScrollScene /> */}
         <JumpScene />
         <CurrentSceneContext>
           <CameraScene />

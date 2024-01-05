@@ -39,6 +39,7 @@ function Content() {
           preserveDrawingBuffer: true,
           /* antialias: false, */
         }}
+        className="MainCanvas"
       >
         {/* <primitive object={new AxesHelper(10)} /> */}
         {/* <color args={['white']} attach="background" /> */}

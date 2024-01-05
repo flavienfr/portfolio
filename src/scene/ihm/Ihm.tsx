@@ -1,7 +1,8 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { sceneContext } from '../../context/SceneContext.tsx'
+import { currentSceneContext } from '../../context/CurrentSceneContext.tsx'
 
-const SCENE_NAME = ['', 'Welcome', 'School 42', 'Company UpSlide', '']
+const SCENE_NAME = ['', 'Welcome', 'School 42', 'First job', '...']
 
 export function Ihm() {
   const { scene, setScene } = useContext(sceneContext)
@@ -23,22 +24,31 @@ export function Ihm() {
     setDownOpacity(nextScene === 1 ? 0 : 1)
     setScene(nextScene)
   }
-
+  //TODO title en fonction des scène parcourue
   return (
     <div className="Ihm">
       <div className="buttons">
-        <button
-          onClick={handleClickUp}
-          style={{ opacity: upOpacity, transition: ' opacity 1s' }}
+        <div
+          className="arrowDown"
+          style={{
+            opacity: downOpacity,
+            transition: ' opacity 1s',
+            cursor: downOpacity === 1 ? 'pointer' : 'auto',
+          }}
         >
-          Up
-        </button>
-        <button
-          onClick={handleClickDown}
-          style={{ opacity: downOpacity, transition: ' opacity 1s' }}
+          <img src="./svg/arrowDown.svg" onClick={handleClickDown} />
+        </div>
+        <div
+          className="arrowUp"
+          style={{
+            opacity: upOpacity,
+            transition: ' opacity 1s',
+            cursor: upOpacity === 1 ? 'pointer' : 'auto',
+            transform: 'rotate(0.5turn)',
+          }}
         >
-          Down
-        </button>
+          <img src="./svg/arrowDown.svg" onClick={handleClickUp} />
+        </div>
       </div>
       <div className="sceneTitle">{SCENE_NAME[scene]}</div>
     </div>
