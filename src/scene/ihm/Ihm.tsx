@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { sceneContext } from '../../context/SceneContext.tsx'
-import { currentSceneContext } from '../../context/CurrentSceneContext.tsx'
 
 const SCENE_NAME = ['', 'Welcome', 'School 42', 'First job', '...']
 
@@ -24,10 +23,13 @@ export function Ihm() {
     setDownOpacity(nextScene === 1 ? 0 : 1)
     setScene(nextScene)
   }
-  //TODO title en fonction des scène parcourue
+
   return (
     <div className="Ihm">
-      <div className="buttons">
+      <div
+        className="buttons"
+        style={{ opacity: scene >= 1 ? 1 : 0, transition: 'opacity 1s' }}
+      >
         <div
           className="arrowDown"
           style={{
@@ -48,7 +50,12 @@ export function Ihm() {
           <img src="./svg/arrowDown.svg" onClick={handleClickUp} />
         </div>
       </div>
-      <div className="sceneTitle">{SCENE_NAME[scene]}</div>
+      <div
+        className="sceneTitle"
+        style={{ opacity: scene >= 1 ? 1 : 0, transition: 'opacity 1s' }}
+      >
+        {SCENE_NAME[scene]}
+      </div>
     </div>
   )
 }

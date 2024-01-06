@@ -1,13 +1,16 @@
-import { Html, ScrollControls } from '@react-three/drei'
+import { Html, PresentationControls, ScrollControls } from '@react-three/drei'
 import { getProject } from '@theatre/core'
 import { PerspectiveCamera, SheetProvider } from '@theatre/r3f'
-import { useEffect, useState } from 'react'
+import { memo, useContext, useEffect, useState } from 'react'
 import { ModelsView } from './scene/modelsView/ModelsView.tsx'
 import flyThroughState from './theater/state.json'
 import { WebPage } from './scene/WebPage.tsx'
 import studio from '@theatre/studio'
 import extension from '@theatre/r3f/dist/extension'
-import { CurrentSceneContext } from './context/CurrentSceneContext.tsx'
+import {
+  CurrentSceneContext,
+  currentSceneContext,
+} from './context/CurrentSceneContext.tsx'
 import { useFov } from './hooks/useFov.tsx'
 import { JumpScene, ScrollScene } from './hooks/ScrollScene.tsx'
 import React from 'react'
@@ -28,18 +31,30 @@ export default function App() {
   }, [project])
 
   return (
-    <ScrollControls pages={3}>
-      <SheetProvider sheet={sheet}>
-        {/* <ScrollScene /> */}
-        <JumpScene />
-        <CurrentSceneContext>
-          <CameraScene />
-          {/*       <WebPage /> */}
-          <ModelsView />
-        </CurrentSceneContext>
-      </SheetProvider>
-    </ScrollControls>
+    <SheetProvider sheet={sheet}>
+      {/* <ScrollScene /> */}
+      <JumpScene />
+      <CurrentSceneContext>
+        <CameraScene />
+        <AppContent />
+      </CurrentSceneContext>
+    </SheetProvider>
   )
+
+  function AppContent() {
+    const currentScene = useContext(currentSceneContext)
+
+    return (
+      <PresentationControls
+        enabled={Math.abs(currentScene) >= 1}
+        polar={[0, 0]}
+        azimuth={[-0.5, 0.5]}
+      >
+        <WebPage />
+        <ModelsView />
+      </PresentationControls>
+    )
+  }
 }
 
 function CameraScene() {
