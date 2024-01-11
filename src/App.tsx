@@ -46,11 +46,14 @@ export default function App() {
 
     return (
       <PresentationControls
-        /* enabled={Math.abs(currentScene) >= 1} */
+        global
+        enabled={Math.abs(currentScene) >= 1}
         polar={[0, 0]}
         azimuth={[-0.5, 0.5]}
+        config={{ mass: 1, tension: 100 }}
+        snap={{ mass: 1, tension: 100 }}
       >
-        {/* <WebPage /> */}
+        <WebPage />
         <ModelsView />
       </PresentationControls>
     )
