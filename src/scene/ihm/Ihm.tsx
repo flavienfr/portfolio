@@ -40,7 +40,7 @@ export function Ihm() {
           <img src="./svg/arrowDown.svg" onClick={handleClickDown} />
         </div>
         <div
-          className="arrowUp"
+          className={scene == 1 ? 'arrowUpLight' : 'arrowUp'}
           style={{
             opacity: upOpacity,
             cursor: upOpacity === 1 ? 'pointer' : 'auto',

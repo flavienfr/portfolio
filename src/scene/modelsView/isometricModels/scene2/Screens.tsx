@@ -41,7 +41,7 @@ export function Screens({ screanOpacity }: ScreensProps) {
   return (
     <>
       <PongScreen screanOpacity={screanOpacity} />
-      <ArcadeScreen screanOpacity={screanOpacity} />
+      {/*  <ArcadeScreen screanOpacity={screanOpacity} /> */}
       <PcScreen screanOpacity={screanOpacity} />
     </>
   )
