@@ -32,7 +32,6 @@ export default function App() {
 
   return (
     <SheetProvider sheet={sheet}>
-      {/* <ScrollScene /> */}
       <JumpScene />
       <CurrentSceneContext>
         <CameraScene />
@@ -50,8 +49,8 @@ export default function App() {
         enabled={Math.abs(currentScene) >= 1}
         polar={[0, 0]}
         azimuth={[-0.5, 0.5]}
-        config={{ mass: 1, tension: 100 }}
         snap={{ mass: 1, tension: 100 }}
+        cursor={true}
       >
         <WebPage />
         <ModelsView />

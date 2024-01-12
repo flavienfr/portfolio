@@ -1,7 +1,7 @@
 import { useGLTF, useTexture } from '@react-three/drei'
 import { useControls } from 'leva'
 import React from 'react'
-import { MeshDescriptor } from '../MeshDescriptor'
+import { MeshDescriptor } from '../meshDescriptor/MeshDescriptor'
 import { useIndicationsDisplay } from '../../../../hooks/useIndicationsDisplay'
 
 /* 

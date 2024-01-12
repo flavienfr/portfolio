@@ -1,8 +1,8 @@
-import { Html, useGLTF, useTexture } from '@react-three/drei'
+import { useGLTF, useTexture } from '@react-three/drei'
 import { useControls } from 'leva'
-import React, { useReducer } from 'react'
-import { MeshDescriptor } from '../MeshDescriptor'
+import React from 'react'
 import { useIndicationsDisplay } from '../../../../hooks/useIndicationsDisplay'
+import { MeshDescriptor } from '../meshDescriptor/MeshDescriptor'
 
 export const OPTIONS = {
   shcoolPos: {
