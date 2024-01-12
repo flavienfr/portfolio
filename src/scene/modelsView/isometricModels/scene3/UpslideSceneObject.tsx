@@ -16,7 +16,7 @@ const OPTIONS = {
     step: 0.01,
   },
   cubesPos: {
-    value: [-0.79, -0.42, 1.8],
+    value: [-1.52, -0.32, 0.85],
     step: 0.01,
   },
 }

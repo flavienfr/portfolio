@@ -1,8 +1,8 @@
 import { Html } from '@react-three/drei'
 import { useControls } from 'leva'
 import React, { useEffect, useRef, useState } from 'react'
+import { sRGBEncoding } from 'three'
 import { ScreenProps } from '../scene2/Screens'
-import THREE, { TextureEncoding, sRGBEncoding } from 'three'
 
 const OPTIONS = {
   presPos: {

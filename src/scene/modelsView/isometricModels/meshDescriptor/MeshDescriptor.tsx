@@ -1,11 +1,12 @@
-import { Html, Text } from '@react-three/drei'
-import { Vector3, useFrame } from '@react-three/fiber'
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import { Html } from '@react-three/drei'
+import { Vector3 } from '@react-three/fiber'
+import React, { useContext, useEffect, useState } from 'react'
 import { Object3D } from 'three'
 import { currentSceneContext } from '../../../../context/CurrentSceneContext'
 import { pointerDownContext } from '../../../../context/PointerDownContext'
-import { Indication } from './Indication'
+import { useSmallScreen } from '../../../../hooks/useSmallScreen'
 import { Annotation } from './Annotation'
+import { Indication } from './Indication'
 
 interface MeshDescriptorProps {
   position: Vector3
@@ -30,17 +31,16 @@ export function MeshDescriptor({
   const currentScene = useContext(currentSceneContext)
   const { pointerDown, setPointerDown } = useContext(pointerDownContext)
 
-  /* const handleOvered = (hover: boolean) => {
-    if (Math.abs(currentScene) !== scene) {
-      document.body.style.cursor = 'auto'
-      return
-    }
-    console.log('cursor:', hover ? 'pointer' : 'auto')
-    document.body.style.cursor = hover ? 'pointer' : 'auto'
-  } */
+  const smallScreen = useSmallScreen()
+
+  const myStateRef = React.useRef(Math.abs(currentScene))
+  useEffect(() => {
+    myStateRef.current = Math.abs(currentScene)
+  }, [currentScene])
 
   const handlePressUp = () => {
     setPointerDown(false)
+    if (myStateRef.current !== scene) return
     setPressed(false)
     updateHideIndications(false)
     document.removeEventListener('pointerdown', handlePressUp)
@@ -65,11 +65,12 @@ export function MeshDescriptor({
       onPointerOut={() => handleOvered(false)} */
     >
       <Material />
-      {/*     <mesh position={position} ref={indicRef}>
+
+      {/*  <mesh position={position}>
         <boxGeometry />
-        <meshBasicMaterial opacity={0.5} />
+        <meshBasicMaterial color={'black'} opacity={0.5} />
       </mesh>
-      */}
+ */}
       <Html
         position={position}
         wrapperClass="wrapAnnotation"
@@ -83,7 +84,7 @@ export function MeshDescriptor({
             annotationConfig={annotationPos === 'Bottom' ? 2 : 1}
           />
         )}
-        {Math.abs(currentScene) === scene && (
+        {Math.abs(currentScene) === scene && !smallScreen && (
           <Annotation
             pressed={pressed}
             annotationPos={annotationPos}
@@ -91,6 +92,21 @@ export function MeshDescriptor({
           />
         )}
       </Html>
+
+      {smallScreen && Math.abs(currentScene) === scene && (
+        <Html
+          center
+          wrapperClass="wrapAnnotationMobile"
+          occlude={false}
+          zIndexRange={[16777271, 16777260]}
+        >
+          <Annotation
+            pressed={pressed}
+            annotationPos={'Mobile'}
+            meshObj={meshObj}
+          />
+        </Html>
+      )}
     </mesh>
   )
 }

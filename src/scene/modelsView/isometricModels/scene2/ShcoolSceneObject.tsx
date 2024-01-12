@@ -10,15 +10,15 @@ export const OPTIONS = {
     step: 0.01,
   },
   pcPos: {
-    value: [2.75, 1.89, -1.25],
+    value: [2.41, 1.77, -1.65],
     step: 0.01,
   },
   serverPos: {
-    value: [0.4, 1.97, -3.01],
+    value: [-0.19, 1.94, -2.47],
     step: 0.01,
   },
   arcadePos: {
-    value: [2.18, 2.55, 0.21],
+    value: [2.45, 2.01, 0.72],
     step: 0.01,
   },
   paintPos: {

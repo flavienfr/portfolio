@@ -47,7 +47,7 @@ export function Screens({ screanOpacity }: ScreensProps) {
   )
 }
 
-interface ScreenProps {
+export interface ScreenProps {
   screanOpacity: number
 }
 

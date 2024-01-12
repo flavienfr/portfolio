@@ -1,22 +1,21 @@
-import { Html, PresentationControls, ScrollControls } from '@react-three/drei'
+import { PresentationControls } from '@react-three/drei'
 import { getProject } from '@theatre/core'
 import { PerspectiveCamera, SheetProvider } from '@theatre/r3f'
-import { memo, useContext, useEffect, useState } from 'react'
-import { ModelsView } from './scene/modelsView/ModelsView.tsx'
-import flyThroughState from './theater/state.json'
-import { WebPage } from './scene/WebPage.tsx'
-import studio from '@theatre/studio'
 import extension from '@theatre/r3f/dist/extension'
+import studio from '@theatre/studio'
+import React, { useContext, useEffect } from 'react'
 import {
   CurrentSceneContext,
   currentSceneContext,
 } from './context/CurrentSceneContext.tsx'
+import { JumpScene } from './hooks/ScrollScene.tsx'
 import { useFov } from './hooks/useFov.tsx'
-import { JumpScene, ScrollScene } from './hooks/ScrollScene.tsx'
-import React from 'react'
+import { WebPage } from './scene/WebPage.tsx'
+import { ModelsView } from './scene/modelsView/ModelsView.tsx'
+import flyThroughState from './theater/state.json'
 
-studio.extend(extension)
-studio.initialize()
+/* studio.extend(extension)
+studio.initialize() */
 
 export const SPEED_SPIN_FACTOR = 0.05
 

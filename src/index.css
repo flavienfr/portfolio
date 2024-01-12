@@ -660,6 +660,16 @@ h1 {
   background: #202035;
 }
 
+.contentMobile {
+  padding-top: 10px;
+  text-align: left;
+  background: #202035;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  width: 300px;
+}
+
 .contentBottom {
   padding-top: 10px;
   transform: translate3d(calc(40px), -100%, 0);
@@ -705,6 +715,11 @@ h1 {
 }
 
 .wrapAnnotation {
+  position: fixed !important;
+  pointer-events: none;
+}
+
+.wrapAnnotationMobile {
   position: fixed !important;
   pointer-events: none;
 }
