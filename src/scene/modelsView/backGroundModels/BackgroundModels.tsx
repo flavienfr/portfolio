@@ -1,8 +1,8 @@
 import { Physics } from '@react-three/rapier'
-import React, { Suspense, useEffect } from 'react'
+import React, { Suspense } from 'react'
 import { useSceneOpacity } from '../../../hooks/useSceneOpacity'
+import { BioLinks } from './BioLinks'
 import { Crane } from './Crane'
-import { EndText } from './EndText'
 import { Rope } from './Rope'
 
 interface BackGroundModelProps {
@@ -21,7 +21,7 @@ export function BackgroundModels({ render }: BackGroundModelProps) {
         </Physics>
       </Suspense>
 
-      {render && <EndText opacity={opacity} />}
+      {render && <BioLinks /* opacity={opacity} */ />}
     </>
   )
 }

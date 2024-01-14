@@ -54,8 +54,6 @@ function Content() {
 }
 
 //TODO next
-//- mobile version, fleche haut bas scroll désactivé
-// - déplacement possibleléger gauche droite
 // - arcade play bande d'arcade fond noir sole noir brillant, btn play into fondue grain like webscreean
 
 // If you want to start measuring performance in your app, pass a function
