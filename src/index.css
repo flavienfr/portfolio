@@ -856,6 +856,8 @@ h1 {
   display: inline-block;
   position: absolute;
   animation: fireflyAnime 3s infinite ease;
+  top: 3px;
+  left: 3px;
 }
 
 @keyframes fireflyAnime {

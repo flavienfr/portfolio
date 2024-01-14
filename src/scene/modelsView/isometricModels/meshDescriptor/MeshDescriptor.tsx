@@ -7,6 +7,7 @@ import { pointerDownContext } from '../../../../context/PointerDownContext'
 import { useSmallScreen } from '../../../../hooks/useSmallScreen'
 import { Annotation } from './Annotation'
 import { Indication } from './Indication'
+import { screenClickedContext } from '../../../../context/screenClikedContext'
 
 interface MeshDescriptorProps {
   position: Vector3
@@ -30,7 +31,7 @@ export function MeshDescriptor({
   const [pressed, setPressed] = useState(false)
   const currentScene = useContext(currentSceneContext)
   const { pointerDown, setPointerDown } = useContext(pointerDownContext)
-
+  const { screenName, setScreenName } = useContext(screenClickedContext)
   const smallScreen = useSmallScreen()
 
   const myStateRef = React.useRef(Math.abs(currentScene))
@@ -39,6 +40,7 @@ export function MeshDescriptor({
   }, [currentScene])
 
   const handlePressUp = () => {
+    setScreenName(undefined)
     setPointerDown(false)
     if (myStateRef.current !== scene) return
     setPressed(false)
@@ -55,6 +57,11 @@ export function MeshDescriptor({
       document.addEventListener('pointerdown', handlePressUp)
     }, 500)
   }
+
+  useEffect(() => {
+    if (screenName !== meshObj.name) return
+    handlePressDown()
+  }, [screenName])
 
   return (
     <mesh

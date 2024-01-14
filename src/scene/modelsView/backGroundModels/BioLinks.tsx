@@ -29,10 +29,10 @@ export function BioLinks(/* opacity */) {
   const [dstFactor, setDstFactor] = useState(DST_FACTOR_BIO.default)
 
   useEffect(() => {
-    if (fov == FOV_RANGE.high2) setDstFactor(DST_FACTOR_BIO.high2)
-    else if (fov == FOV_RANGE.high1) setDstFactor(DST_FACTOR_BIO.high1)
-    else if (fov == FOV_RANGE.low2) setDstFactor(DST_FACTOR_BIO.low2)
-    else if (fov == FOV_RANGE.low1) setDstFactor(DST_FACTOR_BIO.low1)
+    if (fov === FOV_RANGE.high2) setDstFactor(DST_FACTOR_BIO.high2)
+    else if (fov === FOV_RANGE.high1) setDstFactor(DST_FACTOR_BIO.high1)
+    else if (fov === FOV_RANGE.low2) setDstFactor(DST_FACTOR_BIO.low2)
+    else if (fov === FOV_RANGE.low1) setDstFactor(DST_FACTOR_BIO.low1)
     else setDstFactor(DST_FACTOR_BIO.default)
   }, [fov])
 

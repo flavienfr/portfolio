@@ -1,6 +1,4 @@
-import { onChange } from '@theatre/core'
-import { useCurrentSheet } from '@theatre/r3f'
-import React, { ReactNode, createContext, useEffect, useState } from 'react'
+import React, { ReactNode, createContext, useState } from 'react'
 
 type pointerDownContextType = {
   pointerDown: boolean

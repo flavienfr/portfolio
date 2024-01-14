@@ -1,6 +1,7 @@
 import { Html, Text } from '@react-three/drei'
 import { useControls } from 'leva'
-import React, { useEffect, useRef } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
+import { screenClickedContext } from '../../../../context/screenClikedContext'
 
 const OPTIONS = {
   pongPos: {
@@ -53,6 +54,7 @@ export interface ScreenProps {
 
 function PongScreen({ screanOpacity }: ScreenProps) {
   const { pongPos, pongRot } = useControls('scene2', OPTIONS)
+  const { setScreenName } = useContext(screenClickedContext)
 
   return (
     <>
@@ -68,7 +70,7 @@ function PongScreen({ screanOpacity }: ScreenProps) {
           opacity: screanOpacity,
         }}
       >
-        <div className="pongScrean">
+        <div className="pongScrean" onPointerDown={() => setScreenName('tv')}>
           <div id="half" />
           <div id="sidel" />
           <div id="sider" />
@@ -77,48 +79,6 @@ function PongScreen({ screanOpacity }: ScreenProps) {
       </Html>
     </>
   )
-}
-
-function MatrixCanvas() {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null)
-
-  useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-    const ctx = canvas.getContext('2d')
-
-    const initializeMatrix = () => {
-      const w = canvas.width
-      const h = canvas.height
-      const cols = Math.floor(w / 20) + 1
-      const ypos = Array(cols).fill(0)
-
-      ctx.fillStyle = '#000'
-      ctx.fillRect(0, 0, w, h)
-
-      const matrix = () => {
-        ctx.fillStyle = '#0001'
-        ctx.fillRect(0, 0, w, h)
-
-        ctx.fillStyle = '#0f0'
-        ctx.font = '15pt monospace'
-
-        ypos.forEach((y, ind) => {
-          const text = String.fromCharCode(Math.random() * 128)
-          const x = ind * 20
-          ctx.fillText(text, x, y)
-
-          if (y > 100 + Math.random() * 10000) ypos[ind] = 0
-          else ypos[ind] = y + 20
-        })
-      }
-
-      setInterval(matrix, 50)
-    }
-    initializeMatrix()
-  }, [canvasRef])
-
-  return <canvas ref={canvasRef} width={766} height={551} />
 }
 
 /* TODO
@@ -174,6 +134,7 @@ function ArcadeScreen({ screanOpacity }: ScreenProps) {
 
 function PcScreen({ screanOpacity }: ScreenProps) {
   const { PcScreenPos, PcScreenRot } = useControls('scene2', OPTIONS)
+  const { setScreenName } = useContext(screenClickedContext)
 
   return (
     <Html
@@ -185,7 +146,56 @@ function PcScreen({ screanOpacity }: ScreenProps) {
       distanceFactor={0.36}
       style={{ opacity: screanOpacity }}
     >
-      <MatrixCanvas />
+      <MatrixCanvas handleClick={() => setScreenName('pc')} />
     </Html>
+  )
+}
+
+function MatrixCanvas({ handleClick }) {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null)
+
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+    const ctx = canvas.getContext('2d')
+
+    const initializeMatrix = () => {
+      const w = canvas.width
+      const h = canvas.height
+      const cols = Math.floor(w / 20) + 1
+      const ypos = Array(cols).fill(0)
+
+      ctx.fillStyle = '#000'
+      ctx.fillRect(0, 0, w, h)
+
+      const matrix = () => {
+        ctx.fillStyle = '#0001'
+        ctx.fillRect(0, 0, w, h)
+
+        ctx.fillStyle = '#0f0'
+        ctx.font = '15pt monospace'
+
+        ypos.forEach((y, ind) => {
+          const text = String.fromCharCode(Math.random() * 128)
+          const x = ind * 20
+          ctx.fillText(text, x, y)
+
+          if (y > 100 + Math.random() * 10000) ypos[ind] = 0
+          else ypos[ind] = y + 20
+        })
+      }
+
+      setInterval(matrix, 50)
+    }
+    initializeMatrix()
+  }, [canvasRef])
+
+  return (
+    <canvas
+      ref={canvasRef}
+      width={766}
+      height={551}
+      onPointerDown={handleClick}
+    />
   )
 }

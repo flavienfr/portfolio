@@ -37,17 +37,25 @@ export function Ihm() {
             cursor: downOpacity === 1 ? 'pointer' : 'auto',
           }}
         >
-          <img src="./svg/arrowDown.svg" onClick={handleClickDown} />
+          <img
+            src="./svg/arrowDown.svg"
+            onClick={handleClickDown}
+            alt="up arrow"
+          />
         </div>
         <div
-          className={scene == 1 ? 'arrowUpLight' : 'arrowUp'}
+          className={scene === 1 ? 'arrowUpLight' : 'arrowUp'}
           style={{
             opacity: upOpacity,
             cursor: upOpacity === 1 ? 'pointer' : 'auto',
             transform: 'rotate(0.5turn)',
           }}
         >
-          <img src="./svg/arrowDown.svg" onClick={handleClickUp} />
+          <img
+            src="./svg/arrowDown.svg"
+            onClick={handleClickUp}
+            alt="down arrow"
+          />
         </div>
       </div>
       <div
