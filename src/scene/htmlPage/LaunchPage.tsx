@@ -15,7 +15,7 @@ export function LaunchPage({ smallRatio, setScene }) {
     setColor(true)
 
     setTimeout(() => {
-      decreaseBackgroundOpacity()
+      /* decreaseBackgroundOpacity() */
 
       const promise = sheet?.sequence.play({
         range: [0, LEAVING_SCREEN_ANIMATION],
