@@ -1,7 +1,13 @@
 :root {
   --textColor: #f5f5f7;
   --backGroundColor: #0a0a0a;
-  --backgroundOpacity: 0.12; /* Only used to manipulate pseudo element property */
+  --backGroundColorOpacity: rgba(
+    10,
+    10,
+    10,
+    1
+  ); /* Only used to manipulate element property */
+  --backgroundBeforeOpacity: 0.12; /* Only used to manipulate pseudo element property */
 }
 
 @font-face {
@@ -70,7 +76,8 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: var(--backGroundColor);
+  background-color: var(--backGroundColorOpacity);
+  transition: background-color 1s;
 }
 
 .htmlScreen:before {
@@ -80,11 +87,12 @@ body,
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: var(--backgroundOpacity);
+  opacity: var(--backgroundBeforeOpacity);
   z-index: -1;
   background: transparent url('../public/img/grain.gif');
   background-repeat: repeat;
   background-size: 10%;
+  transition: opacity 1s;
 }
 
 .fullwidth {

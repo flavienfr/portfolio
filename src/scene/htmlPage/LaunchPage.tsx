@@ -3,8 +3,6 @@ import React, { useState } from 'react'
 import { LEAVING_SCREEN_ANIMATION } from '../../hooks/useScreenResize'
 import flyThroughState from '../../theater/state.json'
 
-const LEAVING_SCREEN_DELAY_MS = 2000
-
 export function LaunchPage({ smallRatio, setScene }) {
   const [color, setColor] = useState(false)
   const sheet = getProject('Fly Through', { state: flyThroughState }).sheet(
@@ -80,17 +78,9 @@ export function LaunchPage({ smallRatio, setScene }) {
 }
 
 function decreaseBackgroundOpacity() {
-  let htmlScreen = document.querySelector('.htmlScreen') as HTMLInputElement
-  let opacity = 1
-
-  const loopTime = LEAVING_SCREEN_DELAY_MS / (1 / 0.01)
-  const timer = setInterval(() => {
-    if (opacity <= 0) {
-      return
-    }
-    opacity -= 0.01
-    const grainOpacity = opacity * 0.12
-    htmlScreen.style.backgroundColor = `rgba(10, 10, 10, ${opacity})`
-    htmlScreen.style.setProperty('--backgroundOpacity', grainOpacity.toString())
-  }, loopTime)
+  document.documentElement.style.setProperty(
+    '--backGroundColorOpacity',
+    'rgba(10,10,10,0)'
+  )
+  document.documentElement.style.setProperty('--backgroundBeforeOpacity', '0')
 }
