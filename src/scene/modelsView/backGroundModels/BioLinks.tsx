@@ -23,7 +23,7 @@ const OPTIONS = {
   },
 }
 
-export function BioLinks(/* opacity */) {
+export function BioLinks({ opacity }) {
   const { bioPos } = useControls('text', OPTIONS)
   const { fov } = useFov()
   const [dstFactor, setDstFactor] = useState(DST_FACTOR_BIO.default)
@@ -44,6 +44,7 @@ export function BioLinks(/* opacity */) {
         occlude={false}
         sprite
         position={bioPos}
+        style={{ opacity: opacity }}
       >
         <div
           className="bioLinks"

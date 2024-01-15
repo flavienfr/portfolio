@@ -2,7 +2,6 @@ import { useThree } from '@react-three/fiber'
 import { useCurrentSheet } from '@theatre/r3f'
 import { useContext, useEffect, useState } from 'react'
 import { currentSceneContext } from '../context/CurrentSceneContext'
-import { LEAVING_SCREEN_ANIMATION } from './useScreenResize'
 
 export const FOV_RANGE = {
   high2: 125,
@@ -12,6 +11,7 @@ export const FOV_RANGE = {
   default: 75,
 }
 
+export const LEAVING_SCREEN_ANIMATION = 3
 const STEP_FOV = 0.25
 const TRANSITION_DURATION = 1500 // lower than (SCENE_1.end - SCENE_1.start)*1000
 

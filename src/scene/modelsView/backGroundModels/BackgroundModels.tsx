@@ -21,7 +21,7 @@ export function BackgroundModels({ render }: BackGroundModelProps) {
         </Physics>
       </Suspense>
 
-      {render && <BioLinks /* opacity={opacity} */ />}
+      {render && <BioLinks opacity={opacity} />}
     </>
   )
 }

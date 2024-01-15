@@ -1,26 +1,12 @@
 import { useFrame, useThree } from '@react-three/fiber'
 import { useEffect, useState } from 'react'
-import { useCurrentSheet } from '@theatre/r3f'
+import { MAX_SCREEN_WIDTH } from '../scene/WebPage'
 
 const DREI_HTML_SCREEN_RATIO = 400
-const MAX_SCREEN_WIDTH = 2080
-const MAX_SCREEN_HEIGHT = 1043
-export const LEAVING_SCREEN_ANIMATION = 3
 
 export function useScreenResize() {
-  const sheet = useCurrentSheet()
   const { camera, viewport } = useThree() //TODO import ts for camera
-  const [planeInfo, setPlaneInfo] = useState({ width: 1000, height: 1000 })
-  const [cameraZ, setCameraZ] = useState(camera.position.z)
-  const [blending, setBlending] = useState(false)
   const [smallRatio, setSmallRatio] = useState(false)
-
-  //TODO use useframe is optimised ? bha non
-  useFrame(() => {
-    setCameraZ(camera.position.z)
-    //TODO I put 0 insted of LEAVING_SCREEN_ANIMATION, to remove scroll bar.
-    if (sheet.sequence.position > LEAVING_SCREEN_ANIMATION) setBlending(true)
-  })
 
   useEffect(() => {
     setSmallRatio(camera.aspect < 1)
@@ -32,10 +18,12 @@ export function useScreenResize() {
     let width = height * camera.aspect
 
     width = width > MAX_SCREEN_WIDTH ? MAX_SCREEN_WIDTH : width
-    height = MAX_SCREEN_HEIGHT // TODO height > MAX_SCREEN_HEIGHT ? MAX_SCREEN_HEIGHT : height
 
-    setPlaneInfo({ width, height })
-  }, [setPlaneInfo, viewport, camera, cameraZ])
+    document.documentElement.style.setProperty(
+      '--dynamicWidth',
+      `${width.toString()}px`
+    )
+  }, [viewport, camera])
 
-  return { blending, planeInfo, smallRatio }
+  return { smallRatio }
 }

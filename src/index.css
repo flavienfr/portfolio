@@ -1,13 +1,10 @@
 :root {
   --textColor: #f5f5f7;
   --backGroundColor: #0a0a0a;
-  --backGroundColorOpacity: rgba(
-    10,
-    10,
-    10,
-    1
-  ); /* Only used to manipulate element property */
-  --backgroundBeforeOpacity: 0.12; /* Only used to manipulate pseudo element property */
+  /* For Js */
+  --backGroundColorOpacity: rgba(10, 10, 10, 1);
+  --backgroundBeforeOpacity: 0.12;
+  --dynamicWidth: 800px;
 }
 
 @font-face {
@@ -126,26 +123,31 @@ h1 {
   line-height: 140px;
 }
 
-/* Bio page (Page 2) */
-.textWrapper {
-  margin: 0 5% 0 5%;
-  height: 100%;
+.view2 {
   display: flex;
   justify-content: center;
+}
+
+/* Bio page (Page 2) */
+.textWrapper {
+  height: 100%;
+  display: flex;
   align-items: center;
   font-family: mulish;
   font-size: 28px;
   line-height: 1.7;
   color: #ffffff;
   text-align: justify;
+  width: var(--dynamicWidth);
+  max-width: 800px;
+  transition: opacity 1s;
 }
 .textWrapper div {
-  width: 800px;
+  margin: 0 5% 0 5%;
 }
 
 @media (min-width: 1050px) {
   .textWrapper {
-    font-size: 40px;
     margin: none;
   }
 }

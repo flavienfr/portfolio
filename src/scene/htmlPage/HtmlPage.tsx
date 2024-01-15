@@ -2,16 +2,17 @@ import React, { useState } from 'react'
 import { BioPage } from './BioPage'
 import { LaunchPage } from './LaunchPage'
 import { WelcomePage } from './WelcomePage'
+import { MAX_SCREEN_HEIGHT } from '../WebPage'
 
 //TODO
 // agrandir l'html une quitter le mode pleinne écran
 
-export function HtmlPage({ htmlHeight, smallRatio, setScene }) {
+export function HtmlPage({ smallRatio, setScene }) {
   const [scrollFraction, setScrollFraction] = useState(0)
 
   const handleScroll = (event) => {
     const scrollTop = event.currentTarget.scrollTop
-    const maxScrollTop = event.currentTarget.scrollHeight - htmlHeight
+    const maxScrollTop = event.currentTarget.scrollHeight - MAX_SCREEN_HEIGHT
     const scrollFraction = scrollTop / maxScrollTop
     setScrollFraction(scrollFraction)
   }

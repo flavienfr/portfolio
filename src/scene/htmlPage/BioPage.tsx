@@ -11,8 +11,8 @@ export function BioPage({ scrollFraction }: WelcomePageProps) {
 
   return (
     <div className="view2">
-      <div className="textWrapper">
-        <div style={{ opacity: isVisible ? 1 : 0 }}>
+      <div className="textWrapper" style={{ opacity: isVisible ? 1 : 0 }}>
+        <div>
           My name is Flavien Roussel, I am a former student of School 42 Paris.
           After my studies and working for a year and a half as a full-stack
           developer in a company, I made the decision to resign to become a

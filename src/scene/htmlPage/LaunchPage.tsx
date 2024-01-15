@@ -1,7 +1,7 @@
 import { getProject } from '@theatre/core'
 import React, { useState } from 'react'
-import { LEAVING_SCREEN_ANIMATION } from '../../hooks/useScreenResize'
 import flyThroughState from '../../theater/state.json'
+import { LEAVING_SCREEN_ANIMATION } from '../../hooks/useFov'
 
 export function LaunchPage({ smallRatio, setScene }) {
   const [color, setColor] = useState(false)
