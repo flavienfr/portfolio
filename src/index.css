@@ -65,7 +65,7 @@ body,
   background: transparent; /* make scrollbar transparent */
 }
 
-/* .htmlScreen {
+.htmlScreen {
   width: 100%;
   height: 100%;
   margin: 0;
@@ -85,7 +85,7 @@ body,
   background: transparent url('../public/img/grain.gif');
   background-repeat: repeat;
   background-size: 10%;
-} */
+}
 
 .fullwidth {
   width: 100%;
