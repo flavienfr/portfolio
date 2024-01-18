@@ -5,7 +5,7 @@ import { MAX_SCREEN_WIDTH } from '../scene/WebPage'
 const DREI_HTML_SCREEN_RATIO = 400
 
 export function useScreenResize() {
-  const { camera, viewport } = useThree() //TODO import ts for camera
+  const { camera, viewport } = useThree()
   const [smallRatio, setSmallRatio] = useState(false)
 
   useEffect(() => {

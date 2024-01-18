@@ -14,7 +14,6 @@ export const OPTIONS = {
   },
 }
 
-//TODO remove abs
 export function Scene2() {
   const { position2 } = useControls('scene2', OPTIONS)
   const opacity = useSceneOpacity('scene2')

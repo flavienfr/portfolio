@@ -1,4 +1,4 @@
-import { Environment, Html, useGLTF, useTexture } from '@react-three/drei'
+import { Html, useGLTF } from '@react-three/drei'
 import React from 'react'
 
 //TODO mutli import

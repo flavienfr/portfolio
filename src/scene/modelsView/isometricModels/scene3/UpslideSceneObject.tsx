@@ -4,12 +4,6 @@ import React from 'react'
 import { MeshDescriptor } from '../meshDescriptor/MeshDescriptor'
 import { useIndicationsDisplay } from '../../../../hooks/useIndicationsDisplay'
 
-/* 
-TODO
-- Optimisation minimum object from glb 
-- floating cube animation
-*/
-
 const OPTIONS = {
   upslidePos: {
     value: [-1.21, 2.79, -3.26],

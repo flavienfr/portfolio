@@ -1,8 +1,6 @@
 import { PresentationControls } from '@react-three/drei'
 import { getProject } from '@theatre/core'
 import { PerspectiveCamera, SheetProvider } from '@theatre/r3f'
-import extension from '@theatre/r3f/dist/extension'
-import studio from '@theatre/studio'
 import React, { useContext, useEffect } from 'react'
 import {
   CurrentSceneContext,
@@ -14,8 +12,10 @@ import { WebPage } from './scene/WebPage.tsx'
 import { ModelsView } from './scene/modelsView/ModelsView.tsx'
 import flyThroughState from './theater/state.json'
 
-/* studio.extend(extension)
-studio.initialize() */
+/* if (process.env.NODE_ENV === 'development') {
+  studio.initialize()
+  studio.extend(extension)
+} */
 
 export const SPEED_SPIN_FACTOR = 0.05
 

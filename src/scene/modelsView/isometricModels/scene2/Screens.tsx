@@ -81,57 +81,6 @@ function PongScreen({ screanOpacity }: ScreenProps) {
   )
 }
 
-/* TODO
-- optimise wraping arcade
-*/
-function ArcadeScreen({ screanOpacity }: ScreenProps) {
-  const { arcadeStartPos, arcadeRot } = useControls('scene2', OPTIONS)
-
-  const arcadePlay = () => {
-    console.log("let's play")
-  }
-
-  const handleHover = () => {
-    console.log('🚀 ~  Zoom by red ')
-  }
-
-  return (
-    <>
-      <Text
-        position={arcadeStartPos}
-        rotation={arcadeRot}
-        fontSize={0.5}
-        onClick={arcadePlay}
-        onPointerEnter={handleHover}
-        fillOpacity={screanOpacity}
-      >
-        Play
-      </Text>
-      {/*  <Html
-        wrapperClass="screenWrapper"
-        position={arcadePos}
-        rotation={arcadeRot}
-        occlude={false}
-        transform
-        distanceFactor={0.4}
-        style={{
-          opacity: screanOpacity,
-        }}
-      >
-        <iframe
-          title="arcadeFrame"
-          className="arcadeFrame"
-          src="https://tybsi.com/games/wolfenstein-3d/index.html"
-          ref={iframeRef}
-          onLoad={() => {
-            console.log('wolf loaded')
-          }}
-        />
-      </Html> */}
-    </>
-  )
-}
-
 function PcScreen({ screanOpacity }: ScreenProps) {
   const { PcScreenPos, PcScreenRot } = useControls('scene2', OPTIONS)
   const { setScreenName } = useContext(screenClickedContext)
@@ -197,5 +146,53 @@ function MatrixCanvas({ handleClick }) {
       height={551}
       onPointerDown={handleClick}
     />
+  )
+}
+
+function ArcadeScreen({ screanOpacity }: ScreenProps) {
+  const { arcadeStartPos, arcadeRot } = useControls('scene2', OPTIONS)
+
+  const arcadePlay = () => {
+    console.log("let's play")
+  }
+
+  const handleHover = () => {
+    console.log('🚀 ~  Zoom by red ')
+  }
+
+  return (
+    <>
+      <Text
+        position={arcadeStartPos}
+        rotation={arcadeRot}
+        fontSize={0.5}
+        onClick={arcadePlay}
+        onPointerEnter={handleHover}
+        fillOpacity={screanOpacity}
+      >
+        Play
+      </Text>
+      {/*  <Html
+        wrapperClass="screenWrapper"
+        position={arcadePos}
+        rotation={arcadeRot}
+        occlude={false}
+        transform
+        distanceFactor={0.4}
+        style={{
+          opacity: screanOpacity,
+        }}
+      >
+        <iframe
+          title="arcadeFrame"
+          className="arcadeFrame"
+          src="https://tybsi.com/games/wolfenstein-3d/index.html"
+          ref={iframeRef}
+          onLoad={() => {
+            console.log('wolf loaded')
+          }}
+        />
+      </Html> */}
+    </>
   )
 }

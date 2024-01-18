@@ -1,9 +1,9 @@
 import { Html } from '@react-three/drei'
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { currentSceneContext } from '../context/CurrentSceneContext.tsx'
+import { sceneContext } from '../context/SceneContext.tsx'
 import { useScreenResize } from '../hooks/useScreenResize.tsx'
 import { HtmlPage } from './htmlPage/HtmlPage.tsx'
-import { sceneContext } from '../context/SceneContext.tsx'
 
 export const MAX_SCREEN_WIDTH = 2080
 export const MAX_SCREEN_HEIGHT = 1043

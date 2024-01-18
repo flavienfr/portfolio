@@ -4,9 +4,6 @@ import { LaunchPage } from './LaunchPage'
 import { WelcomePage } from './WelcomePage'
 import { MAX_SCREEN_HEIGHT } from '../WebPage'
 
-//TODO
-// agrandir l'html une quitter le mode pleinne écran
-
 export function HtmlPage({ smallRatio, setScene }) {
   const [scrollFraction, setScrollFraction] = useState(0)
 

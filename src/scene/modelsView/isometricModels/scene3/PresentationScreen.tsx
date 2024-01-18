@@ -1,7 +1,6 @@
 import { Html } from '@react-three/drei'
 import { useControls } from 'leva'
-import React, { useEffect, useRef, useState } from 'react'
-import { sRGBEncoding } from 'three'
+import React from 'react'
 import { ScreenProps } from '../scene2/Screens'
 
 const OPTIONS = {
@@ -15,12 +14,33 @@ const OPTIONS = {
   },
 }
 
-const upslideVideos = [
-  './video/excel-to-powerpoint-link-video.mp4',
-  './video/library.mp4',
-]
+const UPSLIDE_VIDEO = './video/upslide.mp4'
 
-export function PresentationScreen2() {
+export function PresentationScreen({ screanOpacity }: ScreenProps) {
+  const { presPos, presRot } = useControls('screens', OPTIONS)
+
+  return (
+    <Html
+      wrapperClass="screenWrapper"
+      position={presPos}
+      rotation={presRot}
+      occlude={false}
+      transform
+      distanceFactor={0.75}
+      zIndexRange={[16777200, 16777210]}
+      style={{
+        opacity: screanOpacity,
+        backgroundColor: 'white',
+      }}
+    >
+      <video autoPlay muted loop className="presentationFrame">
+        <source src={UPSLIDE_VIDEO} />
+      </video>
+    </Html>
+  )
+}
+
+/* export function PresentationScreen2() {
   const { presPos, presRot } = useControls('screens', OPTIONS)
 
   const [video] = useState(() => {
@@ -42,46 +62,4 @@ export function PresentationScreen2() {
     </mesh>
   )
 }
-
-export function PresentationScreen({ screanOpacity }: ScreenProps) {
-  const { presPos, presRot } = useControls('screens', OPTIONS)
-  const videoRef = useRef(null)
-  const [videoIdx, setVideoIdx] = useState(0)
-  /* const blending = useSceneScreenBlending(3) */
-
-  const videoEnded = (e) => {
-    const idx = (videoIdx + 1) % upslideVideos.length
-    setVideoIdx(idx)
-  }
-
-  useEffect(() => {
-    videoRef.current?.load()
-  }, [videoIdx])
-
-  //TODO replace repalce by video try scroll hover
-  return (
-    <Html
-      wrapperClass="screenWrapper"
-      position={presPos}
-      rotation={presRot}
-      occlude={false}
-      transform
-      distanceFactor={0.75}
-      zIndexRange={[16777200, 16777210]}
-      style={{
-        opacity: screanOpacity,
-        backgroundColor: 'white',
-      }}
-    >
-      <video
-        autoPlay
-        muted
-        ref={videoRef}
-        onEnded={videoEnded}
-        className="presentationFrame"
-      >
-        <source src={upslideVideos[videoIdx]} />
-      </video>
-    </Html>
-  )
-}
+ */
