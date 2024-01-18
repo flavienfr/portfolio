@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { sceneContext } from '../../context/SceneContext.tsx'
 
-const SCENE_NAME = ['', 'Welcome', 'School 42', 'First job', '...']
+const SCENE_NAME = ['', 'Welcome', 'School 42', 'First job', 'To be continued']
 
 export function Ihm() {
   const { scene, setScene } = useContext(sceneContext)

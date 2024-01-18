@@ -4,7 +4,7 @@ import React from 'react'
 
 const OPTIONS = {
   posSol: {
-    value: [-3, 22.5, 7.4],
+    value: [-0.8, 22.5, 7.4],
     step: 0.1,
   },
   rotSol: {
