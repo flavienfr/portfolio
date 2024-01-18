@@ -1051,21 +1051,23 @@ h1 {
   position: relative;
 }
 
-.github:hover:before {
-  content: '';
-  box-shadow: 0px 0px 40px white;
-  border-radius: 150px;
-  position: absolute;
-  top: 4px;
-  width: 230px;
-  height: 225px;
-}
+@media (hover: hover) {
+  .github:hover:before {
+    content: '';
+    box-shadow: 0px 0px 40px white;
+    border-radius: 150px;
+    position: absolute;
+    top: 4px;
+    width: 230px;
+    height: 225px;
+  }
 
-.linkedin:hover:before {
-  content: '';
-  box-shadow: 0px 0px 35px white;
-  border-radius: 150px;
-  position: absolute;
-  width: 230px;
-  height: 230px;
+  .linkedin:hover:before {
+    content: '';
+    box-shadow: 0px 0px 35px white;
+    border-radius: 150px;
+    position: absolute;
+    width: 230px;
+    height: 230px;
+  }
 }
