@@ -14,7 +14,7 @@
 
 @font-face {
   font-family: 'sf';
-  src: url('./fonts/SFProText.ttf') format('truetype');
+  src: url('./fonts/sf_bold.woff2') format('woff2');
 }
 
 input,

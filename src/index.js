@@ -53,6 +53,7 @@ function Content() {
 
 Improve:
 - BTN launch trop petit et aliase en mode small screen quand on est en vue 3d
+- welcome transition https://dev.to/link2twenty/future-of-css-scroll-animations-52ia
 
 Final check:
 - Check firefox/safary compatibility
