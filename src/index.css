@@ -212,7 +212,7 @@ h1 {
   display: inline-block;
   cursor: pointer;
   font-family: sf, arial;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
   font-size: 35px;
   font-weight: bold;
   width: 175px;
