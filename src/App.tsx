@@ -1,7 +1,7 @@
 import { PresentationControls } from '@react-three/drei'
 import { getProject } from '@theatre/core'
 import { PerspectiveCamera, SheetProvider } from '@theatre/r3f'
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import {
   CurrentSceneContext,
   currentSceneContext,
@@ -22,12 +22,6 @@ export const SPEED_SPIN_FACTOR = 0.05
 export default function App() {
   const project = getProject('Fly Through', { state: flyThroughState })
   const sheet = project.sheet('Scene')
-
-  useEffect(() => {
-    project.ready.then(() => {
-      console.log('Project loaded!') //TODO deal with loading
-    })
-  }, [project])
 
   return (
     <SheetProvider sheet={sheet}>
